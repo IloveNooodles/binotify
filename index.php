@@ -7,8 +7,8 @@
     <title>Binotify</title>
   </head>
   <body>
-    <p>Hello World!</p>
+    <?php
+      echo "Hello binotify!";
+    ?>
   </body>
 </html>
-
-<!-- INI GANTI MAKE PHP NTAR -->
