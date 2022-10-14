@@ -9,18 +9,21 @@ services:
       - db
     links:
       - db
-    networks: 
+    networks:
       - binotify
 
   db:
     container_name: postgres
-    image: postgres:15rc2-alpine3.16
+    image: postgres:13-alpine
     ports:
       - 8080:5432
     hostname: postgres
     restart: always
     networks:
       - binotify
+    env_file: .env
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
 
 volumes:
   pgdata:
