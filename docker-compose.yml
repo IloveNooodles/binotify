@@ -2,31 +2,41 @@ version: "3.8"
 services:
   web:
     container_name: web
-    build: .
+    image: tubes-1:latest
     ports:
-      - 8008:80
+      - 8001:80
     depends_on:
       - db
-    links:
-      - db
+      - phpmyadmin
     networks:
       - binotify
 
   db:
-    container_name: postgres
-    image: postgres:13-alpine
+    container_name: mysql
+    image: mysql:latest
     ports:
-      - 8080:5432
-    hostname: postgres
+      - 8002:3306
     restart: always
     networks:
       - binotify
     env_file: .env
     volumes:
-      - ./pgdata:/var/lib/postgresql/data
+      - ./mysql:/var/lib/mysql
+
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin:latest
+    networks:
+      - binotify
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - db
+    ports:
+      - 8003:80
 
 volumes:
-  pgdata:
+  mysql:
     driver: local
 
 networks:
