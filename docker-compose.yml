@@ -3,6 +3,7 @@ services:
   web:
     container_name: web
     image: tubes-1:latest
+    hostname: web
     env_file:
       - .env
     ports:
@@ -19,6 +20,7 @@ services:
   db:
     container_name: mysql
     image: mysql:latest
+    hostname: mysql
     ports:
       - 8002:3306
     restart: always
@@ -32,6 +34,7 @@ services:
   phpmyadmin:
     container_name: phpmyadmin
     image: phpmyadmin:latest
+    hostname: phpmyadmin
     networks:
       - binotify
     environment:
