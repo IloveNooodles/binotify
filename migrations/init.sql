@@ -9,11 +9,11 @@ create table User (
 );
 
 insert into User (email, password, username, isAdmin) values 
-('admin@binotify.com', 'binotify.com', 'password', true), 
-('sfreeman0@etsy.com', 'freeman', 'password', 0), 
-('crodriguez1@va.gov', 'crodriguez', 'password', 0), 
-('krobertson2@state.tx.us', 'krobertson', 'password', 0), 
-('pfoster3@earthlink.net', 'pfoster', 'password', 0);
+('admin@binotify.com', 'password', 'binotify.com',  true), 
+('sfreeman0@etsy.com', 'password','freeman',  0), 
+('crodriguez1@va.gov', 'password','crodriguez',  0), 
+('krobertson2@state.tx.us', 'password','krobertson',  0), 
+('pfoster3@earthlink.net', 'password','pfoster',  0);
 
 drop table if exists Album;
 
