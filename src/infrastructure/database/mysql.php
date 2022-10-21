@@ -4,7 +4,7 @@ class MySQL {
     private $user_name;
     private $pass_name;
 
-    private $dbh;
+    private $db;
     private $stmt;
 
     public function __construct() {
@@ -19,14 +19,14 @@ class MySQL {
         ];
 
         try {
-            $this->dbh = new PDO($dsn, $this->user_name, $this->pass_name, $option);
+            $this->db = new PDO($dsn, $this->user_name, $this->pass_name, $option);
         } catch(PDOException $e) {
             die($e->getMessage());
         }
     }
 
     public function query($query) {
-        $this->stmt = $this->dbh->prepare($query);
+        $this->stmt = $this->db->prepare($query);
     }
 
     public function bind($param, $value, $type = null) {
@@ -58,9 +58,9 @@ class MySQL {
         
         if ($this->stmt->rowCount() > 0) {
             return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
-        } else {
-            return [];
-        }
+        } 
+
+        return [];
     }
 
     public function single() {
@@ -68,9 +68,9 @@ class MySQL {
 
         if ($this->stmt->rowCount() > 0) {
             return $this->stmt->fetch(PDO::FETCH_ASSOC);
-        } else {
-            return [];
-        }
+        } 
+    
+        return [];
     }
 
     public function row_count() {
