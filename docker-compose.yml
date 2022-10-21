@@ -12,6 +12,9 @@ services:
       - phpmyadmin
     networks:
       - binotify
+    volumes:
+      - ./public:/var/www/html/public
+      - ./src:/var/www/html/src
 
   db:
     container_name: mysql
