@@ -11,7 +11,9 @@ class UserModel {
 
   public function find_all_user() {
     $query = "SELECT * FROM User";
-    $result = $this->db->query($query);
+    $this->db->query($query);
+
+    $result = $this->db->result_set();
 
     return $result;
   }
@@ -36,7 +38,7 @@ class UserModel {
     return $result;
   }
 
-  public function create_user($username, $email, $hashed_password, $role){
+  public function insert_user($username, $email, $hashed_password, $role){
     $query = "INSERT INTO User (email, username, password, isAdmin) VALUES (:email, :username, :password, :isAdmin)";
 
     $this->db->query($query);
