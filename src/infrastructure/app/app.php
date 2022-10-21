@@ -1,5 +1,7 @@
 <?php
 
+define("BASE_DIR", $_ENV['PWD'] . '/src/interface/controller/');
+
 class App {
     protected $controller = 'login';
     protected $method = 'index';
@@ -8,18 +10,18 @@ class App {
     public function __construct() {
         $url = $this->parseURL();
 
-        if (isset($url[0]) and file_exists('application/interface/controller/' . $url[0] . '_controller.php')) {
+        if (isset($url[0]) and file_exists(BASE_DIR . $url[0] . '_controller.php')) {
             $this->controller = $url[0];
             unset($url[0]);
         }
         else if ($url == NULL && isset($_SESSION['role'])) {
             $this->controller = $_SESSION['role'];
         }
-        else if (!file_exists('application/interface/controller/' . $url[0] . '_controller.php') && isset($_SESSION['role'])) {
+        else if (!file_exists(BASE_DIR . $url[0] . '_controller.php') && isset($_SESSION['role'])) {
             header('Location: ' . BASE_URL . '/');
         }
 
-        require_once 'application/interface/controller/' . $this->controller . '_controller.php';
+        require_once BASE_DIR . $this->controller . '_controller.php';
         $this->controller = new $this->controller;
 
         if (isset($url[1])) {
