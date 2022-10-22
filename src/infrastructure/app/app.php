@@ -3,7 +3,7 @@
 define("BASE_DIR", $_ENV['PWD'] . '/src/interface/controller/');
 
 class App {
-    protected $controller = 'login';
+    protected $controller = 'home';
     protected $method = 'index';
     protected $params = [];
 
@@ -14,10 +14,7 @@ class App {
             $this->controller = $url[0];
             unset($url[0]);
         }
-        else if ($url == NULL && isset($_SESSION['role'])) {
-            $this->controller = $_SESSION['role'];
-        }
-        else if (!file_exists(BASE_DIR . $url[0] . '_controller.php') && isset($_SESSION['role'])) {
+        else if (isset($url[0]) && !file_exists(BASE_DIR . $url[0] . '_controller.php')) {
             header('Location: ' . BASE_URL . '/');
         }
 
