@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/public/css/styles.css">
 </head>
 <body>
+  <?php include_once './src/view/component/navbar.php'; ?>
   <button class="btn primary">test</button>
 </body>
 </html>
