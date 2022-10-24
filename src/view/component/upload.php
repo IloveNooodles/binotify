@@ -15,8 +15,6 @@
 </html>
 
 <?php 
-// print_r(php_ini_loaded_file());
-// print_r(phpinfo());
 define("TARGET_DIR", $_ENV['PWD'] . "/public/audio/");
 
 if(isset($_FILES)){
