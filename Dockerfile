@@ -8,12 +8,13 @@ RUN apt-get install -y --no-install-recommends mediainfo
 WORKDIR /var/www/html
 
 RUN mkdir upload
-RUN chmod 777 -R .
-RUN chmod 777 -R /tmp
+RUN chmod 777 upload
 
 COPY ./index.php .
-COPY ./apache.conf /etc/apache2/sites-available/000-default.conf
-COPY ./.htaccess .
 COPY ./php.ini /usr/local/etc/php/conf.d/init.ini
+COPY ./apache.conf /etc/apache2/sites-enabled/default.conf
+COPY ./.htaccess .
+
+RUN a2enmod rewrite
 
 EXPOSE 80
