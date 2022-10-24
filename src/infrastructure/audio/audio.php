@@ -1,8 +1,17 @@
-
-
 <?php
 define("MAX_UPLOAD_FILE_SIZE", 16000000);
-// define("DIR")
+
+function get_file_song_duration($song){
+  $cmd = "mediainfo --Output='General;%Duration%' /var/www/html/public/audio/" . $song;
+  $res = shell_exec($cmd);
+  try {
+    $res = intdiv($res, 1000);
+    return $res;
+  } catch (Throwable $e) {
+    error_log('Song is not available!');
+  }
+  return -1;
+}
 
 function check_filename_exists($file_name) {
   if(file_exists($file_name)){
@@ -24,7 +33,5 @@ function check_max_size($size){
   }
   return 1;
 }
-
-// function
 
 ?>
