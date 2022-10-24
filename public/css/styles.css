@@ -14,7 +14,7 @@
   --clr-text-black: #000;
 
   /* Font size */
-  --fs-album-title-pc: 6rem;
+  --fs-album-title-pc: 4rem;
   --fs-heading: 1rem;
   --fs-title: 0.875rem;
   --fs-caption: 0.75rem;
@@ -40,8 +40,14 @@
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+@font-face {
+  font-family: CircularStd;
+  src: url("/public/fonts/CircularStd-Medium.otf") format("opentype");
+}
+
 body {
   background-color: var(--clr-background-highlight-one);
+  font-family: CircularStd;
 }
 
 * {
@@ -49,6 +55,14 @@ body {
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+}
+
+h1 {
+  font-size: var(--fs-album-title-pc);
+  color: var(--clr-text-primary);
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  margin: 2rem;
 }
 
 /* Button  */
@@ -59,6 +73,7 @@ body {
   border: none;
   background-color: var(--clr-background-base);
   color: var(--clr-text-primary);
+  font-family: CircularStd;
 }
 
 .btn:hover {
@@ -145,9 +160,10 @@ body {
 
 .navbar input[type=text] {
   padding: 10px;
+  width: 350px;
   padding-left: 20px;
   margin-top: 5px;
-  font-size: var(--fs-title);
+  font-size: var(--fs-heading);
   border: none;
   border-radius: var(--radius-lg);
 }
@@ -157,10 +173,39 @@ body {
 }
 
 #dropdown-btn {
+  background-color: var(--clr-background-highlight-one);
+  margin-top: 5px;
+  margin-left: 16px;
+  margin-right: 16px;
   cursor: pointer;
   float: right;
-  margin-left: 5px;
-  margin-right: 5px;
+  border-radius: var(--radius-lg);
+  border: none;
+  color: var(--clr-text-primary);
+  font-family: CircularStd;
+  align-items: center;
+  display: inline-flex;
+  font-size: var(--fs-heading);
+}
+
+#dropdown-btn:hover {
+  background-color: var(--clr-background-highlight-two);
+}
+
+#dropdown-btn p {
+  padding-right: 10px;
+}
+
+#dropdown-btn i {
+  margin-right: 10px;
+}
+
+.profile-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 10px;
+  display: inline-block;
 }
 
 @media screen and (max-width: 600px) {
@@ -202,4 +247,65 @@ body {
 
 .dropdown-content a:hover {
   background-color: var(--clr-background-highlight-three);
+}
+
+/* Song Table */
+
+#songlist {
+  border-collapse: collapse;
+  margin: 50px;
+  width: 80%;
+}
+
+#songlist td, #songlist th {
+  border: none;
+  color: var(--clr-text-secondary);
+  font-weight: lighter;
+  font-size: small;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 12px;
+}
+
+#songlist tr.content:hover {
+  background-color: var(--clr-background-highlight-two);
+  cursor: pointer;
+}
+
+#songlist th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--clr-background-highlight-three);
+}
+
+.songlist-title {
+  align-items: center;
+  display: inline-flex;
+}
+
+.song-image {
+  margin-top: 12px;
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+}
+
+.title-artist {
+  margin-top: 12px;
+  display: inline-block;
+  margin-left: 10px;
+  align-items: center;
+}
+
+.song-title {
+  color: var(--clr-text-primary);
+  font-weight: bold;
+  font-size: var(--fs-heading);
+}
+.song-artist {
+  color: var(--clr-text-secondary);
+  font-weight: lighter;
+  font-size: small;
 }

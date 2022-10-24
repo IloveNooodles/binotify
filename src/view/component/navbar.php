@@ -35,13 +35,14 @@
             <a>Albums</a>
             <div class="navbar-right">
                 <form class="inline-child" action="/action_page.php">
-                    <input type="text" placeholder="Search song..." name="search">
+                    <input type="text" placeholder="What do you want to listen to?" name="search">
                     <button type="submit" hidden>Search</button>
                 </form>
-                <a class="inline-child" id="dropdown-btn">
-                    Welcome, ' . ((isset($_SESSION['user']) ? $_SESSION['user'] : 'Guest')) . '
+                <button id="dropdown-btn">
+                    <img class="profile-img" src="/public/img/avatar-template.jpeg" alt="user">
+                    <p>' . ((isset($_SESSION['user']) ? $_SESSION['user'] : 'Guest')) . '</p>
                     <i class="arrow down"></i>
-                </a>
+                </button>
             </div>
         </div>
         <div class="dropdown-content">' .

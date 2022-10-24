@@ -9,7 +9,7 @@
 </head>
 <body>
   <?php include_once '../component/navbar.php'; ?>
-  <h1 class="title">Welcome, User</h1>
+  <h1 class="title">Welcome, Guest</h1>
   <?php include_once '../component/songlist.php'; ?>
 </body>
 </html>
