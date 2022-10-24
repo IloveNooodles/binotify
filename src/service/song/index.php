@@ -1,8 +1,9 @@
 <?php
+require_once __DIR__ . '/../../interface/model/song.php';
 
-class Album extends Controller {
+class SongService {
     public function detail() {
-        
+
     }
 
     public function new() {
@@ -14,14 +15,6 @@ class Album extends Controller {
     }
 
     public function delete() {
-        
-    }
-
-    public function search() {
-        
-    }
-
-    public function delete_song() {
         
     }
 }
