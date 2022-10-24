@@ -4,10 +4,12 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql
 RUN apt-get -y update
 RUN apt-get -y upgrade
 RUN apt-get install -y --no-install-recommends mediainfo
-RUN chmod 777 -R /var/www/html
-RUN chmod 777 -R /tmp
 
 WORKDIR /var/www/html
+
+RUN mkdir upload
+RUN chmod 777 -R .
+RUN chmod 777 -R /tmp
 
 COPY ./index.php .
 COPY ./apache.conf /etc/apache2/sites-available/000-default.conf

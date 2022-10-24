@@ -1,3 +1,7 @@
+# Pre-req
+- Make sure run the pre-run then run in order 
+
+
 ## Panduan Pengerjaan
 Berikut adalah hal yang harus diperhatikan untuk pengumpulan tugas ini:
 1. Buatlah grup pada Gitlab dengan format "IF3110-2022-KXX-01-YY", dengan XX adalah nomor kelas dan YY adalah nomor kelompok.
