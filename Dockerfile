@@ -10,10 +10,10 @@ WORKDIR /var/www/html
 RUN mkdir upload
 RUN chmod 777 upload
 
-COPY ./index.php .
+COPY ./public/index.php .
 COPY ./php.ini /usr/local/etc/php/conf.d/init.ini
-COPY ./apache.conf /etc/apache2/sites-enabled/default.conf
 COPY ./.htaccess .
+# COPY ./apache.conf /etc/apache2/sites-enabled/000-default.conf
 
 RUN a2enmod rewrite
 

@@ -9,13 +9,9 @@ class App {
 
     public function __construct() {
         $url = $this->parseURL();
-
         if (isset($url[0]) and file_exists(BASE_DIR . $url[0] . '_controller.php')) {
             $this->controller = $url[0];
             unset($url[0]);
-        }
-        else if (isset($url[0]) && !file_exists(BASE_DIR . $url[0] . '_controller.php')) {
-            header('Location: ' . BASE_URL . '/');
         }
 
         require_once BASE_DIR . $this->controller . '_controller.php';
@@ -36,10 +32,16 @@ class App {
     }
 
     public function parseURL() {
-        if (isset($_GET['url'])) {
-            $url = rtrim($_GET['url'], '/');
+        /* route /a/b/c will return array consist of [a, b, c] */  
+        if (isset($_SERVER['REQUEST_URI'])) {
+            $url = rtrim($_SERVER['REQUEST_URI'], '/');
             $url = filter_var($url, FILTER_SANITIZE_URL);
             $url = explode('/', $url);
+            
+            if(count($url) > 1){
+              array_shift($url);
+            }
+
             return $url;
         }
     }
