@@ -18,6 +18,10 @@ class AlbumService {
         
     }
 
+    public function add_song() {
+        
+    }
+
     public function delete_song() {
         
     }
