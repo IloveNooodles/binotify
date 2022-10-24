@@ -7,11 +7,11 @@ class MySQL {
     private $db;
     private $stmt;
 
-    public function __construct() {
-        $this->user_name = MYSQL_USER;
-        $this->pass_name = MYSQL_PASSWORD;
+    public function __construct($host, $user, $password, $database) {
+        $this->user_name = $user;
+        $this->pass_name = $password;
 
-        $dsn = 'mysql:host=' . MYSQL_HOST . ';port=' . MYSQL_PORT . ';dbname=' . MYSQL_DATABASE;
+        $dsn = 'mysql:host=' . $host . ';port=' . MYSQL_PORT . ';dbname=' . $database;
 
         $option = [
             PDO::ATTR_PERSISTENT => true,
