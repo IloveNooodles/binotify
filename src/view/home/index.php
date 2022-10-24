@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="/public/css/styles.css">
 </head>
 <body>
-  <?php include_once './src/view/component/navbar.php'; ?>
-  <button class="btn primary">test</button>
+  <?php include_once '../component/navbar.php'; ?>
+  <h1 class="title">Welcome, User</h1>
+  <?php include_once '../component/songlist.php'; ?>
 </body>
 </html>
