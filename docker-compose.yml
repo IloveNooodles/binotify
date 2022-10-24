@@ -16,6 +16,7 @@ services:
     volumes:
       - ./public:/var/www/html/public
       - ./src:/var/www/html/src
+      - ./upload:/var/www/html/upload
 
   db:
     container_name: mysql
@@ -30,6 +31,7 @@ services:
     volumes:
       - ./mysql:/var/lib/mysql
       - ./migrations/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./php.ini:/usr/local/etc/php/conf.d/init.ini
 
   phpmyadmin:
     container_name: phpmyadmin
