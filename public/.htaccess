@@ -1,0 +1,4 @@
+Options -Multiviews
+
+RewriteEngine on
+Redirect 301 /
