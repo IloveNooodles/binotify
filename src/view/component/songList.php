@@ -1,5 +1,9 @@
 <?php
 echo '
+    <head>
+        <link rel="stylesheet" href="/public/css/songList.css">
+    </head>
+    <body>
     <table id="songlist">
         <tr>
             <th>#</th>
@@ -127,5 +131,6 @@ echo '
             <td>2020</td>
             <td>Rock</td>
         </tr>
-    </table>';
+    </table>
+    </body>';
 ?>

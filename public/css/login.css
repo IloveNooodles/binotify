@@ -1,0 +1,78 @@
+form.login-form {
+    height: 520px;
+    width: 400px;
+    background-color: var(--clr-background-base);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: none;
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+  }
+  
+  form.login-form *{
+    color: var(--clr-text-primary);
+    outline: none;
+    border: none;
+  }
+  
+  form.login-form h3 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+  }
+  
+  form.login-form input {
+    display: block;
+    height: 50px;
+    width: 100%;
+    margin-top: 25px;
+    color: var(--clr-text-black);
+    font-size: 14px;
+    font-weight: 300;
+    padding: 10px;
+    padding-left: 25px;
+    font-family: CircularStd;
+    border: none;
+    border-radius: var(--radius-lg);
+  }
+  
+  button.login{
+    margin-top: 60px;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 14px;
+    font-weight: 300;
+  }
+  
+  button.register{
+    margin-top: 35px;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 14px;
+    font-weight: 300;
+  }
+  
+  body.login-page {
+    background-color: var(--clr-background-highlight-one);
+    color: var(--clr-text-primary);
+  }
+  
+  .back-btn {
+    background-color: var(--clr-background-highlight-two);
+    margin: 30px;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: var(--radius-lg);
+    border: none;
+    align-items: center;
+    display: inline-flex;
+  }
+  
+  .back-btn:hover {
+    background-color: var(--clr-background-highlight-three);
+  }

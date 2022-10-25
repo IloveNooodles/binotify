@@ -1,6 +1,10 @@
 <?php
     if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
         echo '
+        <head>
+            <link rel="stylesheet" href="/public/css/navbar.css">
+        </head>
+        <body>
         <div class="navbar">
             <a class="active" href="/">Home</a>
             <a>Insert Songs</a>
@@ -25,10 +29,15 @@
             document.getElementById("dropdown-btn").addEventListener("click", function() {
                 document.querySelector(".dropdown-content").classList.toggle("show");
             });
-        </script>';
+        </script>
+        <body>';
     }
     else {
         echo '
+        <head>
+            <link rel="stylesheet" href="/public/css/navbar.css">
+        </head>
+        <body>
         <div class="navbar">
             <a class="active" href="/">Home</a>
             <a href="/album">Albums</a>
@@ -53,6 +62,7 @@
                 document.querySelector(".arrow").classList.toggle("down");
                 document.querySelector(".arrow").classList.toggle("up");
             });
-        </script>';
+        </script>
+        </body>';
     }
 ?>
