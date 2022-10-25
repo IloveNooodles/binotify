@@ -391,3 +391,18 @@ body.login-page {
 .back-btn:hover {
   background-color: var(--clr-background-highlight-three);
 }
+
+input.body-search {
+  display: block;
+  height: 50px;
+  width: 100%;
+  margin-top: 25px;
+  color: var(--clr-text-black);
+  font-size: 14px;
+  font-weight: 300;
+  padding: 10px;
+  padding-left: 25px;
+  font-family: CircularStd;
+  border: none;
+  border-radius: var(--radius-lg);
+}

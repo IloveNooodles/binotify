@@ -10,7 +10,7 @@ WORKDIR /var/www/html
 RUN mkdir upload
 RUN chmod 777 upload
 
-COPY ./public/index.php .
+COPY ./index.php .
 COPY ./php.ini /usr/local/etc/php/conf.d/init.ini
 COPY ./.htaccess .
 # COPY ./apache.conf /etc/apache2/sites-enabled/000-default.conf

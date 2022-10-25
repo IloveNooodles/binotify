@@ -2,11 +2,11 @@
 
 require_once $_ENV['PWD'] . '/src/service/auth/index.php';
 
-class Auth extends Controller {
+class Login extends Controller {
     public function index(){
       switch($_SERVER["REQUEST_METHOD"]){
         case "GET":
-            $this->view("login");
+            $this->view("login/index");
             break;
         case "POST":
             $auth_service = new AuthService();

@@ -8,15 +8,15 @@
   <link rel="stylesheet" href="/public/css/styles.css">
 </head>
 <body class="login-page">
-  <button class="back-btn">
+  <a class="back-btn" href="/">
     <i class="arrow left"></i>
-  </button>
-  <form class="login-form" action="/auth" method="POST">
+  </a>
+  <form class="login-form" action="/login" method="POST">
       <h3>Binotify</h3>
       <input type="text" placeholder="Username" id="username" name="username">
       <input type="password" placeholder="Password" id="password" name="password">
-      <button class="btn primary login">Log In</button>
-      <button class="btn primary register">Register</button>
+      <button type="submit" class="btn primary login">Log In</button>
+      <button type="button" class="btn primary register">Register</button>
   </form>
 </body>
 </html>

@@ -8,16 +8,16 @@
   <link rel="stylesheet" href="/public/css/styles.css">
 </head>
 <body class="login-page">
-  <button class="back-btn">
+  <a class="back-btn" href="/">
     <i class="arrow left"></i>
-  </button>
+  </a>
   <form class="login-form">
       <h3>Register</h3>
       <input type="text" placeholder="Username" id="username">
       <input type="password" placeholder="Password" id="password">
       <input type="password" placeholder="Confirm Password" id="confirm-password">
-      <button class="btn primary login">Register</button>
-      <button class="btn primary register">Already have an account?</button>
+      <button type="submit" class="btn primary login">Register</button>
+      <button type="button" class="btn primary register">Already have an account?</button>
   </form>
 </body>
 </html>
