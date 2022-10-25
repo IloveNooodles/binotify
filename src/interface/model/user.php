@@ -62,4 +62,3 @@ class UserModel {
     $this->db->execute();
   }
 }
-?>
