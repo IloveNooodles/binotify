@@ -1,0 +1,27 @@
+.top-menu {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 50px;
+    width: 80%;
+    align-items: center;
+    display: inline-flex;
+}
+
+#order-btn {
+    color: var(--clr-text-secondary);
+    background: none;
+    cursor: pointer;
+    border: none;
+    align-items: center;
+    display: inline-flex;
+    font-family: CircularStd;
+  }
+  
+  #order-btn:hover {
+    color: var(--clr-text-primary);
+  }
+  
+  #order-btn i {
+    margin-left: 10px;
+  }
+  

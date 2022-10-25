@@ -18,7 +18,7 @@ class Song extends Controller {
     }
 
     public function search() {
-        
+        $this->view("search/index");
     }
 }
 ?>
