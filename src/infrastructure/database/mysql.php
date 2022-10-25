@@ -60,7 +60,7 @@ class MySQL {
             return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
         } 
 
-        return [];
+        return null;
     }
 
     public function single() {
@@ -70,7 +70,7 @@ class MySQL {
             return $this->stmt->fetch(PDO::FETCH_ASSOC);
         } 
     
-        return [];
+        return null;
     }
 
     public function row_count() {
