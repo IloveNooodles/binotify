@@ -409,6 +409,7 @@ body.login-page {
 /* AlbumList  */
 
 .album-list {
+  width: 97%;
   list-style: none;
   margin: 25px;
   padding: 0 1rem;
