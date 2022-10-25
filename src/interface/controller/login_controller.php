@@ -13,6 +13,7 @@ class Login extends Controller {
             break;
       }
     }
+
     private function login() {
         if(!(isset($_POST['username']) && isset($_POST['password']))){
           $this->view("login/index");
@@ -24,7 +25,7 @@ class Login extends Controller {
         
         if($status == "SUCCESS"){
           echo "Success";
-          header("Location: " . BASE_URL . "/");
+          redirect_home();
         } else {
           $this->view("login/index");
         }

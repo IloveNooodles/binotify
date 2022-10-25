@@ -55,10 +55,10 @@ class MySQL {
 
     public function result_set() {
         $this->execute();
-        
+
         if ($this->stmt->rowCount() > 0) {
             return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
-        } 
+        }
 
         return null;
     }

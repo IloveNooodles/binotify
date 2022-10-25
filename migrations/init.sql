@@ -9,11 +9,11 @@ create table User (
 );
 
 insert into User (email, password, username, isAdmin) values 
-('admin@binotify.com', 'password', 'binotify.com',  true), 
-('sfreeman0@etsy.com', 'password','freeman',  0), 
-('crodriguez1@va.gov', 'password','crodriguez',  0), 
-('krobertson2@state.tx.us', 'password','krobertson',  0), 
-('pfoster3@earthlink.net', 'password','pfoster',  0);
+('admin@binotify.com', '$2y$10$Ql.4PSEPe.EEdQCJf0g9xeh1ZdCbKksV5Tf5VkjJ0haKeU7sFnssa', 'binotify.com',  true), 
+('sfreeman0@etsy.com', '$2y$10$ik896cO3jbLbH.Z7.hDmReyM9UJhPm6Gq2IAr5PiPjIQ7C5fH6dOi','freeman',  false), 
+('crodriguez1@va.gov', '$2y$10$I5AdY05sECk8kXqhyAW5q.dSk92M/RvzVPCzdXdLMwIQS6X4AcRGy','crodriguez',  false), 
+('krobertson2@state.tx.us', '$2y$10$8u28mgkJTPle9/lejXxvZ.nCtI9YGtH9IFNv1uPuKE2mHKD58zMXO','krobertson',  false), 
+('pfoster3@earthlink.net', '$2y$10$8u28mgkJTPle9/lejXxvZ.nCtI9YGtH9IFNv1uPuKE2mHKD58zMXO','pfoster',  false);
 
 drop table if exists Album;
 
