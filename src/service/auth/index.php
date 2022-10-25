@@ -25,8 +25,8 @@ class AuthService {
       $_SESSION['username'] = $username;
       $role = "user";
       /* if its admin */ 
-      if($user['role']) {
-        $role = "admin";
+      if($user['isAdmin']) {
+        $role = "admin"; 
       }
       $_SESSION['user_id'] = $user['user_id'];
       $_SESSION['role'] = $role;
