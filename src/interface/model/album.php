@@ -9,37 +9,24 @@ class AlbumModel {
     $this->db = new MySQL(MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE);
   }
 
-  public function find_all_album($page, $order, $orderby, $limit = PAGINATION_LIMIT){
-    $query = "SELECT * From Album ORDER BY :order :orderby LIMIT $limit OFFSET :offset";
+  public function find_all_album($page, $order = 'ASC', $orderby = 'judul', $limit = PAGINATION_LIMIT){
+    $query = "SELECT * From Album ORDER BY $orderby $order LIMIT $limit OFFSET :offset";
 
     $this->db->query($query);
 
-    if(!isset($page) || isset($page) && $page <= 0){
-      $page = 1;
-    }
-
     $offset = ($page - 1) * PAGINATION_LIMIT;
     $this->db->bind("offset", $offset);
-    $this->db->bind("order", $order);
-    $this->db->bind("orderby", $orderby);
-
     $result = $this->db->result_set();
     return $result;
   }
 
-  public function find_all_album_filter_by_genre($page, $order, $orderby, $genre, $limit = PAGINATION_LIMIT){
-    $query = "SELECT * From Album WHERE genre = ':genre' ORDER BY :order :orderby LIMIT $limit OFFSET :offset";
+  public function find_all_album_filter_by_genre($page, $order = 'ASC', $orderby = 'judul', $genre, $limit = PAGINATION_LIMIT){
+    $query = "SELECT * From Album WHERE genre = :genre ORDER BY $orderby $order LIMIT $limit OFFSET :offset";
 
     $this->db->query($query);
 
-    if(!isset($page) || isset($page) && $page <= 0){
-      $page = 1;
-    }
-
     $offset = ($page - 1) * PAGINATION_LIMIT;
     $this->db->bind("offset", $offset);
-    $this->db->bind("order", $order);
-    $this->db->bind("orderby", $orderby);
     $this->db->bind("genre", $genre);
 
     $result = $this->db->result_set();
@@ -56,36 +43,33 @@ class AlbumModel {
     return $result;
   }
 
-  public function find_album_by_judul($judul, $page, $order, $orderby, $limit = PAGINATION_LIMIT) {
-    $query = "SELECT * From Album WHERE judul LIKE '%:judul%' ORDER BY :order :orderby LIMIT $limit OFFSET :offset";
+  public function find_album_by_judul($judul, $page, $order = 'ASC', $orderby = 'judul', $limit = PAGINATION_LIMIT) {
+    $query = "SELECT * From Album WHERE judul LIKE '%$judul%' ORDER BY $orderby $order LIMIT $limit OFFSET :offset";
 
     $this->db->query($query);
-    $this->db->bind("judul", $judul);
-    $this->db->bind("order", $order);
-    $this->db->bind("orderby", $orderby);
-
-    if(!isset($page) || isset($page) && $page <= 0){
-      $page = 1;
-    }
-
+  
     $offset = ($page - 1) * PAGINATION_LIMIT;
     $this->db->bind("offset", $offset);
     $result = $this->db->result_set();
     return $result;
   }
 
-  public function find_album_by_judul_filter_by_genre($judul, $page, $order, $orderby, $genre, $limit = PAGINATION_LIMIT) {
-    $query = "SELECT * From Album WHERE judul LIKE '%:judul%' AND genre = ':genre' ORDER BY :order :orderby LIMIT $limit OFFSET :offset";
+  public function find_album_by_judul_filter_by_genre($judul, $page, $order = 'ASC', $orderby = 'judul', $genre, $limit = PAGINATION_LIMIT) {
+    $query = "SELECT * From Album WHERE judul LIKE '%$judul%' AND genre = :genre ORDER BY $orderby $order LIMIT $limit OFFSET :offset";
 
     $this->db->query($query);
-    $this->db->bind("judul", $judul);
-    $this->db->bind("order", $order);
-    $this->db->bind("orderby", $orderby);
     $this->db->bind("genre", $genre);
 
-    if(!isset($page) || isset($page) && $page <= 0){
-      $page = 1;
-    }
+    $offset = ($page - 1) * PAGINATION_LIMIT;
+    $this->db->bind("offset", $offset);
+    $result = $this->db->result_set();
+    return $result;
+  }
+
+  public function find_album_by_penyanyi($penyanyi, $page, $order = 'ASC', $orderby = 'judul', $limit = PAGINATION_LIMIT) {
+    $query = "SELECT * From Album WHERE penyanyi LIKE '%$penyanyi%' ORDER BY $orderby $order LIMIT $limit OFFSET :offset";
+
+    $this->db->query($query);
 
     $offset = ($page - 1) * PAGINATION_LIMIT;
     $this->db->bind("offset", $offset);
@@ -93,54 +77,23 @@ class AlbumModel {
     return $result;
   }
 
-  public function find_album_by_penyanyi($penyanyi, $page, $order, $orderby, $limit = PAGINATION_LIMIT) {
-    $query = "SELECT * From Album WHERE penyanyi LIKE '%:penyanyi%' ORDER BY :order :orderby LIMIT $limit OFFSET :offset";
+  public function find_album_by_penyanyi_filter_by_genre($penyanyi, $page, $order = 'ASC', $orderby = 'judul', $genre, $limit = PAGINATION_LIMIT) {
+    $query = "SELECT * From Album WHERE penyanyi LIKE '%$penyanyi%' AND genre = :genre ORDER BY $orderby $order LIMIT $limit OFFSET :offset";
 
     $this->db->query($query);
-    $this->db->bind("penyanyi", $penyanyi);
-    $this->db->bind("order", $order);
-    $this->db->bind("orderby", $orderby);
-
-    if(!isset($page) || isset($page) && $page <= 0){
-      $page = 1;
-    }
-
-    $offset = ($page - 1) * PAGINATION_LIMIT;
-    $this->db->bind("offset", $offset);
-    $result = $this->db->result_set();
-    return $result;
-  }
-
-  public function find_album_by_penyanyi_filter_by_genre($penyanyi, $page, $order, $orderby, $genre, $limit = PAGINATION_LIMIT) {
-    $query = "SELECT * From Album WHERE penyanyi LIKE '%:penyanyi%' AND genre = ':genre' ORDER BY :order :orderby LIMIT $limit OFFSET :offset";
-
-    $this->db->query($query);
-    $this->db->bind("penyanyi", $penyanyi);
-    $this->db->bind("order", $order);
-    $this->db->bind("orderby", $orderby);
     $this->db->bind("genre", $genre);
 
-    if(!isset($page) || isset($page) && $page <= 0){
-      $page = 1;
-    }
-
     $offset = ($page - 1) * PAGINATION_LIMIT;
     $this->db->bind("offset", $offset);
     $result = $this->db->result_set();
     return $result;
   }
 
-  public function find_album_by_tahun_terbit($tanggal_terbit, $page, $order, $orderby, $limit = PAGINATION_LIMIT) {
-    $query = "SELECT * From Album WHERE tanggal_terbit = ':tanggal_terbit' ORDER BY :order :orderby LIMIT $limit OFFSET :offset";
+  public function find_album_by_tahun_terbit($tanggal_terbit, $page, $order = 'ASC', $orderby = 'judul', $limit = PAGINATION_LIMIT) {
+    $query = "SELECT * From Album WHERE tanggal_terbit = :tanggal_terbit ORDER BY $orderby $order LIMIT $limit OFFSET :offset";
 
     $this->db->query($query);
     $this->db->bind("tanggal_terbit", $tanggal_terbit);
-    $this->db->bind("order", $order);
-    $this->db->bind("orderby", $orderby);
-
-    if(!isset($page) || isset($page) && $page <= 0){
-      $page = 1;
-    }
 
     $offset = ($page - 1) * PAGINATION_LIMIT;
     $this->db->bind("offset", $offset);
@@ -148,19 +101,12 @@ class AlbumModel {
     return $result;
   }
 
-  public function find_album_by_tahun_terbit_filter_by_genre($tanggal_terbit, $page, $order, $orderby, $genre, $limit = PAGINATION_LIMIT) {
-    $query = "SELECT * From Album WHERE tanggal_terbit = ':tanggal_terbit' AND genre = ':genre' ORDER BY :order :orderby LIMIT $limit OFFSET :offset";
+  public function find_album_by_tahun_terbit_filter_by_genre($tanggal_terbit, $page, $order = 'ASC', $orderby = 'judul', $genre, $limit = PAGINATION_LIMIT) {
+    $query = "SELECT * From Album WHERE tanggal_terbit = :tanggal_terbit AND genre = :genre ORDER BY $orderby $order LIMIT $limit OFFSET :offset";
 
     $this->db->query($query);
     $this->db->bind("tanggal_terbit", $tanggal_terbit);
-    $this->db->bind("order", $order);
-    $this->db->bind("orderby", $orderby);
     $this->db->bind("genre", $genre);
-
-
-    if(!isset($page) || isset($page) && $page <= 0){
-      $page = 1;
-    }
 
     $offset = ($page - 1) * PAGINATION_LIMIT;
     $this->db->bind("offset", $offset);
