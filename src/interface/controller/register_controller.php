@@ -4,7 +4,7 @@ class Register extends Controller {
     public function index(){
       switch($_SERVER["REQUEST_METHOD"]){
         case "GET":
-          $this->view("register/index.php");
+          $this->view("register/index");
           break;
         case "POST":
           $this->register();
