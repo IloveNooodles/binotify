@@ -30,10 +30,10 @@ class UserModel {
 
   public function find_user_by_username($username) {
     $query = "SELECT * FROM User WHERE username = :username";
-
     $this->db->query($query);
     $this->db->bind('username', $username);
     $result = $this->db->single();
+    print_r($result);
 
     return $result;
   }
