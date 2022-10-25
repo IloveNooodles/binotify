@@ -23,14 +23,22 @@ class AuthService {
       }
 
       $_SESSION['username'] = $username;
-      $_SESSION['name'] = $user['name'];
-      $_SESSION['role'] = $user['role'];
+      $role = "user";
+      /* if its admin */ 
+      if($user['role']) {
+        $role = "admin";
+      }
+      $_SESSION['user_id'] = $user['user_id'];
+      $_SESSION['role'] = $role;
 
       return SUCCESS;
     }
 
     public function logout() {
+      session_unset();
+      session_destroy();
 
+      return SUCCESS;
     }
 }
 ?>

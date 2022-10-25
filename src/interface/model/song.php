@@ -11,7 +11,7 @@ class SongModel {
   }
 
   public function find_all_song($page, $order, $orderby) {
-    $query = "SELECT * From Song ORDER BY :order :orderby LIMIT PAGINATION_LIMIT OFFSET :offset";
+    $query = "SELECT * From Song ORDER BY $order $orderby LIMIT PAGINATION_LIMIT OFFSET :offset";
 
     $this->db->query($query);
     /* TODO: Pindahin logic ini ke service */

@@ -18,12 +18,22 @@ class UserModel {
     return $result;
   }
 
+  public function find_user_by_id($user_id) {
+    $query = "SELECT * From User WHERE user_id = :user_id";
+
+    $this->db->query($query);
+    $this->db->bind("user_id", $user_id);
+    $result = $this->db->single();
+
+    return $result;
+  }
+
   public function find_user_by_username($username) {
     $query = "SELECT * FROM User WHERE username = :username";
-
     $this->db->query($query);
     $this->db->bind('username', $username);
     $result = $this->db->single();
+    print_r($result);
 
     return $result;
   }

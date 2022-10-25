@@ -18,8 +18,6 @@
 define("TARGET_DIR", $_ENV['PWD'] . "/public/audio/");
 
 if(isset($_FILES)){
-  print_r($_FILES);
-  print_r(phpinfo());
   // echo TARGET_DIR;
   $curdir = $_FILES["fileToUpload"]['tmp_name'];
   $target_dir = TARGET_DIR . "1.mp3";

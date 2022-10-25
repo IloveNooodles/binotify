@@ -69,7 +69,6 @@ class MySQL {
         if ($this->stmt->rowCount() > 0) {
             return $this->stmt->fetch(PDO::FETCH_ASSOC);
         } 
-    
         return null;
     }
 
