@@ -20,7 +20,7 @@ class AlbumModel {
     return $result;
   }
 
-  public function find_all_album_filter_by_genre($page, $order = 'ASC', $orderby = 'judul', $genre, $limit = PAGINATION_LIMIT){
+  public function find_all_album_filter_by_genre($page, $genre, $order = 'ASC', $orderby = 'judul',  $limit = PAGINATION_LIMIT){
     $query = "SELECT * From Album WHERE genre = :genre ORDER BY $orderby $order LIMIT $limit OFFSET :offset";
 
     $this->db->query($query);
@@ -77,7 +77,7 @@ class AlbumModel {
     return $result;
   }
 
-  public function find_album_by_penyanyi_filter_by_genre($penyanyi, $page, $order = 'ASC', $orderby = 'judul', $genre, $limit = PAGINATION_LIMIT) {
+  public function find_album_by_penyanyi_filter_by_genre($penyanyi, $page, $genre, $order = 'ASC', $orderby = 'judul', $limit = PAGINATION_LIMIT) {
     $query = "SELECT * From Album WHERE penyanyi LIKE '%$penyanyi%' AND genre = :genre ORDER BY $orderby $order LIMIT $limit OFFSET :offset";
 
     $this->db->query($query);
@@ -101,7 +101,7 @@ class AlbumModel {
     return $result;
   }
 
-  public function find_album_by_tahun_terbit_filter_by_genre($tanggal_terbit, $page, $order = 'ASC', $orderby = 'judul', $genre, $limit = PAGINATION_LIMIT) {
+  public function find_album_by_tahun_terbit_filter_by_genre($tanggal_terbit, $page, $genre, $order = 'ASC', $orderby = 'judul', $limit = PAGINATION_LIMIT) {
     $query = "SELECT * From Album WHERE tanggal_terbit = :tanggal_terbit AND genre = :genre ORDER BY $orderby $order LIMIT $limit OFFSET :offset";
 
     $this->db->query($query);
@@ -114,7 +114,7 @@ class AlbumModel {
     return $result;
   }
 
-  public function insert_album($judul, $penyanyi, $tanggal_terbit, $total_duration, $genre, $audio_path, $image_path) {
+  public function insert_album($judul, $penyanyi, $tanggal_terbit, $total_duration, $genre, $image_path) {
     $query = "INSERT INTO Album (judul, penyanyi, tanggal_terbit, total_duration, genre, image_path) 
     VALUES (:judul, :penyanyi, :tanggal_terbit, :total_duration, :genre, :image_path)";
 
@@ -129,7 +129,7 @@ class AlbumModel {
     $this->db->execute();
   }
 
-  public function update_album($judul, $penyanyi, $tanggal_terbit, $total_duration, $genre, $audio_path, $image_path, $album_id) {
+  public function update_album($judul, $penyanyi, $tanggal_terbit, $total_duration, $genre, $image_path, $album_id) {
     $query = "UPDATE Album SET judul = :judul, penyanyi = :penyanyi, tanggal_terbit = :tanggal_terbit, total_duration = :total_duration, genre = :genre, image_path = :image_path WHERE album_id = :album_id";
 
     $this->db->query($query);
@@ -153,5 +153,3 @@ class AlbumModel {
     $this->db->execute();
   }
 }
-
-?>
