@@ -13,7 +13,7 @@ class Login extends Controller {
             break;
       }
     }
-    public function login() {
+    private function login() {
         if(!(isset($_POST['username']) && isset($_POST['password']))){
           $this->view("login/index");
           return;

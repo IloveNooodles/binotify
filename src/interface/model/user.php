@@ -1,6 +1,6 @@
 <?php
 
-require_once $_ENV['PWD'] . '/src/infrastructure/database/mysql.php';
+require_once BASE_URL . '/src/infrastructure/database/mysql.php';
 
 class UserModel {
   private $db;

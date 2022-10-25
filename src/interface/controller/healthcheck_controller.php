@@ -5,8 +5,7 @@ class Healthcheck extends Controller {
         $data = [
             'status' => 'OK'
         ]; 
-        
-        // header('Content-type: application/json');
+
         $json = json_encode( $data );
         http_response_code(200);
         echo $json;

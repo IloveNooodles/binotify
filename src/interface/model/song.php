@@ -1,7 +1,6 @@
 <?php
 
-require_once $_ENV['PWD'] . '/infrastructure/database/mysql.php';
-define('PAGINATION_LIMIT', 25);
+require_once BASE_URL . '/src/infrastructure/database/mysql.php';
 
 class SongModel {
   private $db;

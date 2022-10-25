@@ -1,10 +1,10 @@
 <?php
-require_once __DIR__ . '/../../interface/model/user.php';
-require_once __DIR__ . '/../../interface/model/song.php';
-require_once __DIR__ . '/../../interface/model/album.php';
+require_once BASE_URL . '/src/interface/model/user.php';
+require_once BASE_URL . '/src/interface/model/song.php';
+require_once BASE_URL . '/src/interface/model/album.php';
 
 class SearchService {
-    public function user() {
+    public function user($page = 1) {
 
     }
 
