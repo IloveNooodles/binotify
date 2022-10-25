@@ -10,7 +10,9 @@
 <body>
   <?php include_once 'src/view/component/navbar.php' ?>
   <h2>Albums</h2>
-  <?php include_once 'src/view/component/albumList.php' ?>
+  <div style="margin: 0 3rem;">
+    <?php include_once 'src/view/component/albumList.php' ?>
+  </div>
   <script>
     document.getElementById("album-order-btn").addEventListener("click", function() {
       document.querySelector(".sort-menu").classList.toggle("show");
