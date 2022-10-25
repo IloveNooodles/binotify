@@ -15,6 +15,7 @@
 
   /* Font size */
   --fs-album-title-pc: 4rem;
+  --fs-album-subtitle-pc: 2rem;
   --fs-heading: 1rem;
   --fs-title: 0.875rem;
   --fs-caption: 0.75rem;
@@ -59,6 +60,14 @@ body {
 
 h1 {
   font-size: var(--fs-album-title-pc);
+  color: var(--clr-text-primary);
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  margin: 2rem;
+}
+
+h2 {
+  font-size: var(--fs-album-subtitle-pc);
   color: var(--clr-text-primary);
   font-weight: 500;
   letter-spacing: 0.1rem;
@@ -156,14 +165,20 @@ h1 {
 
 .navbar .navbar-right {
   float: right;
+  align-items: center;
+  display: inline-flex;
 }
 
-.navbar input[type=text] {
-  padding: 10px;
+input.search-bar {
+  height: 45px;
   width: 350px;
-  padding-left: 20px;
   margin-top: 5px;
-  font-size: var(--fs-heading);
+  margin-left: 30px;
+  margin-bottom: 5px;
+  color: var(--clr-text-black);
+  font-size: 14px;
+  font-weight: 300;
+  padding-left: 25px;
   font-family: CircularStd;
   border: none;
   border-radius: var(--radius-lg);
@@ -175,7 +190,6 @@ h1 {
 
 #dropdown-btn {
   background-color: var(--clr-background-highlight-one);
-  margin-top: 5px;
   margin-left: 16px;
   margin-right: 16px;
   cursor: pointer;
@@ -209,7 +223,7 @@ h1 {
   display: inline-block;
 }
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   .navbar .navbar-right {
     float: none;
   }
@@ -223,7 +237,7 @@ h1 {
     border: none;
     border-radius: var(--radius-lg);
   }
-}
+} */
 
 /* Profile Dropdown */
 .dropdown-content {
@@ -392,17 +406,133 @@ body.login-page {
   background-color: var(--clr-background-highlight-three);
 }
 
-input.body-search {
-  display: block;
-  height: 50px;
+/* AlbumList  */
+
+.album-menu {
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 25px;
+  padding: 1rem;
   width: 100%;
-  margin-top: 25px;
-  color: var(--clr-text-black);
-  font-size: 14px;
-  font-weight: 300;
-  padding: 10px;
-  padding-left: 25px;
-  font-family: CircularStd;
+  align-items: center;
+  display: inline-flex;
+}
+
+#album-order-btn {
+  color: var(--clr-text-secondary);
+  background: none;
+  cursor: pointer;
   border: none;
-  border-radius: var(--radius-lg);
+  align-items: center;
+  display: inline-flex;
+  font-family: CircularStd;
+}
+
+#album-order-btn:hover {
+  color: var(--clr-text-primary);
+}
+
+#album-order-btn i {
+  margin-left: 10px;
+}
+
+.album-list {
+  list-style: none;
+  margin: 25px;
+  padding: 0 1rem;
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: auto auto auto auto auto auto auto;
+}
+
+@media screen and (max-width: 1000px) {
+  .album-list {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .album-list {
+    grid-template-columns: auto auto;
+  }
+}
+
+.album-list:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.album-list-item {
+  background: var(--clr-background-base);
+  padding: 5px;
+  width: 200px;
+  height: 275px;
+  margin: 10px;
+  align-items: center;
+  text-align: center;
+}
+
+.album-list-item:hover {
+  cursor: pointer;
+  background-color: var(--clr-background-highlight-two);
+}
+
+.album-image {
+  margin-top: 10px;
+  width: 165px;
+  height: 165px;
+  display: inline-block;
+}
+
+.album-text {
+  margin-top: 12px;
+  display: inline-block;
+  align-items: center;
+}
+
+.album-song-title {
+  color: var(--clr-text-primary);
+  font-weight: bold;
+  font-size: var(--fs-heading);
+  margin-bottom: 12px;
+}
+.album-song-artist {
+  color: var(--clr-text-secondary);
+  font-size: small;
+}
+
+@media screen and (max-width: 600px) {
+  #album-search {
+    width: 90%;
+    margin-left: 0;
+    display: table;
+    margin: 0 auto;
+  }
+}
+
+.sort-menu {
+  display: none;
+  float: right;
+  background-color: var(--clr-background-highlight-two);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.sort-menu.show {
+  display: block;
+}
+
+.sort-menu a {
+  color: var(--clr-text-primary);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.sort-menu a:hover {
+  background-color: var(--clr-background-highlight-three);
 }

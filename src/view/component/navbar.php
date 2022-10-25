@@ -31,10 +31,10 @@
         echo '
         <div class="navbar">
             <a class="active" href="/">Home</a>
-            <a>Albums</a>
+            <a href="/album">Albums</a>
             <div class="navbar-right">
                 <form class="inline-child" action="/action_page.php">
-                    <input type="text" placeholder="What do you want to listen to?" name="search">
+                    <input class="search-bar" type="text" placeholder="What do you want to listen to?" name="search">
                     <button type="submit" hidden>Search</button>
                 </form>
                 <button id="dropdown-btn">
