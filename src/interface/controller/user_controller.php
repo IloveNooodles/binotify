@@ -5,10 +5,16 @@ require_once BASE_URL . '/src/utils/http_response.php';
 class User extends Controller {
     public function list() {
       $search_service = new SearchService();
-      $data = $search_service->user($_GET['page']);
 
-      // $this->view('user/list', $data);
-      response_json($data, 200);
+      if (isset($_GET['page']) and $_GET['page'] > 0) {
+        $page = $_GET['page'];
+      } else {
+        $page = 1;
+      }
+
+      $data = $search_service->user($page);
+
+      $this->view('user/list', $data);
     }
 
     public function logout(){
