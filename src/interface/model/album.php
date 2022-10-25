@@ -54,7 +54,7 @@ class AlbumModel {
     return $result;
   }
 
-  public function find_album_by_judul_filter_by_genre($judul, $page, $order = 'ASC', $orderby = 'judul', $genre, $limit = PAGINATION_LIMIT) {
+  public function find_album_by_judul_filter_by_genre($judul, $page, $genre, $order = 'ASC', $orderby = 'judul',  $limit = PAGINATION_LIMIT) {
     $query = "SELECT * From Album WHERE judul LIKE '%$judul%' AND genre = :genre ORDER BY $orderby $order LIMIT $limit OFFSET :offset";
 
     $this->db->query($query);
