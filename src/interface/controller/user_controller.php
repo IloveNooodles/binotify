@@ -12,7 +12,7 @@ class User extends Controller {
         $page = 1;
       }
 
-      $data = $search_service->user($page);
+      $data = $search_service->search_all_user($page);
 
       $this->view('user/list', $data);
     }

@@ -9,19 +9,13 @@ class SongModel {
     $this->db = new MySQL(MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE);
   }
 
-  public function find_all_song($page, $order, $orderby, $limit = PAGINATION_LIMIT) {
-    $query = "SELECT * From Song ORDER BY $order $orderby LIMIT PAGINATION_LIMIT OFFSET :offset";
+  public function find_all_song($page, $order = 'judul', $orderby = 'ASC', $limit = PAGINATION_LIMIT) {
+    $query = "SELECT * From Song ORDER BY $order $orderby LIMIT $limit OFFSET :offset";
 
     $this->db->query($query);
-    /* TODO: Pindahin logic ini ke service */
-    if(!isset($page) || isset($page) && $page <= 0){
-      $page = 1;
-    }
     
     $offset = ($page - 1) * PAGINATION_LIMIT;
     $this->db->bind("offset", $offset);
-    $this->db->bind("order", $order);
-    $this->db->bind("orderby", $orderby);
 
     $result = $this->db->result_set();
     return $result;
