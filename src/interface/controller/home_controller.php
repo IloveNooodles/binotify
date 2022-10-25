@@ -1,6 +1,6 @@
 <?php
 require_once BASE_URL . '/src/service/search/index.php';
-require_once BASE_URL . '/src/utils/http_response.php';
+require_once BASE_URL . '/src/interface/controller/utils/index.php';
 
 class Home extends Controller {
     public function index() {

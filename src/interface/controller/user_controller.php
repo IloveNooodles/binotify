@@ -1,6 +1,6 @@
 <?php
 require_once BASE_URL . '/src/service/search/index.php';
-require_once BASE_URL . '/src/utils/http_response.php';
+require_once BASE_URL . '/src/interface/controller/utils/index.php';
 
 class User extends Controller {
     public function list() {
@@ -20,7 +20,7 @@ class User extends Controller {
     public function logout(){
       switch($_SERVER['REQUEST_METHOD']){
         case "GET":
-          $this->redirect_home();
+          redirect_home();
           break;
         case "POST":
           $this->logout_user();
@@ -28,14 +28,9 @@ class User extends Controller {
       }
     }
 
-    private function redirect_home() {
-      header("Location: /");
-    }
-
     private function logout_user() {
       if(!(isset($_SESSION['username']) && isset($_SESSION['user_id']))){
-        http_response_code(301);
-        header("Location: " . BASE_URL . "/");
+        redirect_home();
         return;
       }
   
