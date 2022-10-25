@@ -408,34 +408,6 @@ body.login-page {
 
 /* AlbumList  */
 
-.album-menu {
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 0 25px;
-  padding: 1rem;
-  width: 100%;
-  align-items: center;
-  display: inline-flex;
-}
-
-#album-order-btn {
-  color: var(--clr-text-secondary);
-  background: none;
-  cursor: pointer;
-  border: none;
-  align-items: center;
-  display: inline-flex;
-  font-family: CircularStd;
-}
-
-#album-order-btn:hover {
-  color: var(--clr-text-primary);
-}
-
-#album-order-btn i {
-  margin-left: 10px;
-}
-
 .album-list {
   list-style: none;
   margin: 25px;
@@ -482,8 +454,8 @@ body.login-page {
 
 .album-image {
   margin-top: 10px;
-  width: 165px;
-  height: 165px;
+  width: 10rem;
+  height: 10rem;
   display: inline-block;
 }
 
