@@ -1,110 +1,116 @@
-
 /* Navigation Bar  */
 .navbar {
-    padding: 8px;
-    overflow: hidden;
-    background-color: var(--clr-background-base);
-    box-shadow: 0 0 40px var(--clr-background-base);
-  }
-  
-  .navbar a {
-    float: left;
-    display: block;
-    color: var(--clr-text-secondary);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: var(--fs-heading);
-  }
-  
-  .navbar a:hover {
-    color: var(--clr-text-primary);
-  }
-  
-  .navbar a.active {
-    color: var(--clr-text-primary);
-  }
-  
-  .navbar .navbar-right {
-    float: right;
-    align-items: center;
-    display: inline-flex;
-  }
-  
-  input.search-bar {
-    height: 45px;
-    width: 350px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    color: var(--clr-text-black);
-    font-size: 14px;
-    font-weight: 300;
-    padding-left: 25px;
-    font-family: CircularStd;
-    border: none;
-    border-radius: var(--radius-lg);
-  }
-  
-  .inline-child {
-    display: inline-block;
-  }
-  
-  #dropdown-btn {
-    background-color: var(--clr-background-highlight-one);
-    margin-left: 16px;
-    margin-right: 16px;
-    cursor: pointer;
-    float: right;
-    border-radius: var(--radius-lg);
-    border: none;
-    color: var(--clr-text-primary);
-    font-family: CircularStd;
-    align-items: center;
-    display: inline-flex;
-    font-size: var(--fs-heading);
-  }
-  
-  #dropdown-btn:hover {
-    background-color: var(--clr-background-highlight-two);
-  }
-  
-  #dropdown-btn p {
-    padding-right: 10px;
-  }
-  
-  #dropdown-btn i {
-    margin-right: 10px;
-  }
-  
-  .profile-img {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    margin-right: 10px;
-    display: inline-block;
-  }
-  
-  /* Profile Dropdown */
-  .dropdown-content {
-    display: none;
-    background-color: var(--clr-background-highlight-two);
-    min-width: 160px;
-    z-index: 1;
-  }
-  
-  .dropdown-content.show {
-    display: block;
-    position: absolute;
-    right: 0;
-  }
-  
-  .dropdown-content a {
-    color: var(--clr-text-primary);
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown-content a:hover {
-    background-color: var(--clr-background-highlight-three);
-  }
+  padding: 8px;
+  overflow: hidden;
+  background-color: var(--clr-background-base);
+  box-shadow: 0 0 40px var(--clr-background-base);
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: var(--clr-text-secondary);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: var(--fs-heading);
+}
+
+.navbar a:hover {
+  color: var(--clr-text-primary);
+}
+
+.navbar a.active {
+  color: var(--clr-text-primary);
+}
+
+.navbar .navbar-right {
+  float: right;
+  align-items: center;
+  display: inline-flex;
+}
+
+input.search-bar {
+  height: 45px;
+  width: 350px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: var(--clr-text-black);
+  font-size: 14px;
+  font-weight: 300;
+  padding-left: 25px;
+  font-family: CircularStd;
+  border: none;
+  border-radius: var(--radius-lg);
+}
+
+.inline-child {
+  display: inline-block;
+}
+
+#dropdown-btn {
+  background-color: var(--clr-background-highlight-one);
+  margin-left: 16px;
+  margin-right: 16px;
+  cursor: pointer;
+  float: right;
+  border-radius: var(--radius-lg);
+  border: none;
+  color: var(--clr-text-primary);
+  font-family: CircularStd;
+  align-items: center;
+  display: inline-flex;
+  font-size: var(--fs-heading);
+}
+
+#dropdown-btn:hover {
+  background-color: var(--clr-background-highlight-two);
+}
+
+#dropdown-btn p {
+  padding-right: 10px;
+}
+
+#dropdown-btn i {
+  margin-right: 10px;
+}
+
+.profile-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+/* Profile Dropdown */
+.dropdown-content {
+  display: none;
+  background-color: var(--clr-background-highlight-two);
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content.show {
+  display: block;
+  position: absolute;
+  right: 0;
+}
+
+.btn-submit {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a {
+  color: var(--clr-text-primary);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover,
+.btn-submit:hover {
+  background-color: var(--clr-background-highlight-three);
+}

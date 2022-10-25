@@ -3,6 +3,7 @@
         echo '
         <head>
             <link rel="stylesheet" href="/public/css/navbar.css">
+            <link rel="stylesheet" href="/public/css/styles.css">
         </head>
         <body>
         <div class="navbar">
@@ -23,7 +24,9 @@
             </div>
         </div>
         <div class="dropdown-content">
-            <a href="#">Log Out</a>
+        <form action="/user" method="post">
+          <button type="submit" class="btn-submit">Log Out</button>
+        </form>
         </div>
         <script>
             document.getElementById("dropdown-btn").addEventListener("click", function() {
@@ -36,6 +39,7 @@
         echo '
         <head>
             <link rel="stylesheet" href="/public/css/navbar.css">
+            <link rel="stylesheet" href="/public/css/styles.css">
         </head>
         <body>
         <div class="navbar">
@@ -53,8 +57,10 @@
                 </button>
             </div>
         </div>
-        <div class="dropdown-content">' .
-        (isset($_SESSION['user']) ? '<a href="#">Log Out</a>' : '<a href="/login">Log In</a>') . '
+        <div class="dropdown-content"> 
+        <form action="/user" method="post">' .
+        (isset($_SESSION['username']) ? '<button type="submit" class="btn-submit">Log Out</button>' : '<a href="/login">Log In</a>') . '
+        </form>
         </div>
         <script>
             document.getElementById("dropdown-btn").addEventListener("click", function() {
