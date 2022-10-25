@@ -39,7 +39,7 @@ class App {
             $url = explode('/', $url);
             
             if(count($url) > 1){
-              array_shift($url);
+                array_shift($url);
             }
 
             return $url;
