@@ -6,4 +6,3 @@ function redirect_home() {
 function redirect_to($page, $replace = true, $status_code = 301) {
     header("Location: " . $page);
 }
-?>

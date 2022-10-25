@@ -9,7 +9,7 @@
 </head>
 <body>
   <?php include_once 'src/view/component/navbar.php' ?>
-  <h1 class="title">Welcome, Guest</h1>
+  <h1 class="title">Welcome, <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest' ?> </h1>
   <?php include_once 'src/view/component/songList.php' ?>
 </body>
 </html>

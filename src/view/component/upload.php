@@ -30,5 +30,3 @@ if(isset($_FILES)){
     echo "failed";
   };
 }
-
-?>

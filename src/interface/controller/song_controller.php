@@ -21,4 +21,3 @@ class Song extends Controller {
         $this->view("search/index");
     }
 }
-?>

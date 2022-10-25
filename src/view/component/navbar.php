@@ -17,7 +17,7 @@
                 </form>
                 <button id="dropdown-btn">
                     <img class="profile-img" src="/public/img/avatar-template.jpeg" alt="user">
-                    <p>' . $_SESSION['user'] . '</p>
+                    <p>' . $_SESSION['username'] . '</p>
                     <i class="arrow down"></i>
                 </button>
             </div>
@@ -48,7 +48,7 @@
                 </form>
                 <button id="dropdown-btn">
                     <img class="profile-img" src="/public/img/avatar-template.jpeg" alt="user">
-                    <p>' . (isset($_SESSION['user']) ? $_SESSION['user'] : 'Guest') . '</p>
+                    <p>' . (isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest') . '</p>
                     <i class="arrow down"></i>
                 </button>
             </div>

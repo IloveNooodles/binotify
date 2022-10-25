@@ -13,4 +13,3 @@ function response_json($data, $status_code = 200) {
     $json = json_encode($response_data);
     echo $json;
 }
-?>

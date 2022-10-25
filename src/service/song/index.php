@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../interface/model/song.php';
+require_once BASE_DIR . '/src/interface/model/song.php';
 
 class SongService {
     public function detail() {
@@ -18,4 +18,3 @@ class SongService {
         
     }
 }
-?>

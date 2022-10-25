@@ -38,4 +38,3 @@ class User extends Controller {
       $user = $auth_service->logout();
     }
 }
-?>

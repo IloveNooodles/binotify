@@ -12,9 +12,9 @@ class AuthService {
       }
 
       $user = $user_model->find_user_by_username($username);
-      
+  
       /* if user doesn't exists */
-      if($user == null){
+      if(!isset($user)){
         return USER_NOT_FOUND;
       }
 
@@ -41,4 +41,3 @@ class AuthService {
       return SUCCESS;
     }
 }
-?>

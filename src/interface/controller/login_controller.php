@@ -24,7 +24,6 @@ class Login extends Controller {
         $status = $auth_service->login($username, $password);
         
         if($status == "SUCCESS"){
-          echo "Success";
           redirect_home();
         } else {
           $this->view("login/index");
@@ -32,4 +31,3 @@ class Login extends Controller {
         return;
     }
 }
-?>

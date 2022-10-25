@@ -8,4 +8,3 @@ require_once 'interface/controller/album_controller.php';
 require_once 'interface/controller/login_controller.php';
 require_once 'interface/controller/home_controller.php';
 require_once 'interface/controller/song_controller.php';
-?>

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../interface/model/album.php';
+require_once BASE_URL . '/src/interface/model/album.php';
 
 class AlbumService {
     public function detail() {
@@ -26,4 +26,3 @@ class AlbumService {
         
     }
 }
-?>

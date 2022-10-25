@@ -35,7 +35,6 @@ class UserModel {
     $this->db->query($query);
     $this->db->bind('username', $username);
     $result = $this->db->single();
-    print_r($result);
 
     return $result;
   }

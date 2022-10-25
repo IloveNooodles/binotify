@@ -7,4 +7,3 @@ class Controller {
         require_once VIEW_DIR . $view . '.php';
     }
 }
-?>

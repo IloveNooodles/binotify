@@ -10,4 +10,3 @@ class Healthcheck extends Controller {
         response_json($data, 200);
     }
 }
-?>
