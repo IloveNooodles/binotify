@@ -20,7 +20,7 @@ class Album extends Controller {
             case "POST":
                 $album_service = new AlbumService();
                 if (empty($_POST['judul']) || empty($_POST['penyanyi']) || empty($_POST['tanggal_terbit']) || empty($_POST['genre']) || empty($_POST['image_path'])) {
-                    $this->view("album/insert_album", ["error_message" => DATA_NOT_COMPLETE]);
+                    $this->view("album/insert_album", ["status_message" => DATA_NOT_COMPLETE]);
                 }
                 else {
                     $this->view("album/insert_album", $album_service->new($_POST['judul'], $_POST['penyanyi'], $_POST['tanggal_terbit'], $_POST['genre'], $_POST['image_path']));

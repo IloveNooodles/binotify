@@ -56,7 +56,7 @@
         </div>
         <div class="dropdown-content"> 
         <form action="/user" method="post">' .
-        (isset($_SESSION['username']) ? '<button type="submit" class="btn-submit">Log Out</button>' : '<a href="/login">Log In</a>') . '
+        (isset($_SESSION['username']) ? '<button type="submit" class="btn-submit">Log Out</button>' : '<a href="/login">Log In</a><a href="/register">Register</a>') . '
         </form>
         </div>
          <script src="/public/js/admin-navbar.js"></script>

@@ -19,7 +19,7 @@ class Song extends Controller {
     public function new() {
         $song_service = new SongService();
         if (empty($_POST['judul']) || empty($_POST['audio_path']) || empty($_POST['album_id'])) {
-            $this->view("song/insert_song", ["error_message" => DATA_NOT_COMPLETE]);
+            $this->view("song/insert_song", ["status_message" => DATA_NOT_COMPLETE]);
         }
         else {
             $this->view("song/insert_song", $song_service->new($_POST['judul'], $_POST['audio_path'], $_POST['album_id']));
