@@ -15,7 +15,7 @@
         <i class="arrow left"></i>
     </a>
 
-    <form class="insert-song-form" action="/login" method="POST">
+    <form class="insert-song-form" action="/login" method="POST" enctype="multipart/form-data">
         <h3>Insert New Song</h3>
         <input type="text" placeholder="Judul" id="judul" name="judul">
         <input type="text" placeholder="Penyanyi" id="penyanyi" name="penyanyi">
@@ -33,9 +33,9 @@
         <input type="date" placeholder="Tanggal Terbit" id="tanggal" name="tanggal">
 
         <h4>Song Cover</h4>
-        <input type="file" id="cover" name="cover">
+        <input type="file" id="cover" name="cover" accept="image/*">
         <h4>Song Audio</h4>
-        <input type="file" id="audio" name="audio">
+        <input type="file" id="audio" name="audio" accept="audio/*">
         
         <button type="submit" class="btn primary submit-song">Submit Song</button>
     </form>

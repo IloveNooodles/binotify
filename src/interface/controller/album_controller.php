@@ -34,7 +34,34 @@ class Album extends Controller {
     }
 
     public function edit() {
-        // mau edit apanya teuing
+        switch($_SERVER["REQUEST_METHOD"]){
+            case "GET":
+                $album_service = new AlbumService();
+                $album = $album_service->detail($_GET['id']);
+                $this->view("album/edit_album", $album);
+                break;
+            case "POST":
+                $album_service = new AlbumService();
+                if (empty($_POST['album_id'] || $_POST['judul']) || empty($_POST['penyanyi']) || empty($_POST['tanggal']) || empty($_POST['genre'])) {
+                    $data = ["status_message" => DATA_NOT_COMPLETE];
+                    // $this->view("album/edit_album", $data);
+                    response_json($data);
+                }
+                else {
+                    $cover = NULL;
+                    if (isset($_FILES['cover'])) {
+                        $cover = $_FILES;
+                    }
+
+                    $status = $album_service->edit($_POST['album_id'], $_POST['judul'], $_POST['penyanyi'], $_POST['tanggal'], $_POST['genre'], $cover);
+                    $data = ["status_message" => $status];
+
+                    // $this->view("album/edit_album", $data);
+                    response_json($data);
+                    return;
+                }
+                break;
+        }
     }
 
     public function delete() {
@@ -42,12 +69,4 @@ class Album extends Controller {
         $status_message = $album_service->delete($_POST['id']);
         header("Location: /album" . $status_message);
     }
-
-    // public function add_song() {
-    //     // PAKE YG DI SONG CONTROLLER AJA (SAMA AJA)
-    // }
-
-    // public function delete_song() {
-    //     // PAKE YG DI SONG CONTROLLER AJA (SAMA AJA)
-    // }
 }

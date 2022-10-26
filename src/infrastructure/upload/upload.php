@@ -23,13 +23,6 @@ function filename_exists($extension, $file_name) {
   return false;
 }
 
-function check_file_type($type, $list){
-  if($type != "audio/mp3" || $type != "audio/wav" ||$type != "audio/mpeg") {
-    return true;
-  }
-  return false;
-}
-
 function is_above_max_size($size){
   if($size >= MAX_UPLOAD_FILE_SIZE) {
     return true;
@@ -54,15 +47,35 @@ function save_file($tmp_path, $filename, $type){
   return $file_path;
 }
 
-function save($file, $type){
+function save_image($file, $type){
+  $result = null;
   $filename = $file['cover']['name'];
   $tmp_path = $file['cover']['tmp_name'];
+
+  if (!is_image_valid($filename)) {
+    return $result;
+  }
+
   $unique_name = generate_unique_name($filename);
   $file_ext = get_file_extension($filename);
   $unique_name = $unique_name . "." . $file_ext;
-  $result = null;
+
   if(!filename_exists($type, $unique_name)){
     $result = save_file($tmp_path, $unique_name, $type);
   }
   return $result;
+}
+
+function is_image_valid($image_path) {
+  $image_extension = pathinfo($image_path, PATHINFO_EXTENSION);
+  $image_extension = strtolower($image_extension);
+  $valid_image_extension = ["jpg", "jpeg", "png"];
+  return in_array($image_extension, $valid_image_extension);
+}
+
+function is_audiovalid($audio_path){
+  $audio_extension = pathinfo($audio_path, PATHINFO_EXTENSION);
+  $audio_extension = strtolower($audio_extension);
+  $valid_audio_extension = ["jpg", "jpeg", "png"];
+  return in_array($audio_extension, $valid_audio_extension);
 }
