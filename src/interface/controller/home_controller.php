@@ -4,16 +4,21 @@ require_once BASE_URL . '/src/interface/controller/utils/index.php';
 
 class Home extends Controller {
     public function index() {
-        $search_service = new SearchService();
+      switch($_SERVER['REQUEST_METHOD']){
+        case "GET":
+          $search_service = new SearchService();
+          if (isset($_GET['page']) and $_GET['page'] > 0) {
+              $page = $_GET['page'];
+          } else {
+              $page = 1;
+          }
 
-        if (isset($_GET['page']) and $_GET['page'] > 0) {
-            $page = $_GET['page'];
-        } else {
-            $page = 1;
-        }
-
-        $data = $search_service->search_all_song($page);
-        
-        $this->view('home/index', $data);
+          $data = $search_service->search_all_song($page);
+          
+          $this->view('home/index', $data);
+          break;
+        case "POST":
+          break;
+      }
     }
 }
