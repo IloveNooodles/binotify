@@ -1,17 +1,13 @@
 @import url("/public/css/styles.css");
 
+
 form.insert-album-form {
-    height: 625px;
+    height: 500px;
     width: 400px;
-    background-color: var(--clr-background-base);
     position: absolute;
     transform: translate(-50%,-50%);
-    top: 50%;
+    margin-top: 15%;
     left: 50%;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: none;
-    box-shadow: 0 0 40px rgba(8,7,16,0.6);
     padding: 50px 35px;
 }
 
@@ -26,6 +22,7 @@ form.insert-album-form h3 {
     font-weight: 500;
     line-height: 42px;
     text-align: center;
+    margin: 0 0;
 }
 
 form.insert-album-form input[type="text"] {
@@ -56,6 +53,21 @@ form.insert-album-form input[type="date"] {
     font-family: CircularStd;
     border: none;
     border-radius: var(--radius-lg);
+}
+
+form.insert-album-form input[type="file"] {
+    margin-top: 5px;
+    width: 100%;
+}
+
+form.insert-album-form input[type="file"]::file-selector-button {
+    border: none;
+    background-color: var(--clr-background-highlight-three);
+    padding: 7px 20px;
+    border-radius: var(--radius-lg);
+    color: var(--clr-text-primary);
+    font-family: CircularStd;
+    cursor: pointer;
 }
 
 button.submit-album{
@@ -90,20 +102,6 @@ button.submit-album{
     background-color: var(--clr-background-highlight-three);
 }
 
-form.insert-album-form input[type="file"] {
-    margin-top: 5px;
-}
-
-form.insert-album-form input[type="file"]::file-selector-button {
-    border: none;
-    background-color: var(--clr-background-highlight-three);
-    padding: 7px 20px;
-    border-radius: var(--radius-lg);
-    color: var(--clr-text-primary);
-    font-family: CircularStd;
-    cursor: pointer;
-}
-
 h4 {
     font-size: 14px;
     font-weight: 300;
@@ -112,13 +110,15 @@ h4 {
     color: var(--clr-text-info-hover);
 }
 
-form.insert-album-form label#sumbit-success {
+form.insert-album-form label.sumbit-success {
+    font-weight: 300;
     margin-top: 50px;
     padding: 15px 0;
     color: var(--clr-text-info);
 }
 
-form.insert-album-form label#sumbit-failure {
+form.insert-album-form label.sumbit-failure {
+    font-weight: 300;
     margin-top: 50px;
     padding: 15px 0;
     color: var(--clr-text-danger);
