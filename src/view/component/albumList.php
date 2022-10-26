@@ -15,7 +15,7 @@ function albums_in_html($data){
     $str = "";
     foreach($data as $album){
         $album_id = $album['album_id'];
-        $image_path = $album['image_path'];
+        $image_path = str_replace('/var/www/html','',$album['image_path']);
         $judul = $album['judul'];
         $penyanyi = $album['penyanyi'];
         $tanggal_terbit = $album['tanggal_terbit'];
