@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Binotify</title>
+    <title>Binotify - Insert Album</title>
     <link rel="stylesheet" href="/public/css/styles.css">
     <link rel="stylesheet" href="/public/css/insertAlbum.css">
     <link rel="stylesheet" href="/public/css/navbar.css">
@@ -25,7 +25,7 @@
         <h4>Album Cover</h4>
         <input type="file" id="cover" name="cover">
         
-        <button type="submit" class="btn primary submit-album">Submit Album</button>
+        <button type="submit" class="btn primary submit-album">Add album</button>
     </form>
 
 </body>

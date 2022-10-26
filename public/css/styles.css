@@ -7,7 +7,7 @@
   --clr-text-primary: #fff;
   --clr-text-secondary: #a7a7a7;
   --clr-text-info: #1ed760;
-  --clr-text-info-hover: #2ad967;
+  --clr-text-info-hover: #0ab346;
   --clr-text-warning: #ffa42b;
   --clr-text-danger: #f15e6c;
   --clr-text-announcement: #3d91f4;
@@ -37,7 +37,7 @@
   --radius-lg: 2rem;
   --radius-md: 0.5rem;
   --spacing: 0.25rem;
-  --transition: all 0.3s linear;
+  --transition: all 0.2s linear;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
@@ -85,20 +85,22 @@ h2 {
   background-color: var(--clr-background-base);
   color: var(--clr-text-primary);
   font-family: CircularStd;
+  transition: var(--transition);
 }
 
 .btn:hover {
   background-color: var(--clr-background-highlight-two);
-  scale: 1.02;
 }
 
 .primary {
   background-color: var(--clr-text-info);
   color: var(--clr-text-black);
+  transition: var(--transition);
 }
 
 .primary:hover {
   background-color: var(--clr-text-info-hover);
+  transition: var(--transition);
 }
 
 .secondary {

@@ -1,60 +1,63 @@
 @import url("/public/css/styles.css");
 #songlist {
-    border-collapse: collapse;
-    margin: 50px;
-    width: 80%;
-  }
-  
-  #songlist td, #songlist th {
-    border: none;
-    color: var(--clr-text-secondary);
-    font-weight: lighter;
-    font-size: small;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 12px;
-  }
-  
-  #songlist tr.content:hover {
-    background-color: var(--clr-background-highlight-two);
-    cursor: pointer;
-  }
-  
-  #songlist th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    border-bottom: 1px solid var(--clr-background-highlight-three);
-  }
-  
-  .songlist-title {
-    align-items: center;
-    display: inline-flex;
-  }
-  
-  .song-image {
-    margin-top: 12px;
-    margin-right: 10px;
-    width: 40px;
-    height: 40px;
-    display: inline-block;
-  }
-  
-  .title-artist {
-    margin-top: 12px;
-    display: inline-block;
-    margin-left: 10px;
-    align-items: center;
-  }
-  
-  .song-title {
-    color: var(--clr-text-primary);
-    font-weight: bold;
-    font-size: var(--fs-heading);
-  }
-  .song-artist {
-    color: var(--clr-text-secondary);
-    font-weight: lighter;
-    font-size: small;
-  }
-  
+  border-collapse: collapse;
+  margin: 50px;
+  width: 80%;
+}
+
+#songlist td,
+#songlist th {
+  border: none;
+  color: var(--clr-text-secondary);
+  font-weight: lighter;
+  font-size: small;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 12px;
+}
+#songlist tr.content {
+  transition: var(--transition);
+}
+
+#songlist tr.content:hover {
+  background-color: var(--clr-background-highlight-two);
+  cursor: pointer;
+}
+
+#songlist th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--clr-background-highlight-three);
+}
+
+.songlist-title {
+  align-items: center;
+  display: inline-flex;
+}
+
+.song-image {
+  margin-top: 12px;
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+}
+
+.title-artist {
+  margin-top: 12px;
+  display: inline-block;
+  margin-left: 10px;
+  align-items: center;
+}
+
+.song-title {
+  color: var(--clr-text-primary);
+  font-weight: bold;
+  font-size: var(--fs-heading);
+}
+.song-artist {
+  color: var(--clr-text-secondary);
+  font-weight: lighter;
+  font-size: small;
+}

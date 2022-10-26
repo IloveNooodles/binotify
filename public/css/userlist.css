@@ -17,6 +17,10 @@
   padding-bottom: 12px;
 }
 
+#userlist tr.content {
+  transition: var(--transition);
+}
+
 #userlist tr.content:hover {
   background-color: var(--clr-background-highlight-two);
   cursor: pointer;

@@ -15,6 +15,7 @@
   padding: 14px 16px;
   text-decoration: none;
   font-size: var(--fs-heading);
+  transition: var(--transition);
 }
 
 .navbar a:hover {
@@ -62,6 +63,7 @@ input.search-bar {
   align-items: center;
   display: inline-flex;
   font-size: var(--fs-heading);
+  transition: var(--transition);
 }
 
 #dropdown-btn:hover {
@@ -116,8 +118,10 @@ input.search-bar {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  transition: var(--transition);
 }
 
-.dropdown-content a:hover, .dropdown-content .btn-submit:hover {
+.dropdown-content a:hover,
+.dropdown-content .btn-submit:hover {
   background-color: var(--clr-background-highlight-three);
 }
