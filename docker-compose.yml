@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3.9"
 services:
   web:
     container_name: web
@@ -9,8 +9,10 @@ services:
     ports:
       - 8001:80
     depends_on:
-      - db
-      - phpmyadmin
+      db:
+        condition: service_healthy
+      phpmyadmin:
+        condition: service_started
     networks:
       - binotify
     volumes:
@@ -25,6 +27,11 @@ services:
     ports:
       - 8002:3306
     restart: always
+    healthcheck:
+      test: mysqladmin ping -h localhost -u${MYSQL_USER} -p{MYSQL_PASSWORD}
+      interval: 5s
+      timeout: 5s
+      retries: 20
     networks:
       - binotify
     env_file: .env
