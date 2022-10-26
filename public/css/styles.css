@@ -24,6 +24,7 @@
   --fs-mobile-title: 1.125rem;
 
   /* Font Family  */
+  --ff-main: CircularStd;
 
   /* Breakpoint  */
   --sm: 640px;
@@ -57,6 +58,7 @@ body {
   box-sizing: border-box;
   scroll-behavior: smooth;
   z-index: 0;
+  font-family: var(--ff-main);
 }
 
 h1 {
