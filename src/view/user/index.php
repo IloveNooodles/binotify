@@ -22,7 +22,7 @@
         </button>
     </div>
 
-    <?php include_once 'src/view/component/songList.php' ?>
+    <?php include_once 'src/view/component/userlist.php' ?>
     <script>
         document.querySelector("div.navbar .search-bar").style.display = "none";
         // document.getElementById("order-btn").addEventListener("click", function() {

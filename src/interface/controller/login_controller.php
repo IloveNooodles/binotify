@@ -33,7 +33,6 @@ class Login extends Controller {
         $auth_service = new AuthService();
         $username = $_POST['username']; $password = $_POST['password'];
         $status = $auth_service->login($username, $password);
-        echo $status;
         if($status == "SUCCESS"){
           redirect_home();
         } else {
