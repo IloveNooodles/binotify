@@ -1,5 +1,5 @@
 <?php
-function return_songlist($data = []){
+function return_html($data = []){
   $all_song = return_all_song($data);
   $html = <<<"EOT"
     <head>
@@ -48,3 +48,5 @@ EOT;
   }
   return $str;
 }
+
+return_html($data);

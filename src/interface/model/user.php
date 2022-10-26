@@ -9,7 +9,7 @@ class UserModel {
     $this->db = new MySQL(MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE);
   }
 
-  public function find_all_user($page, $limit = PAGINATION_LIMIT) {
+  public function find_all_user($page = 1, $limit = PAGINATION_LIMIT) {
     $query = "SELECT * FROM User ORDER BY username LIMIT $limit OFFSET :offset";
     $this->db->query($query);
 

@@ -32,15 +32,11 @@ class App {
     }
 
     public function parseURL() {
-        /* route /a/b/c will return array consist of [a, b, c] */  
+        /* route /a/b/c will return array consist of [a, b, c] */ 
         if (isset($_GET['q'])) {
             $url = rtrim($_GET['q'], '/');
             $url = filter_var($url, FILTER_SANITIZE_URL);
             $url = explode('/', $url);
-            
-            // if(count($url) > 1){
-            //     array_shift($url);
-            // }
 
             return $url;
         }

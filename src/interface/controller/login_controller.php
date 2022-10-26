@@ -23,14 +23,17 @@ class Login extends Controller {
     }
 
     private function login() {
-        if(!(isset($_POST['username']) && isset($_POST['password']))){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+    
+        if(!(isset($username) && isset($password))){
           $this->view("login/index");
           return;
         } 
         $auth_service = new AuthService();
         $username = $_POST['username']; $password = $_POST['password'];
         $status = $auth_service->login($username, $password);
-        
+        echo $status;
         if($status == "SUCCESS"){
           redirect_home();
         } else {

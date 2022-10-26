@@ -4,8 +4,12 @@ require_once BASE_URL . '/src/interface/controller/utils/index.php';
 
 class User extends Controller {
     public function index(){
+      $role = $_SESSION['role'];
       switch($_SERVER['REQUEST_METHOD']){
         case "GET":
+          if(isset($role) && $role === 'admin'){
+            $this->view("")
+          }
           redirect_home();
           break;
         case "POST":
@@ -16,8 +20,9 @@ class User extends Controller {
 
     public function list() {
       $search_service = new SearchService();
+      $page = $_GET['page'];
 
-      if (isset($_GET['page']) and $_GET['page'] > 0) {
+      if (isset($page) and $page > 0) {
         $page = $_GET['page'];
       } else {
         $page = 1;
@@ -29,10 +34,14 @@ class User extends Controller {
     }
 
     private function logout_user() {
-      if(!(isset($_SESSION['username']) && isset($_SESSION['user_id']))){
+      $username = $_SESSION['username'];
+      $user_id = $_SESSION['user_id'];
+
+      if(!(isset($username) && isset($user_id))){
         redirect_home();
         return;
       }
+    
       $auth_service = new AuthService();
       $auth_service->logout();
       redirect_home();
