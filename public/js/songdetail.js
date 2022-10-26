@@ -24,7 +24,6 @@ document.querySelectorAll("tr.content").forEach((row) => {
                 details.innerHTML = response.data.song.tanggal_terbit + " |  " + response.data.song.genre;
                 music.src = response.data.song.audio_path.replace("/var/www/html", "");
                 cover.src = response.data.song.image_path.replace("/var/www/html", "");
-                document.querySelector(".modal").style.display = "block";
 
                 const setMusic = () => {
                     seekBar.value = 0;
@@ -32,8 +31,10 @@ document.querySelectorAll("tr.content").forEach((row) => {
                     setTimeout(() => {
                         seekBar.max = music.duration;
                         musicDuration.innerHTML = formatTime(music.duration);
-                    }, 300);
+                    }, 500);
                 }
+
+                setMusic();
 
                 const formatTime = (time) => {
                     let min = Math.floor(time / 60);
@@ -62,13 +63,14 @@ document.querySelectorAll("tr.content").forEach((row) => {
                 setInterval(() => {
                     seekBar.value = music.currentTime;
                     currentTime.innerHTML = formatTime(music.currentTime);
-                }, 500)
+                }, 750)
 
                 seekBar.addEventListener('change', () => {
                     music.currentTime = seekBar.value;
                 })
 
-                setMusic();
+                document.querySelector(".modal").style.display = "block";
+
             }
         };
         xhr.send();
