@@ -18,4 +18,4 @@
         <audio src="" id="audio"></audio>
         <script src="/public/js/songdetail.js"></script>
     </div>
-</div>';
+</div>

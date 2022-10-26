@@ -15,9 +15,7 @@ document.querySelectorAll("tr.content").forEach((row) => {
         xhr.open("GET", "/song/detail?id=" + row.getAttribute("name"), true);
         xhr.onload = function () {
             if (xhr.status == 200) {
-                console.log("here");
                 var response = JSON.parse(xhr.responseText);
-                console.log(response);
                 songName.innerHTML = response.data.song.judul;
                 artistName.innerHTML = response.data.song.penyanyi;
                 albumName.innerHTML = (response.data.album.judul ? "From Album: " + response.data.album.judul : " ");
