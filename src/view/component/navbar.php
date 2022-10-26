@@ -1,10 +1,6 @@
 <?php
     if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
         echo '
-        <head>
-            <link rel="stylesheet" href="/public/css/navbar.css">
-            <link rel="stylesheet" href="/public/css/styles.css">
-        </head>
         <body>
         <div class="navbar">
             <a class="active" href="/">Home</a>
@@ -29,15 +25,11 @@
             <button type="submit" class="btn-submit">Log Out</button>
         </form>
         </div>
-        <script src="/public/js/navbar.js"></script>
+        <script defer src="/public/js/navbar.js"></script>
         <body>';
     }
     else {
         echo '
-        <head>
-            <link rel="stylesheet" href="/public/css/navbar.css">
-            <link rel="stylesheet" href="/public/css/styles.css">
-        </head>
         <body>
         <div class="navbar">
             <a class="active" href="/">Home</a>
@@ -59,7 +51,7 @@
         (isset($_SESSION['username']) ? '<button type="submit" class="btn-submit">Log Out</button>' : '<a href="/login">Log In</a><a href="/register">Register</a>') . '
         </form>
         </div>
-         <script src="/public/js/admin-navbar.js"></script>
+        <script defer src="/public/js/admin-navbar.js"></script>
         </body>';
     }
 ?>

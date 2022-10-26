@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Binotify - Albums</title>
   <link rel="stylesheet" href="/public/css/styles.css">
+  <link rel="stylesheet" href="/public/css/navbar.css">
   <link rel="shortcut icon" href="/public/img/favicon.png" type="image/x-icon">
 </head>
 <body>

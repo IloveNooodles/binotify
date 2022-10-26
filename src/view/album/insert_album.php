@@ -7,6 +7,7 @@
     <title>Binotify</title>
     <link rel="stylesheet" href="/public/css/styles.css">
     <link rel="stylesheet" href="/public/css/insertAlbum.css">
+    <link rel="stylesheet" href="/public/css/navbar.css">
 </head>
 <body class="insert-album-page">
     <?php include_once 'src/view/component/navbar.php' ?>

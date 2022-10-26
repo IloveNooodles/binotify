@@ -36,8 +36,21 @@
   padding: 1rem;
 }
 
-@media screen and (min-width: )  {
+@media screen and (min-width: 768px) {
   .title {
     text-align: left;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    margin: 2rem 50px;
+  }
+
+  #userlist {
+    border-collapse: collapse;
+    margin: 50px;
+    width: 80%;
+  }
+
+  #userlist td {
+    font-size: 1.25rem;
   }
 }

@@ -3,9 +3,6 @@
 function return_html($data = []){
   $all_user = users_in_html($data);
   $html = <<<"EOT"
-    <head>
-        <link rel="stylesheet" href="/public/css/userlist.css">
-    </head>
     <body>
     <table id="userlist">
         <tr class="row-title">

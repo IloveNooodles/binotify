@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/public/css/styles.css">
   <link rel="stylesheet" href="/public/css/login.css">
   <link rel="stylesheet" href="/public/css/register.css">
+  <link rel="stylesheet" href="/public/css/navbar.css">
   <link rel="shortcut icon" href="/public/img/favicon.png" type="image/x-icon">
 </head>
 <body>
@@ -37,6 +38,6 @@
         <button type="button" class="btn primary login">Already have an account?</button>
       </a>
   </form>
-  <script src="/public/js/register.js"></script>
+  <script defer src="/public/js/register.js"></script>
 </body>
 </html>

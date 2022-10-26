@@ -2,9 +2,6 @@
 function return_html($data = []){
   $all_song = songs_in_html($data);
   $html = <<<"EOT"
-    <head>
-        <link rel="stylesheet" href="/public/css/songList.css">
-    </head>
     <body>
     <table id="songlist">
         <tr>

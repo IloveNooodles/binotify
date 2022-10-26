@@ -24,6 +24,6 @@
     </div>
 
     <?php include_once 'src/view/component/songList.php' ?>
-    <script src="/public/js/search.js"></script>
+    <script defer src="/public/js/search.js"></script>
 </body>
 </html>
