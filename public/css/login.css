@@ -77,3 +77,14 @@ form.login-form {
   .back-btn:hover {
     background-color: var(--clr-background-highlight-three);
   }
+
+form.login-form label#login-failure {
+    margin-top: 15px;
+    color: var(--clr-text-danger);
+    font-size: 14px;
+    font-weight: 300;
+    padding: 0 10px;
+    z-index: 1;
+    display: block;
+    position: absolute;
+}

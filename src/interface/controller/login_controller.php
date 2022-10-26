@@ -36,7 +36,7 @@ class Login extends Controller {
         if($status == "SUCCESS"){
           redirect_home();
         } else {
-          $this->view("login/index");
+          $this->view("login/index", ["status_message" => $status]);
         }
         return;
     }
