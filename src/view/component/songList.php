@@ -1,6 +1,6 @@
 <?php
 function return_html($data = []){
-  $all_song = return_all_song($data);
+  $all_song = songs_in_html($data);
   $html = <<<"EOT"
     <head>
         <link rel="stylesheet" href="/public/css/songList.css">
@@ -20,7 +20,7 @@ EOT;
 echo $html;
 }
 
-function return_all_song($data){
+function songs_in_html($data){
   $str = "";
   $cnt = 1;
   foreach($data as $song){

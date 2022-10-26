@@ -12,16 +12,7 @@
 </head>
 <body>
     <?php include_once 'src/view/component/navbar.php' ?>
-    <h2 class="title">Search</h2>
-    <div class="top-menu">
-        <form>
-            <input type="text" name="search" class="search-bar" placeholder="Search">
-        </form>
-        <button id="order-btn">
-            Sort By
-            <i class="arrow down"></i>
-        </button>
-    </div>
+    <h2 class="title">Users</h2>
     <?php include_once 'src/view/component/userlist.php' ?>
     <script src="/public/js/user.js"></script>
 </body>

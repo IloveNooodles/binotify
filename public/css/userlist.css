@@ -1,4 +1,43 @@
 @import url("/public/css/styles.css");
-.userlist {
-  color: var();
+#userlist {
+  border-collapse: collapse;
+  width: 85%;
+  margin: 0 auto;
+}
+
+#userlist td,
+#userlist th {
+  border: none;
+  color: var(--clr-text-secondary);
+  font-weight: lighter;
+  font-size: small;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 1rem;
+  padding-bottom: 12px;
+}
+
+#userlist tr.content:hover {
+  background-color: var(--clr-background-highlight-two);
+  cursor: pointer;
+}
+
+#userlist th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: var(--clr-text-primary);
+  text-align: left;
+  border-bottom: 1px solid var(--clr-background-highlight-three);
+}
+.title {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  padding: 1rem;
+}
+
+@media screen and (min-width: )  {
+  .title {
+    text-align: left;
+  }
 }
