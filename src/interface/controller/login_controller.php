@@ -15,6 +15,7 @@ class Login extends Controller {
         case "POST":
             if(!isset($_SESSION['username'])){
               $this->login();
+              return;
             }
             redirect_home();
             break;
