@@ -26,17 +26,15 @@ document.querySelectorAll("tr.content").forEach((row) => {
                 cover.src = response.data.song.image_path.replace("/var/www/html", "");
                 document.querySelector(".modal").style.display = "block";
 
-                // setup music
                 const setMusic = () => {
                     seekBar.value = 0;
                     currentTime.innerHTML = '00 : 00';
                     setTimeout(() => {
                         seekBar.max = music.duration;
                         musicDuration.innerHTML = formatTime(music.duration);
-                    }, 500);
+                    }, 300);
                 }
 
-                // formatting time in min and seconds format
                 const formatTime = (time) => {
                     let min = Math.floor(time / 60);
                     if(min < 10){
@@ -60,6 +58,11 @@ document.querySelectorAll("tr.content").forEach((row) => {
                         playBtn.classList.toggle('pause');
                     })
                 }
+
+                setInterval(() => {
+                    seekBar.value = music.currentTime;
+                    currentTime.innerHTML = formatTime(music.currentTime);
+                }, 500)
 
                 seekBar.addEventListener('change', () => {
                     music.currentTime = seekBar.value;
