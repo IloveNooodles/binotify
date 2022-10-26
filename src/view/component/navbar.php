@@ -9,6 +9,7 @@
         <div class="navbar">
             <a class="active" href="/">Home</a>
             <a href="/album">Albums</a>
+            <a href="/user">Users</a>
             <a href="/song/new">Insert Song</a>
             <a href="/album/new">Insert Album</a>
             <div class="navbar-right">
@@ -28,11 +29,7 @@
             <button type="submit" class="btn-submit">Log Out</button>
         </form>
         </div>
-        <script>
-            document.getElementById("dropdown-btn").addEventListener("click", function() {
-                document.querySelector(".dropdown-content").classList.toggle("show");
-            });
-        </script>
+        <script src="/public/js/navbar.js"></script>
         <body>';
     }
     else {
@@ -62,13 +59,7 @@
         (isset($_SESSION['username']) ? '<button type="submit" class="btn-submit">Log Out</button>' : '<a href="/login">Log In</a>') . '
         </form>
         </div>
-        <script>
-            document.getElementById("dropdown-btn").addEventListener("click", function() {
-                document.querySelector(".dropdown-content").classList.toggle("show");
-                document.querySelector(".arrow").classList.toggle("down");
-                document.querySelector(".arrow").classList.toggle("up");
-            });
-        </script>
+         <script src="/public/js/admin-navbar.js"></script>
         </body>';
     }
 ?>

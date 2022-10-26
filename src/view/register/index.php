@@ -20,5 +20,6 @@
       <button type="submit" class="btn primary login">Register</button>
       <button type="button" class="btn primary register">Already have an account?</button>
   </form>
+  <script src="/public/js/register.js"></script>
 </body>
 </html>

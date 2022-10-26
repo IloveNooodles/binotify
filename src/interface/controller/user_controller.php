@@ -8,6 +8,7 @@ class User extends Controller {
         case "GET":
           if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin'){
             $this->view("user/index");
+            return;
           }
           redirect_home();
           break;
@@ -39,5 +40,6 @@ class User extends Controller {
       $auth_service = new AuthService();
       $auth_service->logout();
       redirect_home();
+      return;
     }
 }

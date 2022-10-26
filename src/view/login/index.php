@@ -21,5 +21,6 @@
         <button type="button" class="btn primary register">Register</button>
       </a>
   </form>
+  <script src="/public/js/login.js"></script>
 </body>
 </html>

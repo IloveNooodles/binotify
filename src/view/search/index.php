@@ -23,13 +23,6 @@
     </div>
 
     <?php include_once 'src/view/component/songList.php' ?>
-    <script>
-        document.querySelector("div.navbar .search-bar").style.display = "none";
-        // document.getElementById("order-btn").addEventListener("click", function() {
-        //     document.querySelector(".dropdown-content").classList.toggle("show");
-        //     document.querySelector(".arrow").classList.toggle("down");
-        //     document.querySelector(".arrow").classList.toggle("up");
-        // });
-    </script>
+    <script src="/public/js/search.js"></script>
 </body>
 </html>
