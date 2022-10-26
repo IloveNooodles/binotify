@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Binotify - Insert new Song</title>
     <link rel="stylesheet" href="/public/css/styles.css">
-    <link rel="stylesheet" href="/public/css/insertAlbum.css">
+    <link rel="stylesheet" href="/public/css/insertSong.css">
     <link rel="stylesheet" href="/public/css/navbar.css">
 </head>
 <body class="insert-album-page">
@@ -15,17 +15,29 @@
         <i class="arrow left"></i>
     </a>
 
-    <form class="insert-album-form" action="/login" method="POST">
-        <h3>Insert New Album</h3>
+    <form class="insert-song-form" action="/login" method="POST">
+        <h3>Insert New Song</h3>
         <input type="text" placeholder="Judul" id="judul" name="judul">
         <input type="text" placeholder="Penyanyi" id="penyanyi" name="penyanyi">
-        <input type="date" placeholder="Tanggal Terbit" id="tanggal" name="tanggal_terbit">
         <input type="text" placeholder="Genre" id="genre" name="genre">
         
+        <select id="standard-select">
+            <option value="Option 1">Select Album</option>
+            <option value="Option 2">Option 2</option>
+            <option value="Option 3">Option 3</option>
+            <option value="Option 4">Option 4</option>
+            <option value="Option 5">Option 5</option>
+        </select>
+
+        <h4>Tanggal Terbit</h4>
+        <input type="date" placeholder="Tanggal Terbit" id="tanggal" name="tanggal">
+
         <h4>Song Cover</h4>
-        <input type="file" id="cover" name="img_url">
+        <input type="file" id="cover" name="cover">
+        <h4>Song Audio</h4>
+        <input type="file" id="audio" name="audio">
         
-        <button type="submit" class="btn primary submit-album">Add Song</button>
+        <button type="submit" class="btn primary submit-song">Submit Song</button>
     </form>
 
 </body>

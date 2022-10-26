@@ -1,11 +1,11 @@
 @import url("/public/css/styles.css");
 
-body.insert-album-page {
+body.insert-song-page {
     background-color: var(--clr-background-highlight-one);
     color: var(--clr-text-primary);
 }
 
-form.insert-album-form {
+form.insert-song-form {
     height: 520px;
     width: 400px;
     position: absolute;
@@ -15,20 +15,20 @@ form.insert-album-form {
     padding: 50px 35px;
 }
 
-form.insert-album-form * {
+form.insert-song-form *{
     color: var(--clr-text-primary);
     outline: none;
     border: none;
 }
 
-form.insert-album-form h3 {
+form.insert-song-form h3 {
     font-size: 32px;
     font-weight: 500;
     line-height: 42px;
     text-align: center;
 }
 
-form.insert-album-form input[type="text"] {
+form.insert-song-form input[type="text"] {
     display: block;
     height: 50px;
     width: 100%;
@@ -43,7 +43,7 @@ form.insert-album-form input[type="text"] {
     border-radius: var(--radius-lg);
 }
 
-form.insert-album-form input[type="date"] {
+form.insert-song-form input[type="date"] {
     display: block;
     height: 50px;
     width: 100%;
@@ -58,7 +58,28 @@ form.insert-album-form input[type="date"] {
     border-radius: var(--radius-lg);
 }
 
-button.submit-album{
+form.insert-song-form select {
+    display: block;
+    height: 50px;
+    width: 100%;
+    margin-top: 25px;
+    color: var(--clr-text-black);
+    font-size: 14px;
+    font-weight: 300;
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-family: CircularStd;
+    border: none;
+    border-radius: var(--radius-lg);
+    align-items: center;
+}
+
+form.insert-song-form select:after {
+    justify-self: end;
+}
+
+button.submit-song{
     margin-top: 25px;
     width: 100%;
     padding: 15px 0;
@@ -82,18 +103,17 @@ button.submit-album{
     border: none;
     align-items: center;
     display: inline-flex;
-    transition: var(--transition);
 }
 
 .back-btn:hover {
     background-color: var(--clr-background-highlight-three);
 }
 
-form.insert-album-form input[type="file"] {
+form.insert-song-form input[type="file"] {
     margin-top: 5px;
 }
 
-form.insert-album-form input[type="file"]::file-selector-button {
+form.insert-song-form input[type="file"]::file-selector-button {
     border: none;
     background-color: var(--clr-background-highlight-three);
     padding: 7px 20px;

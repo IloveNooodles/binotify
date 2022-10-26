@@ -3,13 +3,13 @@ require_once BASE_URL . '/src/service/song/index.php';
 
 class Song extends Controller {
     public function index(){
-      switch($_SERVER['REQUEST_METHOD']){
-        case "GET":
-          redirect_home();
-          break;
-        case "POST":
-          break;
-      }
+        switch($_SERVER['REQUEST_METHOD']){
+            case "GET":
+            redirect_home();
+            break;
+            case "POST":
+            break;
+        }
     }
 
     public function detail() {
