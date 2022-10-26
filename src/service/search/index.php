@@ -14,7 +14,7 @@ class SearchService {
     public function search_all_song($page = 1) {
         $song_model = new SongModel();
         
-        $data = $song_model->find_all_song($page);
+        $data = $song_model->find_all_song($page);      
         return $data;
     }
 

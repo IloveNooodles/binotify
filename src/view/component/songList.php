@@ -1,5 +1,7 @@
 <?php
-echo '
+function return_songlist($data = []){
+  $all_song = return_all_song($data);
+  $html = <<<"EOT"
     <head>
         <link rel="stylesheet" href="/public/css/songList.css">
     </head>
@@ -8,129 +10,41 @@ echo '
         <tr>
             <th>#</th>
             <th>TITLE</th>
-            <th>YEAR</th>
+            <th>RELEASED</th>
             <th>GENRE</th>
         </tr>
-        <tr class="content">
-            <td>1</td>
-            <td class="songlist-title">
-                <img class="song-image" src="/public/img/song-img-template.jpeg" alt="album1">
-                <div class="title-artist">
-                    <p class="song-title">Lagu 1</p>
-                    <p class="song-artist">Artist 1</p>
-                </div>
-            </td>
-            <td>2020</td>
-            <td>Metal</td>
-        </tr>
-        <tr class="content">
-            <td>2</td>
-            <td class="songlist-title">
-                <img class="song-image" src="/public/img/song-img-template.jpeg" alt="album1">
-                <div class="title-artist">
-                    <p class="song-title">Lagu 1</p>
-                    <p class="song-artist">Artist 1</p>
-                </div>
-            </td>
-            <td>2020</td>
-            <td>Rock</td>
-        </tr>
-        <tr class="content">
-            <td>3</td>
-            <td class="songlist-title">
-                <img class="song-image" src="/public/img/song-img-template.jpeg" alt="album1">
-                <div class="title-artist">
-                    <p class="song-title">Lagu 1</p>
-                    <p class="song-artist">Artist 1</p>
-                </div>
-            </td>
-            <td>2020</td>
-            <td>Jedag-Jedug</td>
-        </tr>
-        <tr class="content">
-            <td>4</td>
-            <td class="songlist-title">
-                <img class="song-image" src="/public/img/song-img-template.jpeg" alt="album1">
-                <div class="title-artist">
-                    <p class="song-title">Lagu 1</p>
-                    <p class="song-artist">Artist 1</p>
-                </div>
-            </td>
-            <td>2020</td>
-            <td>Pop</td>
-        </tr>
-        <tr class="content">
-            <td>5</td>
-            <td class="songlist-title">
-                <img class="song-image" src="/public/img/song-img-template.jpeg" alt="album1">
-                <div class="title-artist">
-                    <p class="song-title">Lagu 1</p>
-                    <p class="song-artist">Artist 1</p>
-                </div>
-            </td>
-            <td>2020</td>
-            <td>Pop</td>
-        </tr>
-        <tr class="content">
-            <td>6</td>
-            <td class="songlist-title">
-                <img class="song-image" src="/public/img/song-img-template.jpeg" alt="album1">
-                <div class="title-artist">
-                    <p class="song-title">Lagu 1</p>
-                    <p class="song-artist">Artist 1</p>
-                </div>
-            </td>
-            <td>2020</td>
-            <td>Metal</td>
-        </tr>
-        <tr class="content">
-            <td>7</td>
-            <td class="songlist-title">
-                <img class="song-image" src="/public/img/song-img-template.jpeg" alt="album1">
-                <div class="title-artist">
-                    <p class="song-title">Lagu 1</p>
-                    <p class="song-artist">Artist 1</p>
-                </div>
-            </td>
-            <td>2020</td>
-            <td>Classic</td>
-        </tr>
-        <tr class="content">
-            <td>8</td>
-            <td class="songlist-title">
-                <img class="song-image" src="/public/img/song-img-template.jpeg" alt="album1">
-                <div class="title-artist">
-                    <p class="song-title">Lagu 1</p>
-                    <p class="song-artist">Artist 1</p>
-                </div>
-            </td>
-            <td>2020</td>
-            <td>Jazz</td>
-        </tr>
-        <tr class="content">
-            <td>9</td>
-            <td class="songlist-title">
-                <img class="song-image" src="/public/img/song-img-template.jpeg" alt="album1">
-                <div class="title-artist">
-                    <p class="song-title">Lagu 1</p>
-                    <p class="song-artist">Artist 1</p>
-                </div>
-            </td>
-            <td>2020</td>
-            <td>Pop</td>
-        </tr>
-        <tr class="content">
-            <td>10</td>
-            <td class="songlist-title">
-                <img class="song-image" src="/public/img/song-img-template.jpeg" alt="album1">
-                <div class="title-artist">
-                    <p class="song-title">Lagu 1</p>
-                    <p class="song-artist">Artist 1</p>
-                </div>
-            </td>
-            <td>2020</td>
-            <td>Rock</td>
-        </tr>
+        $all_song
     </table>
-    </body>';
-?>
+    </body>
+EOT;
+echo $html;
+}
+
+function return_all_song($data){
+  $str = "";
+  $cnt = 1;
+  foreach($data as $song){
+    $image_path = $song['image_path'];
+    $judul = $song['judul'];
+    $penyanyi = $song['penyanyi'];
+    $tanggal_terbit = $song['tanggal_terbit'];
+    $genre = $song['genre'];
+    $html = <<<"EOT"
+    <tr class="content">
+        <td>$cnt</td>
+        <td class="songlist-title">
+            <img class="song-image" src="$image_path" alt="album1">
+            <div class="title-artist">
+                <p class="song-title">$judul</p>
+                <p class="song-artist">$penyanyi</p>
+            </div>
+        </td>
+        <td>$tanggal_terbit</td>
+        <td>$genre</td>
+    </tr>
+EOT;
+    $str = $str . $html;
+    $cnt += 1;
+  }
+  return $str;
+}
