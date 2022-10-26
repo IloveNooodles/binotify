@@ -9,8 +9,8 @@
         <div class="navbar">
             <a class="active" href="/">Home</a>
             <a href="/album">Albums</a>
-            <a>Insert Song</a>
-            <a>Insert Album</a>
+            <a href="/song/new">Insert Song</a>
+            <a href="/album/new">Insert Album</a>
             <div class="navbar-right">
                 <form class="inline-child" action="/action_page.php">
                     <input class="search-bar" type="text" placeholder="What do you want to listen to?" name="search">
@@ -25,7 +25,7 @@
         </div>
         <div class="dropdown-content">
         <form action="/user" method="post">
-          <button type="submit" class="btn-submit">Log Out</button>
+            <button type="submit" class="btn-submit">Log Out</button>
         </form>
         </div>
         <script>

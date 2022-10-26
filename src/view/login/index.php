@@ -17,7 +17,9 @@
       <input type="text" placeholder="Username" id="username" name="username">
       <input type="password" placeholder="Password" id="password" name="password">
       <button type="submit" class="btn primary login">Log In</button>
-      <button type="button" class="btn primary register">Register</button>
+      <a href="/register">
+        <button type="button" class="btn primary register">Register</button>
+      </a>
   </form>
 </body>
 </html>
