@@ -11,18 +11,10 @@ class AlbumService {
         return $album;
     }
 
-    public function new($judul, $penyanyi, $tanggal_terbit, $genre, $files) {
+    public function new($judul, $penyanyi, $tanggal_terbit, $genre, $file) {
         $total_duration = 0;
         $album_model = new AlbumModel();
-        $filename = $_FILES['cover']['name'];
-        $tmp_path = $_FILES['cover']['tmp_name'];
-        $unique_name = generate_unique_name($filename);
-        $file_ext = get_file_extension($filename);
-        $unique_name = $unique_name . "." . $file_ext;
-        $result = null;
-        if(!filename_exists(TARGET_IMG, $unique_name)){
-          $result = save_file($tmp_path, $unique_name, TARGET_IMG);
-        }
+        $result = save($file, TARGET_IMG);
         try {
             $album_model->insert_album($judul, $penyanyi, $tanggal_terbit, $total_duration, $genre, $result);
         } catch (Throwable $e) {

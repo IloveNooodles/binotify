@@ -53,3 +53,16 @@ function save_file($tmp_path, $filename, $type){
   move_uploaded_file($tmp_path, $file_path);
   return $file_path;
 }
+
+function save($file, $type){
+  $filename = $file['cover']['name'];
+  $tmp_path = $file['cover']['tmp_name'];
+  $unique_name = generate_unique_name($filename);
+  $file_ext = get_file_extension($filename);
+  $unique_name = $unique_name . "." . $file_ext;
+  $result = null;
+  if(!filename_exists($type, $unique_name)){
+    $result = save_file($tmp_path, $unique_name, $type);
+  }
+  return $result;
+}
