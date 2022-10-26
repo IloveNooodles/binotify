@@ -128,6 +128,16 @@ class SongModel {
     return $result;
   }
 
+  public function find_all_song_by_album_id($album_id) {
+    $query = "SELECT * From Song WHERE album_id = :album_id";
+
+    $this->db->query($query);
+    $this->db->bind("album_id", $album_id);
+
+    $result = $this->db->result_set();
+    return $result;
+  }
+
   public function insert_song($judul, $penyanyi, $tanggal_terbit, $duration, $genre, $audio_path, $image_path, $album_id) {
     $query = "INSERT INTO Song (judul, penyanyi, tanggal_terbit, duration, genre, audio_path, image_path, album_id) 
     VALUES (:judul, :penyanyi, :tanggal_terbit, :duration, :genre, :audio_path, :image_path, :album_id)";

@@ -1,0 +1,5 @@
+<?php
+
+define("DATA_NOT_COMPLETE", "DATA_NOT_COMPLETE");
+define("INTERNAL_ERROR", "INTERNAL_ERROR");
+define("SUCCESS", "SUCCESS");
