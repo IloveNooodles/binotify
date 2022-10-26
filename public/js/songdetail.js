@@ -8,6 +8,7 @@ const playBtn = document.querySelector(".play-btn");
 const cover = document.querySelector(".player-cover");
 const albumName = document.querySelector(".song-detail-album");
 const details = document.querySelector(".song-detail-date-genre");
+const BASE_URL = "/var/www/html"
 
 document.querySelectorAll("tr.content").forEach((row) => {
     row.addEventListener("click", () => {
