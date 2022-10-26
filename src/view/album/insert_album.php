@@ -15,7 +15,7 @@
         <i class="arrow left"></i>
     </a>
 
-    <form class="insert-album-form" action="/login" method="POST">
+    <form class="insert-album-form" action="/album/new" method="POST">
         <h3>Insert New Album</h3>
         <input type="text" placeholder="Judul" id="judul" name="judul">
         <input type="text" placeholder="Penyanyi" id="penyanyi" name="penyanyi">
@@ -25,10 +25,26 @@
         <input type="date" placeholder="Tanggal Terbit" id="tanggal" name="tanggal">
         
         <h4>Album Cover</h4>
-        <input type="file" class="btn primary" id="cover" name="cover">
+        <input type="file" id="cover" name="cover">
+
+        <?php
+            if (isset($data['status_message']) && $data['status_message'] == SUCCESS) {
+                echo '<label id="sumbit-success">Submit Album Successful</label>';
+            }
+            else if (isset($data['status_message']) && ($data['status_message'] != SUCCESS)) {
+                $msg = $data['status_message'];
+                if ($data['status_message'] == 'INTERNAL_SERVER_ERROR') {
+                    $msg = "Album already exists";
+                } else if ($data['status_message'] == 'DATA_NOT_COMPLETE') {
+                    $msg = "Please fill all the fields";
+                } else {
+                    $msg = "Something went wrong";
+                }
+                echo '<label id="sumbit-failure">' . $msg . '</label>';
+            }
+        ?>
         
         <button type="submit" class="btn primary submit-album">Add album</button>
     </form>
-
 </body>
 </html>

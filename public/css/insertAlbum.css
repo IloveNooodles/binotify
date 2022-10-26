@@ -6,7 +6,7 @@ form.insert-album-form {
     background-color: var(--clr-background-base);
     position: absolute;
     transform: translate(-50%,-50%);
-    top: 40%;
+    top: 50%;
     left: 50%;
     border-radius: 10px;
     backdrop-filter: blur(10px);
@@ -59,7 +59,7 @@ form.insert-album-form input[type="date"] {
 }
 
 button.submit-album{
-    margin-top: 25px;
+    margin-top: 15px;
     width: 100%;
     padding: 15px 0;
     font-size: 14px;
@@ -110,4 +110,16 @@ h4 {
     margin-top: 25px;
     padding: 0 10px;
     color: var(--clr-text-info-hover);
+}
+
+form.insert-album-form label#sumbit-success {
+    margin-top: 50px;
+    padding: 15px 0;
+    color: var(--clr-text-info);
+}
+
+form.insert-album-form label#sumbit-failure {
+    margin-top: 50px;
+    padding: 15px 0;
+    color: var(--clr-text-danger);
 }

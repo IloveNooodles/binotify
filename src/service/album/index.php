@@ -17,9 +17,9 @@ class AlbumService {
         try {
             $album_model->insert_album($judul, $penyanyi, $tanggal_terbit, $total_duration, $genre, $image_path);
         } catch (Throwable $e) {
-            return ["status_message" => INTERNAL_ERROR];
+            return INTERNAL_ERROR;
         }
-        return ["status_message" => SUCCESS];
+        return SUCCESS;
     }
 
     public function edit() {
