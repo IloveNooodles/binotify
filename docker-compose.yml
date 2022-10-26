@@ -19,6 +19,7 @@ services:
       - ./public:/var/www/html/public
       - ./src:/var/www/html/src
       - ./upload:/var/www/html/upload
+      - ./.htaccess:/var/www/html/.htaccess
 
   db:
     container_name: mysql
