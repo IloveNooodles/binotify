@@ -29,7 +29,7 @@
 
         <?php
             if (isset($data['status_message']) && $data['status_message'] == SUCCESS) {
-                echo '<label id="sumbit-success">Submit Album Successful</label>';
+                echo '<label class="sumbit-success">Submit Album Successful</label>';
             }
             else if (isset($data['status_message']) && ($data['status_message'] != SUCCESS)) {
                 $msg = $data['status_message'];
@@ -40,7 +40,7 @@
                 } else {
                     $msg = "Something went wrong";
                 }
-                echo '<label id="sumbit-failure">' . $msg . '</label>';
+                echo '<label class="sumbit-failure">' . $msg . '</label>';
             }
         ?>
         

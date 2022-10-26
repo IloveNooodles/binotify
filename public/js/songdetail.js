@@ -24,9 +24,7 @@ document.querySelectorAll("tr.content").forEach((row) => {
                 details.innerHTML = response.data.song.tanggal_terbit + " |  " + response.data.song.genre;
                 music.src = response.data.song.audio_path.replace("/var/www/html", "");
                 cover.src = response.data.song.image_path.replace("/var/www/html", "");
-                document.querySelector(".modal").style.display = "block";
 
-                // setup music
                 const setMusic = () => {
                     seekBar.value = 0;
                     currentTime.innerHTML = '00 : 00';
@@ -36,7 +34,8 @@ document.querySelectorAll("tr.content").forEach((row) => {
                     }, 500);
                 }
 
-                // formatting time in min and seconds format
+                setMusic();
+
                 const formatTime = (time) => {
                     let min = Math.floor(time / 60);
                     if(min < 10){
@@ -61,11 +60,17 @@ document.querySelectorAll("tr.content").forEach((row) => {
                     })
                 }
 
+                setInterval(() => {
+                    seekBar.value = music.currentTime;
+                    currentTime.innerHTML = formatTime(music.currentTime);
+                }, 750)
+
                 seekBar.addEventListener('change', () => {
                     music.currentTime = seekBar.value;
                 })
 
-                setMusic();
+                document.querySelector(".modal").style.display = "block";
+
             }
         };
         xhr.send();
