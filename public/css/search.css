@@ -2,10 +2,10 @@
 .top-menu {
   flex-direction: row;
   justify-content: space-between;
-  margin: 0 50px;
-  width: 80%;
-  align-items: center;
-  display: inline-flex;
+  /* margin: 0 50px; */
+  /* width: 80%; */
+  /* align-items: center; */
+  /* display: inline-flex; */
 }
 
 #order-btn {
@@ -25,4 +25,47 @@
 
 #order-btn i {
   margin-left: 10px;
+}
+
+.search-by {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-by {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-search {
+  color: var(--clr-text-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.form-search label {
+  margin-left: 0.5rem;
+}
+
+.title {
+  margin: 0;
+  text-align: center;
+  padding: 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .title {
+    text-align: left;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    margin: 2rem 50px;
+  }
+  .form-search {
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 3rem;
+  }
 }

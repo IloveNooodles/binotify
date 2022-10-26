@@ -46,6 +46,20 @@ input.search-bar {
   border-radius: var(--radius-lg);
 }
 
+select.search-bar {
+  height: 45px;
+  width: 350px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: var(--clr-text-black);
+  font-size: 14px;
+  font-weight: 300;
+  padding-left: 25px;
+  font-family: CircularStd;
+  border: none;
+  border-radius: var(--radius-lg);
+}
+
 .inline-child {
   display: inline-block;
 }

@@ -2,14 +2,15 @@
 require_once BASE_URL . '/src/service/song/index.php';
 
 class Song extends Controller {
-    public function index(){
-        switch($_SERVER['REQUEST_METHOD']){
-            case "GET":
-            redirect_home();
-            break;
-            case "POST":
-            break;
-        }
+    public function index($query=null){
+      switch($_SERVER['REQUEST_METHOD']){
+        case "GET":
+          $this->view("search/index");
+          break;
+        case "POST":
+          redirect_home();
+          break;
+      }
     }
 
     public function detail() {
@@ -38,6 +39,7 @@ class Song extends Controller {
     }
 
     public function search() {
-        $this->view("search/index");
+      $this->view("search/index");
+      return;
     }
 }

@@ -9,8 +9,8 @@
             <a href="/song/new">Insert Song</a>
             <a href="/album/new">Insert Album</a>
             <div class="navbar-right">
-                <form class="inline-child" action="/action_page.php">
-                    <input class="search-bar" type="text" placeholder="What do you want to listen to?" name="search">
+                <form class="inline-child" action="/song/search">
+                    <input class="search-bar" type="text" placeholder="What do you want to listen to?" name="q">
                     <button type="submit" hidden>Search</button>
                 </form>
                 <button id="dropdown-btn">
@@ -35,8 +35,8 @@
             <a class="active" href="/">Home</a>
             <a href="/album">Albums</a>
             <div class="navbar-right">
-                <form class="inline-child" action="/action_page.php">
-                    <input class="search-bar" type="text" placeholder="What do you want to listen to?" name="search">
+                <form class="inline-child" action="/song/search">
+                    <input class="search-bar" type="text" placeholder="What do you want to listen to?" name="q">
                     <button type="submit" hidden>Search</button>
                 </form>
                 <button id="dropdown-btn">
