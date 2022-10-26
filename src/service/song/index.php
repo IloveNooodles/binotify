@@ -45,4 +45,16 @@ class SongService {
         }
         return ["status_message" => SUCCESS];
     }
+
+    public function search($res, $page, $genre, $sort) {
+        $song_model = new SongModel();
+        $songs = $song_model->find_song_by_judul_penyanyi_tahun_filter_by_genre($res, $page, $genre, $sort);
+        return $songs;
+    }
+
+    public function get_genre() {
+        $song_model = new SongModel();
+        $genres = $song_model->get_all_genre();
+        return $genres;
+    }
 }

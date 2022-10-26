@@ -72,4 +72,10 @@ class AlbumService {
     $album_model = new AlbumModel();
     $album_model->update_album_duration($id, $total_duration);
     }
+
+    public function getAlbums($page) {
+        $album_model = new AlbumModel();
+        $data = $album_model->find_all_album($page);
+        return $data;
+    }
 }

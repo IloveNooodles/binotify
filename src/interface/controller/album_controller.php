@@ -3,7 +3,10 @@ require_once BASE_URL . '/src/service/album/index.php';
 
 class Album extends Controller {
     public function index() {
-        $this->view('album/index');
+        $album_service = new AlbumService();
+        $page = (isset($_GET['page'])) ? $_GET['page'] : 1;
+        $data = $album_service->getAlbums($page);
+        $this->view('album/index', $data);
     }
 
     public function detail() {

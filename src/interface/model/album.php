@@ -9,7 +9,7 @@ class AlbumModel {
     $this->db = new MySQL(MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE);
   }
 
-  public function find_all_album($page, $order = 'DESC', $orderby = 'album_id', $limit = PAGINATION_LIMIT){
+  public function find_all_album($page, $order = 'DESC', $orderby = 'judul', $limit = PAGINATION_LIMIT){
     $query = "SELECT * From Album ORDER BY $orderby $order LIMIT $limit OFFSET :offset";
 
     $this->db->query($query);
