@@ -19,7 +19,6 @@
         <h3>Insert New Song</h3>
         <input type="text" placeholder="Judul" id="judul" name="judul">
         <input type="text" placeholder="Penyanyi" id="penyanyi" name="penyanyi">
-        <input type="date" placeholder="Tanggal Terbit" id="tanggal" name="tanggal">
         <input type="text" placeholder="Genre" id="genre" name="genre">
         
         <select id="standard-select">
@@ -29,6 +28,9 @@
             <option value="Option 4">Option 4</option>
             <option value="Option 5">Option 5</option>
         </select>
+
+        <h4>Tanggal Terbit</h4>
+        <input type="date" placeholder="Tanggal Terbit" id="tanggal" name="tanggal">
 
         <h4>Song Cover</h4>
         <input type="file" id="cover" name="cover">
