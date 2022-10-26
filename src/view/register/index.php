@@ -7,6 +7,7 @@
   <title>Binotify - Register</title>
   <link rel="stylesheet" href="/public/css/styles.css">
   <link rel="stylesheet" href="/public/css/login.css">
+  <link rel="shortcut icon" href="/public/img/favicon.png" type="image/x-icon">
 </head>
 <body class="login-page">
   <a class="back-btn" href="/">
