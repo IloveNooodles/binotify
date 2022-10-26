@@ -11,8 +11,8 @@
 </head>
 <body>
   <?php include_once 'src/view/component/navbar.php' ?>
-  <h2>Albums</h2>
-  <div style="margin: 0 3rem;">
+  <h2 class="title">Albums</h2>
+  <div class="album-list-container">
     <?php include_once 'src/view/component/albumList.php' ?>
   </div>
   <script>
