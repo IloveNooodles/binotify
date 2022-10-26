@@ -97,10 +97,17 @@ input.search-bar {
   right: 0;
 }
 
-.btn-submit {
+.dropdown-content .btn-submit {
+  color: var(--clr-text-primary);
   padding: 12px 16px;
-  text-decoration: none;
   display: block;
+  background: none;
+  outline: none;
+  border: none;
+  width: 100%;
+  font-size: var(--fs-heading);
+  text-align: left;
+  font-family: var(--ff-main);
 }
 
 .dropdown-content a {
@@ -110,7 +117,6 @@ input.search-bar {
   display: block;
 }
 
-.dropdown-content a:hover,
-.btn-submit:hover {
+.dropdown-content a:hover, .dropdown-content .btn-submit:hover {
   background-color: var(--clr-background-highlight-three);
 }
