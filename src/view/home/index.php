@@ -14,7 +14,7 @@
 <body>
   <?php include_once 'src/view/component/navbar.php' ?>
   <h1 class="title">Welcome, <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest' ?> </h1>
-  <h3>Here is Our 10 Newest Songs</h3>
+  <h3>Here are Our 10 Newest Songs</h3>
   <?php include_once 'src/view/component/songList.php' ?>
   <?php include_once 'src/view/component/songdetail.php' ?>
 </body>
