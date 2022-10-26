@@ -1,5 +1,5 @@
 <?php
-require_once BASE_DIR . '/src/interface/model/song.php';
+require_once BASE_URL . '/src/interface/model/song.php';
 require_once BASE_URL . '/src/service/album/index.php';
 
 class SongService {
