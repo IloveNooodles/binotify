@@ -32,7 +32,7 @@
         else if(isset($data['status_message']) && $data['status_message'] == INTERNAL_ERROR){
           echo '<label id="registration-failure">Registration Failed</label>';
         }
-        ?>
+      ?>
       <button type="submit" class="btn primary register">Register</button>
       <a href="/login">
         <button type="button" class="btn primary login">Already have an account?</button>

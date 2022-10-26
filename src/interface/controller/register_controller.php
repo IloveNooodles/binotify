@@ -25,6 +25,9 @@ class Register extends Controller {
       if (!empty($_POST['username']) && !empty($user_model->find_user_by_username($_POST['username']))) {
         $username_validate = 'Username already exists';
       }
+      if (!empty($_POST['username']) && preg_match('/\s/', $_POST['username'])) {
+        return 'Username contains whitespace';
+    }
       if (!empty($_POST['email']) && !preg_match($email_regex, $_POST['email'])) {
         $email_validate = 'Invalid Email';
       }

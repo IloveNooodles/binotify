@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/public/css/login.css">
   <link rel="shortcut icon" href="/public/img/favicon.png" type="image/x-icon">
 </head>
-<body class="login-page">
+<body>
   <a class="back-btn" href="/">
     <i class="arrow left"></i>
   </a>

@@ -14,7 +14,15 @@ class Song extends Controller {
     }
 
     public function detail() {
-        
+        switch($_SERVER['REQUEST_METHOD']){
+            case "GET":
+                $song_service = new SongService();
+                $id = $_GET['id'];
+                $song = $song_service->detail($id);
+                response_json($song);
+            case "POST":
+            break;
+        }
     }
 
     public function new() {

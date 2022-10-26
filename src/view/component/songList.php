@@ -21,13 +21,14 @@ function songs_in_html($data){
   $str = "";
   $cnt = 1;
   foreach($data as $song){
+    $id = $song['song_id'];
     $image_path = $song['image_path'];
     $judul = $song['judul'];
     $penyanyi = $song['penyanyi'];
     $tanggal_terbit = $song['tanggal_terbit'];
     $genre = $song['genre'];
     $html = <<<"EOT"
-    <tr class="content">
+    <tr class="content" name="$id">
         <td>$cnt</td>
         <td class="songlist-title">
             <img class="song-image" src="$image_path" alt="album1">

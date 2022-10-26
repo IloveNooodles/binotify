@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/public/css/insertAlbum.css">
     <link rel="stylesheet" href="/public/css/navbar.css">
 </head>
-<body class="insert-album-page">
+<body>
     <?php include_once 'src/view/component/navbar.php' ?>
     <a class="back-btn" href="/">
         <i class="arrow left"></i>
@@ -25,7 +25,7 @@
         <input type="date" placeholder="Tanggal Terbit" id="tanggal" name="tanggal">
         
         <h4>Album Cover</h4>
-        <input type="file" id="cover" name="cover">
+        <input type="file" class="btn primary" id="cover" name="cover">
         
         <button type="submit" class="btn primary submit-album">Add album</button>
     </form>

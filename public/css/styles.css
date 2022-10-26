@@ -77,6 +77,14 @@ h2 {
   margin: 2rem 50px;
 }
 
+h3 {
+  font-size: var(--fs-heading);
+  color: var(--clr-text-primary);
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  margin: 0 50px;
+}
+
 /* Button  */
 .btn {
   padding: 14px 32px;

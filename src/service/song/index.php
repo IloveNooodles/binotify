@@ -3,8 +3,16 @@ require_once BASE_URL . '/src/interface/model/song.php';
 require_once BASE_URL . '/src/service/album/index.php';
 
 class SongService {
-    public function detail() {
-
+    public function detail($id) {
+        $song_model = new SongModel();
+        $album_service = new AlbumService();
+        $song = $song_model->find_detail_song($id);
+        $album = $album_service->detail($song['album_id']);
+        $data = [
+            'song' => $song,
+            'album' => $album
+        ];
+        return $data;
     }
 
     public function new($judul, $audio_path, $album_id) {
