@@ -7,7 +7,7 @@ class User extends Controller {
       switch($_SERVER['REQUEST_METHOD']){
         case "GET":
           if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin'){
-            $this->view("user/index");
+            $this->list();
             return;
           }
           redirect_home();
@@ -22,13 +22,12 @@ class User extends Controller {
       $search_service = new SearchService();
       $page = 1;
 
-      if (isset($page) and $page > 0) {
+      if (isset($_GET['page']) and $_GET['page'] > 0) {
         $page = $_GET['page'];
       } 
 
       $data = $search_service->search_all_user($page);
-
-      $this->view('user/list', $data);
+      $this->view('user/index', $data);
     }
 
     private function logout_user() {

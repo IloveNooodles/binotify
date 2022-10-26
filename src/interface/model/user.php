@@ -10,7 +10,7 @@ class UserModel {
   }
 
   public function find_all_user($page = 1, $limit = PAGINATION_LIMIT) {
-    $query = "SELECT * FROM User ORDER BY username LIMIT $limit OFFSET :offset";
+    $query = "SELECT * FROM User WHERE isAdmin = 0 ORDER BY username LIMIT $limit OFFSET :offset";
     $this->db->query($query);
 
     $offset = ($page - 1) * PAGINATION_LIMIT;
