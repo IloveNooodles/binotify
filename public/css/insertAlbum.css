@@ -1,8 +1,8 @@
 @import url("/public/css/styles.css");
 
 body.insert-album-page {
-  background-color: var(--clr-background-highlight-one);
-  color: var(--clr-text-primary);
+    background-color: var(--clr-background-highlight-one);
+    color: var(--clr-text-primary);
 }
 
 form.insert-album-form {
@@ -16,31 +16,31 @@ form.insert-album-form {
 }
 
 form.insert-album-form * {
-  color: var(--clr-text-primary);
-  outline: none;
-  border: none;
+    color: var(--clr-text-primary);
+    outline: none;
+    border: none;
 }
 
 form.insert-album-form h3 {
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 42px;
-  text-align: center;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
 }
 
 form.insert-album-form input[type="text"] {
-  display: block;
-  height: 50px;
-  width: 100%;
-  margin-top: 25px;
-  color: var(--clr-text-black);
-  font-size: 14px;
-  font-weight: 300;
-  padding: 10px;
-  padding-left: 25px;
-  font-family: CircularStd;
-  border: none;
-  border-radius: var(--radius-lg);
+    display: block;
+    height: 50px;
+    width: 100%;
+    margin-top: 25px;
+    color: var(--clr-text-black);
+    font-size: 14px;
+    font-weight: 300;
+    padding: 10px;
+    padding-left: 25px;
+    font-family: CircularStd;
+    border: none;
+    border-radius: var(--radius-lg);
 }
 
 form.insert-album-form input[type="date"] {
@@ -59,7 +59,7 @@ form.insert-album-form input[type="date"] {
 }
 
 button.submit-album{
-    margin-top: 40px;
+    margin-top: 25px;
     width: 100%;
     padding: 15px 0;
     font-size: 14px;
@@ -67,30 +67,30 @@ button.submit-album{
 }
 
 .custom-file-upload {
-  border: 1px solid #ccc;
-  display: inline-block;
-  padding: 6px 12px;
-  cursor: pointer;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
 }
 
 .back-btn {
-  background-color: var(--clr-background-highlight-two);
-  margin: 30px;
-  padding: 20px;
-  cursor: pointer;
-  border-radius: var(--radius-lg);
-  border: none;
-  align-items: center;
-  display: inline-flex;
-  transition: var(--transition);
+    background-color: var(--clr-background-highlight-two);
+    margin: 30px;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: var(--radius-lg);
+    border: none;
+    align-items: center;
+    display: inline-flex;
+    transition: var(--transition);
 }
 
 .back-btn:hover {
-  background-color: var(--clr-background-highlight-three);
+    background-color: var(--clr-background-highlight-three);
 }
 
 form.insert-album-form input[type="file"] {
-  margin-top: 5px;
+    margin-top: 5px;
 }
 
 form.insert-album-form input[type="file"]::file-selector-button {
@@ -104,9 +104,9 @@ form.insert-album-form input[type="file"]::file-selector-button {
 }
 
 h4 {
-  font-size: 14px;
-  font-weight: 300;
-  margin-top: 25px;
-  padding: 0 10px;
-  color: var(--clr-text-info-hover);
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 25px;
+    padding: 0 10px;
+    color: var(--clr-text-info-hover);
 }

@@ -80,7 +80,7 @@ form.insert-song-form select:after {
 }
 
 button.submit-song{
-    margin-top: 40px;
+    margin-top: 25px;
     width: 100%;
     padding: 15px 0;
     font-size: 14px;
