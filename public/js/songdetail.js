@@ -22,8 +22,8 @@ document.querySelectorAll("tr.content").forEach((row) => {
                 artistName.innerHTML = response.data.song.penyanyi;
                 albumName.innerHTML = (response.data.album.judul ? "From Album: " + response.data.album.judul : " ");
                 details.innerHTML = response.data.song.tanggal_terbit + " |  " + response.data.song.genre;
-                music.src = response.data.song.audio_path.replace("/var/www/html", "");
-                cover.src = response.data.song.image_path.replace("/var/www/html", "");
+                music.src = response.data.song.audio_path.replace(BASE_URL, "");
+                cover.src = response.data.song.image_path.replace(BASE_URL, "");
 
                 const setMusic = () => {
                     seekBar.value = 0;

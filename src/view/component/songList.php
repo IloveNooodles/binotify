@@ -22,7 +22,7 @@ function songs_in_html($data){
   $cnt = 1;
   foreach($data as $song){
     $id = $song['song_id'];
-    $image_path = str_replace('/var/www/html','',$song['image_path']);;
+    $image_path = str_replace(BASE_URL,'',$song['image_path']);;
     $judul = $song['judul'];
     $penyanyi = $song['penyanyi'];
     $tanggal_terbit = $song['tanggal_terbit'];

@@ -1,7 +1,7 @@
 <?php
 define("MAX_UPLOAD_FILE_SIZE", 32000000);
-define("TARGET_IMG", "/var/www/html/public/img/");
-define("TARGET_AUDIO", "/var/www/html/public/audio/");
+define("TARGET_IMG", BASE_URL . "/public/img/");
+define("TARGET_AUDIO", BASE_URL . "/public/audio/");
 
 function get_file_song_duration($song_path){
   $cmd = "mediainfo --Output='General;%Duration%' " . $song_path;
