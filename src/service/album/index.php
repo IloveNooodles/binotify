@@ -1,7 +1,7 @@
 <?php
 require_once BASE_URL . '/src/interface/model/album.php';
 require_once BASE_URL . '/src/interface/model/song.php';
-require_once BASE_URL . '/src/infrastructure/audio/audio.php';
+require_once BASE_URL . '/src/infrastructure/upload/upload.php';
 require_once "utils/constant.php";
 
 class AlbumService {
@@ -11,11 +11,20 @@ class AlbumService {
         return $album;
     }
 
-    public function new($judul, $penyanyi, $tanggal_terbit, $genre, $image_path) {
+    public function new($judul, $penyanyi, $tanggal_terbit, $genre, $files) {
         $total_duration = 0;
         $album_model = new AlbumModel();
+        $filename = $_FILES['cover']['name'];
+        $tmp_path = $_FILES['cover']['tmp_name'];
+        $unique_name = generate_unique_name($filename);
+        $file_ext = get_file_extension($filename);
+        $unique_name = $unique_name . "." . $file_ext;
+        $result = null;
+        if(!filename_exists(TARGET_IMG, $unique_name)){
+          $result = save_file($tmp_path, $unique_name, TARGET_IMG);
+        }
         try {
-            $album_model->insert_album($judul, $penyanyi, $tanggal_terbit, $total_duration, $genre, $image_path);
+            $album_model->insert_album($judul, $penyanyi, $tanggal_terbit, $total_duration, $genre, $result);
         } catch (Throwable $e) {
             return INTERNAL_ERROR;
         }

@@ -19,12 +19,12 @@ class Album extends Controller {
                 break;
             case "POST":
                 $album_service = new AlbumService();
-                if (empty($_POST['judul']) || empty($_POST['penyanyi']) || empty($_POST['tanggal']) || empty($_POST['genre']) || empty($_POST['cover'])) {
+                if (empty($_POST['judul']) || empty($_POST['penyanyi']) || empty($_POST['tanggal']) || empty($_POST['genre']) || empty($_FILES)) {
                     $data = ["status_message" => DATA_NOT_COMPLETE];
                     $this->view("album/insert_album", $data);
                 }
                 else {
-                    $status = $album_service->new($_POST['judul'], $_POST['penyanyi'], $_POST['tanggal'], $_POST['genre'], $_POST['cover']);
+                    $status = $album_service->new($_POST['judul'], $_POST['penyanyi'], $_POST['tanggal'], $_POST['genre'], $_FILES);
                     $data = ["status_message" => $status];
                     $this->view("album/insert_album", $data);
                 }

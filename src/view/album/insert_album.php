@@ -15,7 +15,7 @@
         <i class="arrow left"></i>
     </a>
 
-    <form class="insert-album-form" action="/album/new" method="POST">
+    <form class="insert-album-form" action="/album/new" method="POST" enctype="multipart/form-data">
         <h3>Insert New Album</h3>
         <input type="text" placeholder="Judul" id="judul" name="judul">
         <input type="text" placeholder="Penyanyi" id="penyanyi" name="penyanyi">
@@ -25,7 +25,7 @@
         <input type="date" placeholder="Tanggal Terbit" id="tanggal" name="tanggal">
         
         <h4>Album Cover</h4>
-        <input type="file" id="cover" name="cover">
+        <input type="file" id="cover" name="cover" accept="image/*">
 
         <?php
             if (isset($data['status_message']) && $data['status_message'] == SUCCESS) {
