@@ -53,6 +53,7 @@ EOT;
       </div>
   </div>
 EOT;
+  echo $play_song;
 }
 
 show_song_detail();
