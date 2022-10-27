@@ -1,7 +1,9 @@
 #songlist {
   border-collapse: collapse;
-  margin: 50px;
-  width: 80%;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 70%;
 }
 
 #songlist td,
@@ -59,4 +61,11 @@
   color: var(--clr-text-secondary);
   font-weight: lighter;
   font-size: small;
+}
+
+@media screen and (min-width: 600px) {
+  #songlist {
+    margin: 50px;
+    width: 80%;
+  }
 }

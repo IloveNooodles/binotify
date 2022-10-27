@@ -6,7 +6,7 @@ class Song extends Controller {
     public function index($query=null){
         switch($_SERVER['REQUEST_METHOD']){
             case "GET":
-                $this->view("search/index");
+                redirect_to("search/index");
                 break;
             default:
                 response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
@@ -100,8 +100,8 @@ class Song extends Controller {
                 $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : "judul";
 
                 $data = $search_service->search_song($word, $genre, $asc, $orderby, $page);
-                $this->view("search/index", $data);
-                return;
+                response_json($data);
+              return;
                 break;
             default:
                 response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
