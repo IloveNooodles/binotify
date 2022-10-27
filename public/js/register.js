@@ -8,7 +8,7 @@ document.querySelectorAll(".register-form input").forEach((item) => {
       if (xhr.status === 200) {
         var valid = true;
         var response = JSON.parse(xhr.responseText);
-        if (response.data.username != "true") {
+        if (response.data.username !== "true") {
           document.getElementById("username").classList.add("invalid");
           document.getElementById("username-error").innerHTML =
             response.data.username;
@@ -17,7 +17,7 @@ document.querySelectorAll(".register-form input").forEach((item) => {
           document.getElementById("username").classList.remove("invalid");
           document.getElementById("username-error").innerHTML = "";
         }
-        if (response.data.email != "true") {
+        if (response.data.email !== "true") {
           document.getElementById("email").classList.add("invalid");
           document.getElementById("email-error").innerHTML =
             response.data.email;
@@ -26,7 +26,7 @@ document.querySelectorAll(".register-form input").forEach((item) => {
           document.getElementById("email").classList.remove("invalid");
           document.getElementById("email-error").innerHTML = "";
         }
-        if (response.data.password != "true") {
+        if (response.data.password !== "true") {
           document.getElementById("password").classList.add("invalid");
           document.getElementById("confirm-password").classList.add("invalid");
           document.getElementById("confirm-password-error").innerHTML =
@@ -39,9 +39,7 @@ document.querySelectorAll(".register-form input").forEach((item) => {
             .classList.remove("invalid");
           document.getElementById("password-error").innerHTML = "";
         }
-        document.querySelector(
-          "#register-form button[type='submit']"
-        ).disabled = !valid;
+        document.getElementById("register-submit-button").disabled = !valid;
       }
     };
 

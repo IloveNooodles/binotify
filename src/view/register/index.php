@@ -17,7 +17,7 @@
   </a>
   <form class="register-form" action="/register" method="POST">
       <h3>Register</h3>
-      <input required type="email" placeholder="Email" id="email" name="email">
+      <input required type="text" placeholder="Email" id="email" name="email">
       <label id="email-error"></label>
       <input required type="text" placeholder="Username" id="username" name="username">
       <label id="username-error"></label>
@@ -33,11 +33,11 @@
           echo '<label id="registration-failure">Registration Failed</label>';
         }
       ?>
-      <button type="submit" class="btn primary register">Register</button>
+      <button id="register-submit-button" type="submit" class="btn primary register">Register</button>
       <a href="/login">
         <button type="button" class="btn primary login">Already have an account?</button>
       </a>
   </form>
-  <script defer src="/public/js/register.js"></script>
 </body>
+<script src="/public/js/register.js"></script>
 </html>
