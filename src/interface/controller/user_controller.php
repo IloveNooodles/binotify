@@ -1,12 +1,15 @@
 <?php
 require_once BASE_URL . '/src/service/search/index.php';
 require_once BASE_URL . '/src/interface/controller/utils/index.php';
+require_once BASE_URL . '/src/middleware/middleware.php';
 
 class User extends Controller {
     public function index(){
+      $middleware = new Middleware();
+      $can_access_admin = $middleware->can_access_admin_page();
       switch($_SERVER['REQUEST_METHOD']){
         case "GET":
-          if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin'){
+          if($can_access_admin){
             $this->list();
             return;
           }
