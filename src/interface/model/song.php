@@ -200,5 +200,44 @@ class SongModel {
 
     $this->db->execute();
   }
+
+  public function search_song_per_word($word, $page = 1, $genre = 'all', $order = 'ASC', $orderby = 'song_id', $limit = PAGINATION_LIMIT) {
+    $query = "SELECT * FROM Song ";
+    $contain_genre = false;
+
+    if (isset($genre) and !empty($genre) and $genre != 'all') {
+      $query .= "WHERE genre = :genre ";
+      $contain_genre = true;
+    }
+
+    if (isset($word) and !empty($word) and count($word) > 0) {
+      $count_word = count($word);
+      if (strpos($query, 'WHERE') !== false) {
+        $query .= "AND ";
+      } else {
+        $query .= "WHERE ";
+      }
+
+      foreach(range(0, $count_word-1) as $i) {
+        $w = $word[$i];
+        $query .= "((LOWER(judul) LIKE LOWER('%$w%')) OR (LOWER(penyanyi) LIKE LOWER('%$w%')) OR (LOWER(tanggal_terbit) LIKE LOWER('%$w%'))) ";
+        if($i != $count_word-1) {
+          $query .= "AND ";
+        }
+      }
+    }
+
+    $query .= "ORDER BY $orderby $order LIMIT $limit OFFSET :offset";
+
+    $offset = ($page - 1) * PAGINATION_LIMIT;
+    $this->db->query($query);
+    $this->db->bind("offset", $offset);
+    if (isset($genre) and !empty($genre) and $contain_genre) {
+      $this->db->bind("genre", $genre);
+    }
+
+    $result = $this->db->result_set();
+    return $result;
+  }
   
 }
