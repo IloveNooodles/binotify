@@ -34,7 +34,10 @@ class SearchService {
             $songs = $song_model->search_song_per_word($word_array, $page, $genre, $order, $orderby);
             $data['songs'] = $songs;
 
-            $data['total_page'] = $this->get_total_song_page();
+            $count_row = $song_model->count_search_song_per_word($word_array, $genre, $order, $orderby);
+            $total_page = ceil($count_row['total_row']/PAGINATION_LIMIT);
+
+            $data['total_page'] = $total_page;
             $data['current_page'] = (int)$page;
         } catch (Throwable $e) {
             $data['status_message'] = INTERNAL_ERROR;
@@ -42,12 +45,5 @@ class SearchService {
         }
         $data['status_message'] = SUCCESS;
         return $data;
-    }
-
-    private function get_total_song_page() {
-        $song_model = new SongModel();
-        $total_song = $song_model->count_all_song();
-        $total_page = ceil($total_song['total'] / PAGINATION_LIMIT);
-        return $total_page;
     }
 }
