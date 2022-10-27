@@ -1,4 +1,6 @@
 drop table if exists User;
+drop table if exists Song;
+drop table if exists Album;
 
 create table User (
 	user_id int(11) AUTO_INCREMENT primary key,
@@ -15,8 +17,6 @@ insert into User (email, password, username, isAdmin) values
 ('krobertson2@state.tx.us', '$2y$10$8u28mgkJTPle9/lejXxvZ.nCtI9YGtH9IFNv1uPuKE2mHKD58zMXO','krobertson',  false), 
 ('pfoster3@earthlink.net', '$2y$10$8u28mgkJTPle9/lejXxvZ.nCtI9YGtH9IFNv1uPuKE2mHKD58zMXO','pfoster',  false);
 
-drop table if exists Album;
-
 create table Album (
 	album_id int(11) AUTO_INCREMENT primary key,
 	judul varchar(64) not null,
@@ -32,8 +32,6 @@ INSERT INTO Album (genre, image_path, judul, penyanyi, tanggal_terbit, total_dur
 ('Vocal', 'https://picsum.photos/id/1/5616/3744', 'OK Computer', 'Radiohead', '1981-04-26', 3201),
 ('Post-Disco', 'https://picsum.photos/id/1025/4951/3301', 'Dummy', 'Portishead', '2001-09-17', 2926),
 ('Folk Music', 'https://picsum.photos/id/1019/5472/3648', 'Third', 'Portishead', '1997-01-16', 2930);
-
-drop table if exists Song;
 
 create table Song (
 	song_id int(11) AUTO_INCREMENT primary key,
