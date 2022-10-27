@@ -18,10 +18,6 @@ class AlbumService {
 
             $songs = $this->find_all_song_from_album_id($album_id);
             $data['songs'] = $songs;
-            if (!isset($songs) or $songs == null) {
-                $data['status_message'] = SONG_NOT_FOUND;
-                return $data;
-            }
 
             $data['status_message'] = SUCCESS;
             return $data;
