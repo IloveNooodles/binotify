@@ -164,7 +164,7 @@ function updateDOM(data) {
                 <td>${index + 1 + (current_page - 1) * 10}</td>
                 <td class="songlist-title">
                     <img class="song-image" src="${
-                      song["image_path"]
+                      song["image_path"].replace("/var/www/html", "")
                     }" alt="album">
                     <div class="title-artist">
                         <p class="song-title">${song["judul"]}</p>
