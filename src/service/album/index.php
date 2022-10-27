@@ -11,8 +11,7 @@ class AlbumService {
         $album = $album_model->find_detail_album($album_id);
         $data['album'] = $album;
 
-        $song_model = new SongModel();
-        $songs = $song_model->find_all_songs_by_album_id($album_id);
+        $songs = $this->find_all_song_from_album_id($album_id);
         $data['songs'] = $songs;
 
         return $data;
@@ -67,22 +66,33 @@ class AlbumService {
     }
 
     public function delete($id) {
-        $album_model = new AlbumModel();
-        $song_model = new SongModel();
+        $data = null;
         try {
-            $song_model->delete_song_by_album_id($id);
+            $album_model = new AlbumModel();
+            $song_model = new SongModel();
+
+            $songs = $this->find_all_song_from_album_id($id);
+
+            if ($songs != null) {
+                foreach ($songs as $song) {
+                    $song_model->delete_album_id_from_song($song['song_id']);
+                }
+            }
+
             $album_model->delete_album($id);
         } catch (Throwable $e) {
-            return "?status-message=" . INTERNAL_ERROR;
+            $data['status_message'] = INTERNAL_ERROR;
+            return $data;
         }
-        return "?status-message=" . SUCCESS;
+        $data['status_message'] = SUCCESS;
+        return $data;
     }
 
     public function update_duration($id) {
         $song_model = new SongModel();
         $album_model = new AlbumModel();
         try {
-            $songs = $song_model->find_all_song_by_album_id($id);
+            $songs = $song_model->find_all_songs_by_album_id($id);
 
             $total_duration = 0;
             foreach ($songs as $song) {
@@ -99,5 +109,11 @@ class AlbumService {
         $album_model = new AlbumModel();
         $data = $album_model->find_all_album($page);
         return $data;
+    }
+
+    private function find_all_song_from_album_id($album_id) {
+        $song_model = new SongModel();
+        $songs = $song_model->find_all_songs_by_album_id($album_id);
+        return $songs;
     }
 }

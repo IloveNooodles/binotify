@@ -71,8 +71,24 @@ class Album extends Controller {
     }
 
     public function delete() {
-        $album_service = new AlbumService();
-        $status_message = $album_service->delete($_POST['id']);
-        header("Location: /album" . $status_message);
+        switch($_SERVER["REQUEST_METHOD"]) {
+            case "DELETE":
+                $album_service = new AlbumService();
+
+                if (!isset($_GET['album_id'])) {
+                    $this->view("album/index");
+                    return;
+                }
+
+                $data = $album_service->delete($_GET['album_id']);
+                response_json($data);
+                // $this->view("album/index", $data);
+                return;
+                break;
+            default:
+                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                return;
+                break;
+        }
     }
 }
