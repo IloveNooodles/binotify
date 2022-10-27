@@ -246,4 +246,11 @@ class SongModel {
     $result = $this->db->single();
     return $result;
   }
+
+  public function count_genre() {
+    $query = "SELECT COUNT(DISTINCT genre) as total_genre FROM Song";
+    $this->db->query($query);
+    $result = $this->db->single();
+    return $result;
+  }
 }

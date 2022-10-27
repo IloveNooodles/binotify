@@ -115,10 +115,24 @@ class Song extends Controller {
                 $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : "judul";
 
                 $data = $search_service->search_song($word, $genre, $asc, $orderby, $page);
-                // $this->view("search/index", $data);
+
                 response_json($data);
                 return;
                 break;
+            default:
+                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                return;
+                break;
+        }
+    }
+
+    public function count_genre() {
+        switch($_SERVER["REQUEST_METHOD"]) {
+            case "GET":
+                $song_service = new SongService();
+                $data = $song_service->count_genre();
+                response_json($data);
+                return;
             default:
                 response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
                 return;

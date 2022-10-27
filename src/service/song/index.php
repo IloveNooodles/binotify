@@ -123,4 +123,10 @@ class SongService {
         }
         return SUCCESS;
     }
+
+    public function count_genre() {
+        $song_model = new SongModel();
+        $data = $song_model->count_genre();
+        return $data;
+    }
 }
