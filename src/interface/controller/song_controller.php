@@ -26,14 +26,25 @@ class Song extends Controller {
     }
 
     public function new() {
-        $song_service = new SongService();
-        if (empty($_POST['judul']) || empty($_POST['audio_path']) || empty($_POST['album_id'])) {
-            $this->view("song/insert_song", ["status_message" => DATA_NOT_COMPLETE]);
+        switch($_SERVER["REQUEST_METHOD"]) {
+            case "GET":
+                $this->view("song/insert_song");
+                break;
+            case "POST":
+                $song_service = new SongService();
+                $data = NULL;
+
+                if (empty($_POST['judul']) || empty($_POST['penyanyi']) || empty($_POST['tanggal']) || empty($_POST['genre']) || empty($_FILES['cover']) || empty($_FILES['audio'])) {
+                    $data = ["status_message" => DATA_NOT_COMPLETE];
+                }
+                else {
+                    $status = $song_service->new($_POST['judul'], $_POST['penyanyi'], $_POST['tanggal'], $_POST['genre'], $_FILES);
+                    $data = ["status_message" => $status];
+                }
+                $this->view("song/insert_song", $data);
+                return;
+                break;
         }
-        else {
-            $this->view("song/insert_song", $song_service->new($_POST['judul'], $_POST['audio_path'], $_POST['album_id']));
-        }
-        // belom tau redirect kemana
     }
 
     public function edit() {
@@ -47,7 +58,7 @@ class Song extends Controller {
     }
 
     public function search() {
-      $this->view("search/index");
-      return;
+        $this->view("search/index");
+        return;
     }
 }

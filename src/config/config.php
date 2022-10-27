@@ -8,4 +8,7 @@ define('MYSQL_PASSWORD', $_ENV['MYSQL_PASSWORD']);
 define('MYSQL_DATABASE', $_ENV['MYSQL_DATABASE']);
 
 define('PAGINATION_LIMIT', 10);
+
+define("IMAGE_DIR", BASE_URL . "/public/img/");
+define("AUDIO_DIR", BASE_URL . "/public/audio/");
 ?>

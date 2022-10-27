@@ -20,14 +20,6 @@
         <input type="text" placeholder="Judul" id="judul" name="judul">
         <input type="text" placeholder="Penyanyi" id="penyanyi" name="penyanyi">
         <input type="text" placeholder="Genre" id="genre" name="genre">
-        
-        <select id="standard-select">
-            <option value="Option 1">Select Album</option>
-            <option value="Option 2">Option 2</option>
-            <option value="Option 3">Option 3</option>
-            <option value="Option 4">Option 4</option>
-            <option value="Option 5">Option 5</option>
-        </select>
 
         <h4>Tanggal Terbit</h4>
         <input type="date" placeholder="Tanggal Terbit" id="tanggal" name="tanggal">
@@ -36,6 +28,23 @@
         <input type="file" id="cover" name="cover" accept="image/*">
         <h4>Song Audio</h4>
         <input type="file" id="audio" name="audio" accept="audio/*">
+
+        <?php
+            if (isset($data['status_message']) && $data['status_message'] == SUCCESS) {
+                echo '<label class="sumbit-success">Submit Album Successful</label>';
+            }
+            else if (isset($data['status_message']) && ($data['status_message'] != SUCCESS)) {
+                $msg = $data['status_message'];
+                if ($data['status_message'] == 'INTERNAL_SERVER_ERROR') {
+                    $msg = "Album already exists";
+                } else if ($data['status_message'] == 'DATA_NOT_COMPLETE') {
+                    $msg = "Please fill all the fields";
+                } else {
+                    $msg = "Something went wrong";
+                }
+                echo '<label class="sumbit-failure">' . $msg . '</label>';
+            }
+        ?>
         
         <button type="submit" class="btn primary submit-song">Submit Song</button>
     </form>

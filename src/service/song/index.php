@@ -1,6 +1,8 @@
 <?php
 require_once BASE_URL . '/src/interface/model/song.php';
-require_once BASE_URL . '/src/service/album/index.php';
+require_once BASE_URL . '/src/interface/storage/audio.php';
+require_once BASE_URL . '/src/interface/storage/image.php';
+
 
 class SongService {
     public function detail($id) {
@@ -15,19 +17,30 @@ class SongService {
         return $data;
     }
 
-    public function new($judul, $audio_path, $album_id) {
-        $song_model = new SongModel();
-        $album_service = new AlbumService();
+    public function new($judul, $penyanyi, $tanggal_terbit, $genre, $files) {
+        $total_duration = 0;
+        
         try {
-            $duration = get_file_song_duration($audio_path);
-            $album_detail = $album_service->detail($album_id);
-            $song_model->insert_song($judul, $album_detail["penyanyi"], $album_detail["tanggal_terbit"], 
-                                    $duration, $album_detail["genre"], $audio_path, $album_detail["image_path"], $album_id);
-            $album_service->update_duration($album_id);
+            $song_model = new SongModel();
+            $audio_storage = new AudioStorage();
+            $image_storage = new ImageStorage();
+
+            $audio_path = $audio_storage->save_audio($files, AUDIO_DIR);
+            $image_path = $image_storage->save_image($files['image']['name'], $files['image']['tmp_name'], IMAGE_DIR);
+            if ($audio_path == null || $image_path == null) {
+                return INTERNAL_ERROR;
+            }
+
+            $total_duration = $audio_storage->get_audio_duration($audio_path);
+            if ($total_duration == null || $total_duration == 0) {
+                return DATA_NOT_COMPLETE;
+            }
+
+            $song_model->insert_song($judul, $penyanyi, $tanggal_terbit, $total_duration, $genre, $audio_path, $image_path, null);
         } catch (Throwable $e) {
-            return ["status_message" => INTERNAL_ERROR];
+            return INTERNAL_ERROR;
         }
-        return ["status_message" => SUCCESS];
+        return SUCCESS;
     }
 
     public function edit() {
@@ -44,17 +57,5 @@ class SongService {
             return ["status_message" => INTERNAL_ERROR];
         }
         return ["status_message" => SUCCESS];
-    }
-
-    public function search($res, $page, $genre, $sort) {
-        $song_model = new SongModel();
-        $songs = $song_model->find_song_by_judul_penyanyi_tahun_filter_by_genre($res, $page, $genre, $sort);
-        return $songs;
-    }
-
-    public function get_genre() {
-        $song_model = new SongModel();
-        $genres = $song_model->get_all_genre();
-        return $genres;
     }
 }

@@ -131,3 +131,17 @@ h4 {
     padding: 0 10px;
     color: var(--clr-text-info-hover);
 }
+
+form.insert-song-form label.sumbit-success {
+    font-weight: 300;
+    margin-top: 50px;
+    padding: 15px 0;
+    color: var(--clr-text-info);
+}
+
+form.insert-song-form label.sumbit-failure {
+    font-weight: 300;
+    margin-top: 50px;
+    padding: 15px 0;
+    color: var(--clr-text-danger);
+}
