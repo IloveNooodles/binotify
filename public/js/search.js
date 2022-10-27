@@ -128,7 +128,7 @@ rightbutton.addEventListener("click", (e) => {
 function updateListGenre(data) {
   res = JSON.parse(data);
   list_song = res["data"]["genre"];
-  template_html = `<option value="all" selected>No genre selected</option>`;
+  template_html = `<option value="all" selected>All</option>`;
   list_song.map((item) => {
     item_genre = item["total_genre"];
     template_html += `<option value="${item_genre}">${capitalize(
@@ -164,7 +164,7 @@ function updateDOM(data) {
                 <td>${index + 1 + (current_page - 1) * 10}</td>
                 <td class="songlist-title">
                     <img class="song-image" src="${
-                      song["image_path"]
+                      song["image_path"].replace("/var/www/html", "")
                     }" alt="album">
                     <div class="title-artist">
                         <p class="song-title">${song["judul"]}</p>

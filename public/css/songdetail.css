@@ -295,3 +295,25 @@ img.player-cover {
     background: var(--clr-text-primary);
   }
 }
+
+
+.edit-btn {
+  position: absolute;
+  right: 50px;
+  background-color: var(--clr-background-highlight-two);
+  color: var(--clr-text-secondary);
+  margin: 30px;
+  padding: 20px;
+  cursor: pointer;
+  border-radius: var(--radius-lg);
+  border: none;
+  align-items: center;
+  display: inline-flex;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.edit-btn:hover {
+  background-color: var(--clr-background-highlight-three);
+  color: var(--clr-text-primary);
+}

@@ -102,20 +102,25 @@ NOTE: If you are UNIX users don't forget to add sudo (ex: `sudo ./scripts/run.sh
 
 | Muhammad Garebaldhie ER Rahman      | I Gede Arya R. P | Arik Rayi Arkananta  |
 | ----------------------------------- | :--------------: | -------------------- |
-| login                               |   insert song    | register             |
-| fetch list user                     |   insert album   | fetch list album     |
-| fetch list song                     |    right baz     | fetch detail song    |
-| create song, albums, and user model |    right baz     | play music mechanism |
-| upload file mechanism               |    right baz     | right foo            |
-| count song duration mechanism       |    right baz     | right foo            |
-| docker                              |    right baz     | right foo            |
+| login                               |   Insert song    | register             |
+| fetch list user                     |   Insert album   | fetch list album     |
+| fetch list song                     |    Edit Song     | fetch detail song    |
+| create song, albums, and user model |    Edit Album     | play music mechanism |
+| upload file mechanism               |    Detail Song     | right foo            |
+| count song duration mechanism       |    Detail Album     |             |
+| docker                              |    Delete Song     |             |
+|                               |    Delete Album     |             |
+|                               |    Get All Genre     |             |
+|                               |    Add Song to Album     |             |
+|                               |    Delete Song from Album     |             |
+|                               |    Get Unlinked Song     |             |
 
 ### Client Side
 
 | Muhammad Garebaldhie ER Rahman | I Gede Arya R. P  | Arik Rayi Arkananta          |
 | ------------------------------ | :---------------: | ---------------------------- |
-| Responsive user list page      | insert song page  | Navbar user, guest and admin |
-| list of song in home           | insert album page | login                        |
+| Responsive user list page      | Insert song page  | Navbar user, guest and admin |
+| list of song in home           | Insert album page | login                        |
 | base css and animation         |                   | register                     |
 | responsive list of album page  |                   | Detail song                  |
 | admin list user page           |                   | homepage                     |

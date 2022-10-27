@@ -31,3 +31,47 @@
     padding-left: 0;
     color: var(--clr-text-secondary);
 }
+
+.edit-btn {
+    position: absolute;
+    right: 100px;
+    background-color: var(--clr-background-highlight-two);
+    color: var(--clr-text-secondary);
+    margin: 30px;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: var(--radius-lg);
+    border: none;
+    align-items: center;
+    display: inline-flex;
+    transition: var(--transition);
+    text-decoration: none;
+    z-index: 5;
+}
+
+.edit-btn:hover {
+    background-color: var(--clr-background-highlight-three);
+    color: var(--clr-text-primary);
+}
+
+.delete-btn {
+    position: absolute;
+    right: 0;
+    background-color: var(--clr-background-highlight-two);
+    color: var(--clr-text-secondary);
+    margin: 30px;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: var(--radius-lg);
+    border: none;
+    align-items: center;
+    display: inline-flex;
+    transition: var(--transition);
+    text-decoration: none;
+    z-index: 5;
+}
+
+.delete-btn:hover {
+    background-color: var(--clr-background-highlight-three);
+    color: var(--clr-text-primary);
+}
