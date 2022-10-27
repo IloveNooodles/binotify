@@ -17,8 +17,8 @@
     <div class="top-menu">
         <form class="form-search" id="form-search">
             <div class="search-by">
-              <label for="search-page">Judul / Penyanyi / Tahun Terbit</label>
-              <input id="search-page" type="text" name="res" class="search-bar" placeholder="Search">
+              <label for="search-page">Title / Artist / Released Year</label>
+              <input id="search-page" type="text" name="q" class="search-bar" placeholder="Search" value="<?php if(isset($_GET['q'])) echo $_GET['q']; ?>">
             </div>
             <div class="search-by">
               <label for="Genre">Genre</label>
@@ -30,11 +30,14 @@
               </select>
             </div>
             <div class="search-by">
-              <label for="asc">Sort</label>
+              <label for="asc">Order</label>
               <select class="search-bar" name="asc" id="asc">
                 <option value="0" selected> Ascending</option>
                 <option value="1"> Descending </option>
               </select>
+            </div>
+            <div class="search-by">
+              <label for="orderby">Orderby</label>
               <select class="search-bar" name="orderby" id="orderby">
                 <option value="judul" selected> Judul </option>
                 <option value="penyanyi"> Penyanyi </option>
@@ -44,7 +47,15 @@
         </form>
     </div>
     <div id="search-result-list"></div>
-    <!-- <?php include_once 'src/view/component/search_list.php'; return_search_list($data)?> -->
+    <div class="pagination" id="pagination-container">
+      <button class="btn" id="left-button">&lt;</button>
+      <div class="pagination-page btn" id="pagination-page">
+        <p id="current-page">1</p>
+        <p>of</p>
+        <p id="total-page">1</p>
+      </div>
+      <button class="btn" id="right-button">&gt;</p>
+    </div>
     <script defer src="/public/js/search.js"></script>
 </body>
 </html>

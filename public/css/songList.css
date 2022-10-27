@@ -13,7 +13,6 @@
   font-weight: lighter;
   font-size: small;
   padding-left: 10px;
-  padding-right: 10px;
   padding-bottom: 12px;
 }
 #songlist tr.content {
@@ -55,7 +54,7 @@
 .song-title {
   color: var(--clr-text-primary);
   font-weight: bold;
-  font-size: var(--fs-heading);
+  font-size: var(--fs-caption);
 }
 .song-artist {
   color: var(--clr-text-secondary);
@@ -66,6 +65,11 @@
 @media screen and (min-width: 600px) {
   #songlist {
     margin: 50px;
+    margin-bottom: 1rem;
     width: 80%;
+  }
+
+  .song-title {
+    font-size: var(--fs-heading);
   }
 }
