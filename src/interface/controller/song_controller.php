@@ -14,14 +14,23 @@ class Song extends Controller {
         }
     }
 
-    public function detail() {
+    public function detail($id = -1) {
         switch($_SERVER['REQUEST_METHOD']){
             case "GET":
                 $song_service = new SongService();
-                $id = $_GET['id'];
-                $song = $song_service->detail($id);
-                $this->view('song/song_detail', $song);
-                // response_json($song);
+                
+                if ($id == -1) {
+                    redirect_home();
+                    return;
+                }
+                
+                $data = $song_service->detail($id);
+                if (isset($data) and isset($data['status_message']) and $data['status_message'] != SUCCESS) {
+                    redirect_home();
+                    return;
+                }
+
+                $this->view('song/song_detail', $data);
                 break;
             default:
                 response_not_allowed_method();

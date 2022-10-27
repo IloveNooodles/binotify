@@ -6,15 +6,31 @@ require_once BASE_URL . '/src/interface/storage/image.php';
 
 class SongService {
     public function detail($id) {
-        $song_model = new SongModel();
-        $album_service = new AlbumService();
-        $song = $song_model->find_detail_song($id);
-        $album = $album_service->detail($song['album_id']);
-        $data = [
-            'song' => $song,
-            'album' => $album
-        ];
-        return $data;
+        try {
+            $song_model = new SongModel();
+            $album_service = new AlbumService();
+            $song = $song_model->find_detail_song($id);
+            if (!isset($song) or $song == null) {
+                $data['status_message'] = SONG_NOT_FOUND;
+                return $data;
+            }
+
+            $album = $album_service->detail($song['album_id']);
+            if (!isset($album) or $album == null) {
+                $data['status_message'] = ALBUM_NOT_FOUND;
+                return $data;
+            }
+
+            $data['status_message'] = SUCCESS;
+            $data = [
+                'song' => $song,
+                'album' => $album,
+            ];
+            return $data;
+        } catch (Exception $e) {
+            $data['status_message'] = INTERNAL_ERROR;
+            return $data;
+        }
     }
 
     public function new($judul, $penyanyi, $tanggal_terbit, $genre, $file_image, $file_audio) {
