@@ -48,7 +48,6 @@ window.addEventListener("load", (e) => {
 formsearch.addEventListener("submit", (e) => {
   e.preventDefault();
   const URL = `song/search?q=${search.value}&genre=${genre.value}&asc=${order.value}&orderby=${orderby.value}&page=${current_page.value}`;
-  console.log(URL);
   fetch_search_result_song.open("GET", URL);
   fetch_search_result_song.send();
 
@@ -71,7 +70,6 @@ leftbutton.addEventListener("click", (e) => {
   const URL = `song/search?q=${search.value}&genre=${genre.value}&asc=${
     order.value
   }&orderby=${orderby.value}&page=${cur_page - 1}`;
-  console.log(URL);
 
   fetch_search_result_song.open("GET", URL);
   fetch_search_result_song.send();
@@ -97,7 +95,6 @@ rightbutton.addEventListener("click", (e) => {
   const URL = `song/search?q=${search.value}&genre=${genre.value}&asc=${
     order.value
   }&orderby=${orderby.value}&page=${cur_page + 1}`;
-  console.log(URL);
   fetch_search_result_song.open("GET", URL);
   fetch_search_result_song.send();
 
@@ -133,6 +130,8 @@ function updateDOM(data) {
 
   if (!list_song) {
     searchresultlist.innerHTML = `<p class="error-text">Not found</p>`;
+    current_page_DOM.textContent = 1;
+    total_page_DOM.textContent = 1;
     return;
   }
 

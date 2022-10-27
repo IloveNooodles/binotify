@@ -83,6 +83,12 @@ select.search-bar {
   margin-top: 2rem;
 }
 
+.search-result {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 @media screen and (min-width: 1024px) {
   .title {
     text-align: left;

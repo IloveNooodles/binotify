@@ -46,15 +46,17 @@
             </div>
         </form>
     </div>
-    <div id="search-result-list"></div>
-    <div class="pagination" id="pagination-container">
-      <button class="btn" id="left-button">&lt;</button>
-      <div class="pagination-page btn" id="pagination-page">
-        <p id="current-page">1</p>
-        <p>of</p>
-        <p id="total-page">1</p>
+    <div class="search-result">
+      <div id="search-result-list"></div>
+      <div class="pagination" id="pagination-container">
+        <button class="btn" id="left-button">&lt;</button>
+        <div class="pagination-page btn" id="pagination-page">
+          <p id="current-page">1</p>
+          <p>of</p>
+          <p id="total-page">1</p>
+        </div>
+        <button class="btn" id="right-button">&gt;</p>
       </div>
-      <button class="btn" id="right-button">&gt;</p>
     </div>
     <script defer src="/public/js/search.js"></script>
 </body>
