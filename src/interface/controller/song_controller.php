@@ -41,15 +41,35 @@ class Song extends Controller {
                     $status = $song_service->new($_POST['judul'], $_POST['penyanyi'], $_POST['tanggal'], $_POST['genre'], $_FILES['cover'], $_FILES['song']);
                     $data = ["status_message" => $status];
                 }
-                response_json($data);
-                // $this->view("song/insert_song", $data);
+                $this->view("song/insert_song", $data);
                 return;
                 break;
         }
     }
 
     public function edit() {
-        
+        switch($_SERVER["REQUEST_METHOD"]) {
+            case "GET":
+                $song_service = new SongService();
+                $song = $song_service->detail($_GET['id']);
+                $this->view("song/edit_song", $song);
+                break;
+            case "POST":
+                $song_service = new SongService();
+                if (empty($_POST['song_id'] || $_POST['judul']) || empty($_POST['penyanyi']) || empty($_POST['tanggal']) || empty($_POST['genre'])) {
+                    $data = ["status_message" => DATA_NOT_COMPLETE];
+                }
+                else {
+                    $cover = isset($_FILES['cover']) ? $_FILES['cover'] : null;
+                    $song = isset($_FILES['song']) ? $_FILES['song'] : null;
+
+                    $status = $song_service->edit($_POST['song_id'], $_POST['judul'], $_POST['penyanyi'], $_POST['tanggal'], $_POST['genre'], $cover, $song);
+                    $data = ["status_message" => $status];
+                }
+                $this->view("song/edit_song", $data);
+                return;
+                break;
+        }
     }
 
     public function delete() {

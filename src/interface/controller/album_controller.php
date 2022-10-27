@@ -11,8 +11,18 @@ class Album extends Controller {
 
     public function detail() {
         $album_service = new AlbumService();
-        $album = $album_service->detail($_GET['id']);
-        $this->view('album/detail', $album);
+
+        if (!isset($_GET['id'])) {
+            $page = 1;
+            $data = $album_service->getAlbums($page);
+            $this->view('album/index', $data);
+            return;
+        }
+
+        $data = $album_service->detail($_GET['id']);
+        response_json($data);
+        // $this->view('album/detail', $album);
+        return;
     }
 
     public function new() {
@@ -30,8 +40,7 @@ class Album extends Controller {
                     $status = $album_service->new($_POST['judul'], $_POST['penyanyi'], $_POST['tanggal'], $_POST['genre'], $_FILES['cover']);
                     $data = ["status_message" => $status];
                 }
-                response_json($data);
-                // $this->view("album/insert_album", $data);
+                $this->view("album/insert_album", $data);
                 return;
                 break;
         }
@@ -55,8 +64,7 @@ class Album extends Controller {
                     $status = $album_service->edit($_POST['album_id'], $_POST['judul'], $_POST['penyanyi'], $_POST['tanggal'], $_POST['genre'], $cover);
                     $data = ["status_message" => $status];
                 }
-                response_json($data);
-                // $this->view("album/edit_album", $data);
+                $this->view("album/edit_album", $data);
                 return;
                 break;
         }

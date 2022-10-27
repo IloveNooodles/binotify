@@ -5,9 +5,17 @@ require_once BASE_URL . '/src/interface/storage/image.php';
 
 class AlbumService {
     public function detail($album_id) {
+        $data = [];
+
         $album_model = new AlbumModel();
         $album = $album_model->find_detail_album($album_id);
-        return $album;
+        $data['album'] = $album;
+
+        $song_model = new SongModel();
+        $songs = $song_model->find_all_songs_by_album_id($album_id);
+        $data['songs'] = $songs;
+
+        return $data;
     }
 
     public function new($judul, $penyanyi, $tanggal_terbit, $genre, $file_image) {

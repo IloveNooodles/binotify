@@ -116,7 +116,18 @@ class SongModel {
     return $result;
   }
 
-  public function find_song_by_album_id($album_id, $page, $limit = PAGINATION_LIMIT) {
+  public function find_all_songs_by_album_id($album_id) {
+    $query = "SELECT * FROM Song WHERE album_id = :album_id";
+
+    $this->db->query($query);
+
+    $this->db->bind("album_id", $album_id);
+
+    $result = $this->db->result_set();
+    return $result;
+  }
+
+  public function find_songs_by_album_id($album_id, $page, $limit = PAGINATION_LIMIT) {
     $query = "SELECT * From Song WHERE album_id = :album_id LIMIT $limit OFFSET :offset";
 
     $this->db->query($query);
