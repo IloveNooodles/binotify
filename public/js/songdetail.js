@@ -68,8 +68,8 @@ document.querySelectorAll("tr.content").forEach((row) => {
                     music.currentTime = seekBar.value;
                 })
 
-                document.querySelector(".modal").style.display = "block";
-
+                document.querySelector(".modal").classList.add("show");
+                document.querySelector(".song-detail-content").classList.add("show");
             }
         };
         xhr.send();
@@ -77,7 +77,8 @@ document.querySelectorAll("tr.content").forEach((row) => {
 });
 
 document.querySelector(".close").addEventListener("click", (e) => {
-    document.querySelector(".modal").style.display = "none";
+    document.querySelector(".modal.show").classList.remove("show");
+    document.querySelector(".song-detail-content.show").classList.remove("show");
     if (!playBtn.className.includes('pause')) {
         playBtn.classList.toggle('pause');
         music.pause();
