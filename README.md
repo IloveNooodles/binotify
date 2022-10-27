@@ -3,11 +3,12 @@
 Binotify is a spotify like monolithic web application made using PHP and vanilla html css js. This app This repository is made to fulfill Tugas Besar 1 Pengembangan Aplikasi Berbasis Web IF3110 2022/2023. This app is also using docker for easy of use and same environment. Also includes with mysql and phpmyadmin for easier database management. This app have auth feature, see list of song and albums, searching, and many more. Currently this app supports thee role admin, user, and guest mode.
 
 Made with ❤ with
-| Name | NIM |
-| :-------------: |:-------------:|
+
+|              Name              |   NIM    |
+| :----------------------------: | :------: |
 | Muhammad Garebaldhie ER Rahman | 13520029 |
-| I Gede Arya R. P | 13520036 |
-| Arik Rayi Arkananta | 13520048 |
+|        I Gede Arya R. P        | 13520036 |
+|      Arik Rayi Arkananta       | 13520048 |
 
 ## Screenshot
 
@@ -80,9 +81,11 @@ Made with ❤ with
 ## How to run
 
 1. Change directory to the clonned repo
-2. Run `./scripts/run.sh` to start the applications
-3. Run `./scripts/shutdown.sh` to shutdown the applications
-4. If it seems the application response with an error try to run `./scripts/build-image.sh` and then `./scripts/run.sh`
+2. Create `.env` file by using the example
+3. Fill `MYSQL_USER, MYSQL_PASSWORD, MYSQL_ROOT_PASSWORD, MYSQL_DATABASE` in your `.env` file
+4. Run `./scripts/run.sh` to start the applications
+5. Run `./scripts/shutdown.sh` to shutdown the applications
+6. If it seems the application response with an error try to run `./scripts/build-image.sh` and then `./scripts/run.sh`
 
 NOTE: If you are UNIX users don't forget to add sudo (ex: `sudo ./scripts/run.sh`)
 
@@ -90,16 +93,22 @@ NOTE: If you are UNIX users don't forget to add sudo (ex: `sudo ./scripts/run.sh
 
 ### Server side
 
-| Muhammad Garebaldhie ER Rahman | I Gede Arya R. P | Arik Rayi Arkananta |
-| ------------------------------ | :--------------: | ------------------- |
-| login                          |    right foo     | right foo           |
-| fetch list user                |    right bar     | right foo           |
-| fetch list song                |    right baz     | right foo           |
+| Muhammad Garebaldhie ER Rahman      | I Gede Arya R. P | Arik Rayi Arkananta |
+| ----------------------------------- | :--------------: | ------------------- |
+| login                               |   insert song    | register            |
+| fetch list user                     |   insert album   | fetch list album    |
+| fetch list song                     |    right baz     | right foo           |
+| create song, albums, and user model |    right baz     | right foo           |
+| upload file mechanism               |    right baz     | right foo           |
+| count song mechanism                |    right baz     | right foo           |
+| docker                              |    right baz     | right foo           |
 
 ### Client Side
 
-| Muhammad Garebaldhie ER Rahman | I Gede Arya R. P | Arik Rayi Arkananta |
-| ------------------------------ | :--------------: | ------------------- |
-| Responsive user list page      |    right foo     | right foo           |
-|                                |    right bar     | right foo           |
-|                                |    right baz     | right foo           |
+| Muhammad Garebaldhie ER Rahman | I Gede Arya R. P  | Arik Rayi Arkananta |
+| ------------------------------ | :---------------: | ------------------- |
+| Responsive user list page      | insert song page  | Navbar              |
+| list of song in home           | insert album page | login               |
+| base css and animation         |                   | register            |
+| responsive list of album page  |                   |                     |
+| admin list user page           |                   |                     |
