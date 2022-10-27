@@ -39,7 +39,7 @@
             </div>
         </form>
     </div>
-    <?php include_once 'src/view/component/songList.php' ?>
+    <?php include_once 'src/view/component/song_list.php' ?>
     <script defer src="/public/js/search.js"></script>
 </body>
 </html>
