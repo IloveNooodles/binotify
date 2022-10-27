@@ -14,7 +14,7 @@
 <body>
     <?php include_once BASE_URL . '/src/view/component/navbar.php'; ?>
     <div class="vw">
-        <img class="song-detail-image" src="<?=$data['song']['image_path']?>" alt="song1">
+        <img class="song-detail-image" src="<?=str_replace(BASE_URL,'',$data['song']['image_path'])?>" alt="song1">
     </div>
     <div class="song-detail-content">
         <p class="song-detail-album">From Album: <?=$data['album']['album'] ? $data['album']['album']['judul'] : '-'?></p>
