@@ -1,0 +1,33 @@
+@import url("/public/css/styles.css");
+
+.album-image {
+    margin-left: 50px;
+    margin-right: 1rem;
+    width: 15rem;
+    height: 15rem;
+    display: inline-block;
+}
+
+.album-details {
+    margin-top: 50px;
+    align-items: center;
+    display: inline-flex;
+    color: var(--clr-text-primary);
+    margin-left: 2rem;
+}
+
+.album-title {
+    padding-left: 0;
+    font-size: var(--fs-album-title-pc);
+    margin-bottom: 1rem;
+}
+
+.album-artist {
+    padding-left: 0;
+    font-size: var(--fs-album-subtitle-pc);
+}
+
+.album-duration {
+    padding-left: 0;
+    color: var(--clr-text-secondary);
+}
