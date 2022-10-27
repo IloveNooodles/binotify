@@ -83,6 +83,13 @@ Made with ❤ with
 1. Change directory to the clonned repo
 2. Create `.env` file by using the example
 3. Fill `MYSQL_USER, MYSQL_PASSWORD, MYSQL_ROOT_PASSWORD, MYSQL_DATABASE` in your `.env` file
+   1. You can fill it with anything you would like for example
+   ```env
+   MYSQL_USER=binotify
+   MYSQL_PASSWORD=binotify
+   MYSQL_ROOT_PASSWORD=binotify
+   MYSQL_DATABASE=binotify
+   ```
 4. Run `./scripts/run.sh` to start the applications
 5. Run `./scripts/shutdown.sh` to shutdown the applications
 6. If it seems the application response with an error try to run `./scripts/build-image.sh` and then `./scripts/run.sh`
@@ -93,22 +100,23 @@ NOTE: If you are UNIX users don't forget to add sudo (ex: `sudo ./scripts/run.sh
 
 ### Server side
 
-| Muhammad Garebaldhie ER Rahman      | I Gede Arya R. P | Arik Rayi Arkananta |
-| ----------------------------------- | :--------------: | ------------------- |
-| login                               |   insert song    | register            |
-| fetch list user                     |   insert album   | fetch list album    |
-| fetch list song                     |    right baz     | right foo           |
-| create song, albums, and user model |    right baz     | right foo           |
-| upload file mechanism               |    right baz     | right foo           |
-| count song mechanism                |    right baz     | right foo           |
-| docker                              |    right baz     | right foo           |
+| Muhammad Garebaldhie ER Rahman      | I Gede Arya R. P | Arik Rayi Arkananta  |
+| ----------------------------------- | :--------------: | -------------------- |
+| login                               |   insert song    | register             |
+| fetch list user                     |   insert album   | fetch list album     |
+| fetch list song                     |    right baz     | fetch detail song    |
+| create song, albums, and user model |    right baz     | play music mechanism |
+| upload file mechanism               |    right baz     | right foo            |
+| count song duration mechanism       |    right baz     | right foo            |
+| docker                              |    right baz     | right foo            |
 
 ### Client Side
 
-| Muhammad Garebaldhie ER Rahman | I Gede Arya R. P  | Arik Rayi Arkananta |
-| ------------------------------ | :---------------: | ------------------- |
-| Responsive user list page      | insert song page  | Navbar              |
-| list of song in home           | insert album page | login               |
-| base css and animation         |                   | register            |
-| responsive list of album page  |                   |                     |
-| admin list user page           |                   |                     |
+| Muhammad Garebaldhie ER Rahman | I Gede Arya R. P  | Arik Rayi Arkananta          |
+| ------------------------------ | :---------------: | ---------------------------- |
+| Responsive user list page      | insert song page  | Navbar user, guest and admin |
+| list of song in home           | insert album page | login                        |
+| base css and animation         |                   | register                     |
+| responsive list of album page  |                   | Detail song                  |
+| admin list user page           |                   | homepage                     |
+|                                |                   | album page                   |
