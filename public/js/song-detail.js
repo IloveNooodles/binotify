@@ -89,3 +89,5 @@ document.querySelector(".close").addEventListener("click", (e) => {
         music.pause();
     }
 });
+
+// function upda

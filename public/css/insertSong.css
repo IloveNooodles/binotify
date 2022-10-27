@@ -1,147 +1,145 @@
-@import url("/public/css/styles.css");
-
 body.insert-song-page {
-    background-color: var(--clr-background-highlight-one);
-    color: var(--clr-text-primary);
+  background-color: var(--clr-background-highlight-one);
+  color: var(--clr-text-primary);
 }
 
 form.insert-song-form {
-    height: 550px;
-    width: 400px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    margin-top: 15%;
-    left: 50%;
-    padding: 50px 35px;
+  height: 550px;
+  width: 400px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  margin-top: 8rem;
+  left: 50%;
+  padding: 50px 35px;
 }
 
-form.insert-song-form *{
-    color: var(--clr-text-primary);
-    outline: none;
-    border: none;
+form.insert-song-form * {
+  color: var(--clr-text-primary);
+  outline: none;
+  border: none;
 }
 
 form.insert-song-form h3 {
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
-    margin: 0 0;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
+  margin: 0 0;
 }
 
 form.insert-song-form input[type="text"] {
-    display: block;
-    height: 50px;
-    width: 100%;
-    margin-top: 25px;
-    color: var(--clr-text-black);
-    font-size: 14px;
-    font-weight: 300;
-    padding: 10px;
-    padding-left: 25px;
-    font-family: CircularStd;
-    border: none;
-    border-radius: var(--radius-lg);
+  display: block;
+  height: 50px;
+  width: 100%;
+  margin-top: 25px;
+  color: var(--clr-text-black);
+  font-size: 14px;
+  font-weight: 300;
+  padding: 10px;
+  padding-left: 25px;
+  font-family: CircularStd;
+  border: none;
+  border-radius: var(--radius-lg);
 }
 
 form.insert-song-form input[type="date"] {
-    display: block;
-    height: 50px;
-    width: 100%;
-    margin-top: 5px;
-    color: var(--clr-text-black);
-    font-size: 14px;
-    font-weight: 300;
-    padding: 10px;
-    padding-left: 25px;
-    font-family: CircularStd;
-    border: none;
-    border-radius: var(--radius-lg);
+  display: block;
+  height: 50px;
+  width: 100%;
+  margin-top: 5px;
+  color: var(--clr-text-black);
+  font-size: 14px;
+  font-weight: 300;
+  padding: 10px;
+  padding-left: 25px;
+  font-family: CircularStd;
+  border: none;
+  border-radius: var(--radius-lg);
 }
 
 form.insert-song-form select {
-    display: block;
-    height: 50px;
-    width: 100%;
-    margin-top: 25px;
-    color: var(--clr-text-black);
-    font-size: 14px;
-    font-weight: 300;
-    padding: 10px;
-    padding-left: 25px;
-    padding-right: 25px;
-    font-family: CircularStd;
-    border: none;
-    border-radius: var(--radius-lg);
-    align-items: center;
+  display: block;
+  height: 50px;
+  width: 100%;
+  margin-top: 25px;
+  color: var(--clr-text-black);
+  font-size: 14px;
+  font-weight: 300;
+  padding: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-family: CircularStd;
+  border: none;
+  border-radius: var(--radius-lg);
+  align-items: center;
 }
 
 form.insert-song-form select:after {
-    justify-self: end;
+  justify-self: end;
 }
 
-button.submit-song{
-    margin-top: 25px;
-    width: 100%;
-    padding: 15px 0;
-    font-size: 14px;
-    font-weight: 300;
+button.submit-song {
+  margin-top: 25px;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 14px;
+  font-weight: 300;
 }
 
 .custom-file-upload {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
 }
 
 .back-btn {
-    background-color: var(--clr-background-highlight-two);
-    margin: 30px;
-    padding: 20px;
-    cursor: pointer;
-    border-radius: var(--radius-lg);
-    border: none;
-    align-items: center;
-    display: inline-flex;
+  background-color: var(--clr-background-highlight-two);
+  margin: 30px;
+  padding: 20px;
+  cursor: pointer;
+  border-radius: var(--radius-lg);
+  border: none;
+  align-items: center;
+  display: inline-flex;
 }
 
 .back-btn:hover {
-    background-color: var(--clr-background-highlight-three);
+  background-color: var(--clr-background-highlight-three);
 }
 
 form.insert-song-form input[type="file"] {
-    margin-top: 5px;
+  margin-top: 5px;
 }
 
 form.insert-song-form input[type="file"]::file-selector-button {
-    border: none;
-    background-color: var(--clr-background-highlight-three);
-    padding: 7px 20px;
-    border-radius: var(--radius-lg);
-    color: var(--clr-text-primary);
-    font-family: CircularStd;
-    cursor: pointer;
+  border: none;
+  background-color: var(--clr-background-highlight-three);
+  padding: 7px 20px;
+  border-radius: var(--radius-lg);
+  color: var(--clr-text-primary);
+  font-family: CircularStd;
+  cursor: pointer;
 }
 
 h4 {
-    font-size: 14px;
-    font-weight: 300;
-    margin-top: 25px;
-    padding: 0 10px;
-    color: var(--clr-text-info-hover);
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 25px;
+  padding: 0 10px;
+  color: var(--clr-text-info-hover);
 }
 
 form.insert-song-form label.sumbit-success {
-    font-weight: 300;
-    margin-top: 50px;
-    padding: 15px 0;
-    color: var(--clr-text-info);
+  font-weight: 300;
+  margin-top: 50px;
+  padding: 15px 0;
+  color: var(--clr-text-info);
 }
 
 form.insert-song-form label.sumbit-failure {
-    font-weight: 300;
-    margin-top: 50px;
-    padding: 15px 0;
-    color: var(--clr-text-danger);
+  font-weight: 300;
+  margin-top: 50px;
+  padding: 15px 0;
+  color: var(--clr-text-danger);
 }

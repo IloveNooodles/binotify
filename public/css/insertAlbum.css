@@ -1,125 +1,126 @@
-@import url("/public/css/styles.css");
-
+body {
+  height: 100%;
+}
 
 form.insert-album-form {
-    height: 500px;
-    width: 400px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    margin-top: 15%;
-    left: 50%;
-    padding: 50px 35px;
+  height: 500px;
+  width: 400px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  margin-top: 8rem;
+  left: 50%;
+  padding: 50px 35px;
 }
 
 form.insert-album-form * {
-    color: var(--clr-text-primary);
-    outline: none;
-    border: none;
+  color: var(--clr-text-primary);
+  outline: none;
+  border: none;
 }
 
 form.insert-album-form h3 {
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
-    margin: 0 0;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
+  margin: 0 0;
 }
 
 form.insert-album-form input[type="text"] {
-    display: block;
-    height: 50px;
-    width: 100%;
-    margin-top: 25px;
-    color: var(--clr-text-black);
-    font-size: 14px;
-    font-weight: 300;
-    padding: 10px;
-    padding-left: 25px;
-    font-family: CircularStd;
-    border: none;
-    border-radius: var(--radius-lg);
+  display: block;
+  height: 50px;
+  width: 100%;
+  margin-top: 25px;
+  color: var(--clr-text-black);
+  font-size: 14px;
+  font-weight: 300;
+  padding: 10px;
+  padding-left: 25px;
+  font-family: CircularStd;
+  border: none;
+  border-radius: var(--radius-lg);
 }
 
 form.insert-album-form input[type="date"] {
-    display: block;
-    height: 50px;
-    width: 100%;
-    margin-top: 5px;
-    color: var(--clr-text-black);
-    font-size: 14px;
-    font-weight: 300;
-    padding: 10px;
-    padding-left: 25px;
-    font-family: CircularStd;
-    border: none;
-    border-radius: var(--radius-lg);
+  display: block;
+  height: 50px;
+  width: 100%;
+  margin-top: 5px;
+  color: var(--clr-text-black);
+  font-size: 14px;
+  font-weight: 300;
+  padding: 10px;
+  padding-left: 25px;
+  font-family: CircularStd;
+  border: none;
+  border-radius: var(--radius-lg);
 }
 
 form.insert-album-form input[type="file"] {
-    margin-top: 5px;
-    width: 100%;
+  margin-top: 5px;
+  width: 100%;
 }
 
 form.insert-album-form input[type="file"]::file-selector-button {
-    border: none;
-    background-color: var(--clr-background-highlight-three);
-    padding: 7px 20px;
-    border-radius: var(--radius-lg);
-    color: var(--clr-text-primary);
-    font-family: CircularStd;
-    cursor: pointer;
+  border: none;
+  background-color: var(--clr-background-highlight-three);
+  padding: 7px 20px;
+  border-radius: var(--radius-lg);
+  color: var(--clr-text-primary);
+  font-family: CircularStd;
+  cursor: pointer;
 }
 
-button.submit-album{
-    margin-top: 15px;
-    width: 100%;
-    padding: 15px 0;
-    font-size: 14px;
-    font-weight: 300;
+button.submit-album {
+  margin-top: 15px;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 14px;
+  font-weight: 300;
 }
 
 .custom-file-upload {
-    border: 1px solid #ccc;
-    background-color: var(--clr-background-highlight-one);
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: var(--clr-background-highlight-one);
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
 }
 
 .back-btn {
-    background-color: var(--clr-background-highlight-two);
-    margin: 30px;
-    padding: 20px;
-    cursor: pointer;
-    border-radius: var(--radius-lg);
-    border: none;
-    align-items: center;
-    display: inline-flex;
-    transition: var(--transition);
+  background-color: var(--clr-background-highlight-two);
+  margin: 30px;
+  padding: 20px;
+  cursor: pointer;
+  border-radius: var(--radius-lg);
+  border: none;
+  align-items: center;
+  display: inline-flex;
+  transition: var(--transition);
 }
 
 .back-btn:hover {
-    background-color: var(--clr-background-highlight-three);
+  background-color: var(--clr-background-highlight-three);
 }
 
 h4 {
-    font-size: 14px;
-    font-weight: 300;
-    margin-top: 25px;
-    padding: 0 10px;
-    color: var(--clr-text-info-hover);
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 25px;
+  padding: 0 10px;
+  color: var(--clr-text-info-hover);
 }
 
 form.insert-album-form label.sumbit-success {
-    font-weight: 300;
-    margin-top: 50px;
-    padding: 15px 0;
-    color: var(--clr-text-info);
+  font-weight: 300;
+  margin-top: 50px;
+  padding: 15px 0;
+  color: var(--clr-text-info);
 }
 
 form.insert-album-form label.sumbit-failure {
-    font-weight: 300;
-    margin-top: 50px;
-    padding: 15px 0;
-    color: var(--clr-text-danger);
+  font-weight: 300;
+  margin-top: 50px;
+  padding: 15px 0;
+  color: var(--clr-text-danger);
 }

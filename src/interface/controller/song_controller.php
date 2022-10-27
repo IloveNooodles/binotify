@@ -7,8 +7,8 @@ class Song extends Controller {
             case "GET":
                 $this->view("search/index");
                 break;
-            case "POST":
-                redirect_home();
+            default:
+                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
                 break;
         }
     }
@@ -20,8 +20,10 @@ class Song extends Controller {
                 $id = $_GET['id'];
                 $song = $song_service->detail($id);
                 response_json($song);
-            case "POST":
-            break;
+                break;
+            default:
+                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                break;
         }
     }
 
@@ -43,6 +45,9 @@ class Song extends Controller {
                 }
                 $this->view("song/insert_song", $data);
                 return;
+                break;
+            default:
+                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
                 break;
         }
     }
@@ -69,6 +74,9 @@ class Song extends Controller {
                 $this->view("song/edit_song", $data);
                 return;
                 break;
+            default:
+                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                break;
         }
     }
 
@@ -79,7 +87,24 @@ class Song extends Controller {
     }
 
     public function search() {
-        $this->view("search/index");
-        return;
+      switch($_SERVER['REQUEST_METHOD']){
+        case "GET":
+            $this->view("search/index");
+            break;
+        default:
+            response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+            break;
+      }
+    }
+
+    public function play_song(){
+      $middleware = new Middleware();
+      switch($_SERVER['REQUEST_METHOD']){
+        case "GET":
+            break;
+        default:
+            response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+            break;
+      }
     }
 }
