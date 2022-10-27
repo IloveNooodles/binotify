@@ -5,10 +5,10 @@ class Search extends Controller {
     switch($_SERVER["REQUEST_METHOD"]){
       case "GET":
           $this->view("search/index");
-          break;
+          return;
       default:
-          response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
-          break;
+          response_not_allowed_method();
+          return;
     }
   }
 }

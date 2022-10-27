@@ -13,3 +13,7 @@ function response_json($data, $status_code = 200) {
     $json = json_encode($response_data);
     echo $json;
 }
+
+function response_not_allowed_method() {
+    response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+}

@@ -3,26 +3,39 @@ require_once BASE_URL . '/src/service/album/index.php';
 
 class Album extends Controller {
     public function index() {
-        $album_service = new AlbumService();
-        $page = (isset($_GET['page'])) ? $_GET['page'] : 1;
-        $data = $album_service->getAlbums($page);
-        $this->view('album/index', $data);
+        switch($_SERVER["REQUEST_METHOD"]){
+            case "GET":
+                $album_service = new AlbumService();
+                $page = (isset($_GET['page'])) ? $_GET['page'] : 1;
+                $data = $album_service->getAlbums($page);
+                $this->view('album/index', $data);
+                return;
+            default:
+                response_not_allowed_method();
+                return;
+        }
     }
 
     public function detail($id) {
-        $album_service = new AlbumService();
+        switch($_SERVER["REQUEST_METHOD"]){
+            case "GET":
+                $album_service = new AlbumService();
 
-        if (!isset($id)) {
-            $page = 1;
-            $data = $album_service->getAlbums($page);
-            $this->view('album/index', $data);
-            return;
+                if (!isset($id)) {
+                    $page = 1;
+                    $data = $album_service->getAlbums($page);
+                    $this->view('album/index', $data);
+                    return;
+                }
+
+                $data = $album_service->detail($id);
+                // response_json($data);
+                $this->view('album/album_detail', $data);
+                return;
+            default:
+                response_not_allowed_method();
+                return;
         }
-
-        $data = $album_service->detail($id);
-        // response_json($data);
-        $this->view('album/album_detail', $data);
-        return;
     }
 
     public function new() {
@@ -42,7 +55,9 @@ class Album extends Controller {
                 }
                 $this->view("album/insert_album", $data);
                 return;
-                break;
+            default:
+                response_not_allowed_method();
+                return;
         }
     }
 
@@ -66,7 +81,9 @@ class Album extends Controller {
                 }
                 $this->view("album/edit_album", $data);
                 return;
-                break;
+            default:
+                response_not_allowed_method();
+                return;
         }
     }
 
@@ -82,13 +99,10 @@ class Album extends Controller {
 
                 $data = $album_service->delete($_GET['album_id']);
                 response_json($data);
-                // $this->view("album/index", $data);
                 return;
-                break;
             default:
-                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                response_not_allowed_method();
                 return;
-                break;
         }
     }
 
@@ -105,11 +119,9 @@ class Album extends Controller {
                 $data = $album_service->add_song_to_album($_POST['song_id'], $_POST['album_id']);
                 response_json($data);
                 return;
-                break;
             default:
-                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                response_not_allowed_method();
                 return;
-                break;
         }
     }
 
@@ -126,11 +138,9 @@ class Album extends Controller {
                 $data = $album_service->delete_song_from_album($_GET['song_id']);
                 response_json($data);
                 return;
-                break;
             default:
-                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                response_not_allowed_method();
                 return;
-                break;
         }
     }
 
@@ -147,11 +157,9 @@ class Album extends Controller {
                 $data = $album_service->get_unlinked_song($_GET['album_id']);
                 response_json($data);
                 return;
-                break;
             default:
-                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                response_not_allowed_method();
                 return;
-                break;
         }
     }
 }

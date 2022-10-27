@@ -53,10 +53,6 @@ EOT;
       </div>
   </div>
 EOT;
-  if($_SESSION['limit_song']){
-    echo $limit_song;
-    return;
-  }
   echo $play_song;
 }
 
