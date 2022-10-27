@@ -61,9 +61,10 @@ class SongService {
             if ($cur_song == null) {
                 return SONG_NOT_FOUND;
             }
+            $album_id = $cur_song['album_id'];
             $audio = $cur_song['audio_path'];
             $cover = $cur_song['image_path'];
-            $total_duration = $cur_song['total_duration'];
+            $total_duration = $cur_song['duration'];
 
             if (isset($file_audio) && isset($file_audio['name']) && isset($file_audio['tmp_name'])) {
                 $result = $audio_storage->save_audio($file_audio['name'], $file_audio['tmp_name'], AUDIO_DIR);
@@ -84,10 +85,11 @@ class SongService {
                 $cover = $result;
             }
 
-            $song_model->update_song($judul, $penyanyi, $tanggal_terbit, $total_duration, $genre, $audio, $cover, $song_id);
+            $song_model->update_song($song_id, $judul, $penyanyi, $tanggal_terbit, $total_duration, $genre, $audio, $cover, $album_id);
         } catch (Throwable $e) {
             return INTERNAL_ERROR;
         }
+        return SUCCESS;
     }
 
     public function delete() {
