@@ -113,7 +113,7 @@ NOTE: If you are UNIX users don't forget to add sudo (ex: `sudo ./scripts/run.sh
 |                               |    Get All Genre     |             |
 |                               |    Add Song to Album     |             |
 |                               |    Delete Song from Album     |             |
-|                               |    Get Unliked Song     |             |
+|                               |    Get Unlinked Song     |             |
 
 ### Client Side
 
