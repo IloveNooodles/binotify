@@ -16,12 +16,12 @@ class Album extends Controller {
         }
     }
 
-    public function detail($id) {
+    public function detail($id = -1) {
         switch($_SERVER["REQUEST_METHOD"]){
             case "GET":
                 $album_service = new AlbumService();
 
-                if (!isset($id)) {
+                if ($id == -1) {
                     $page = 1;
                     $data = $album_service->getAlbums($page);
                     $this->view('album/index', $data);
@@ -29,7 +29,14 @@ class Album extends Controller {
                 }
 
                 $data = $album_service->detail($id);
-                // response_json($data);
+
+                if (isset($data) and isset($data['status_message']) and $data['status_message'] != SUCCESS) {
+                    $page = 1;
+                    $data = $album_service->getAlbums($page);
+                    $this->view('album/index', $data);
+                    return;
+                }
+
                 $this->view('album/album_detail', $data);
                 return;
             default:

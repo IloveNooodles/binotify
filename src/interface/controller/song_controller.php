@@ -83,7 +83,7 @@ class Song extends Controller {
                 }
                 $song = $song_service->detail($id);
                 $this->view("song/edit_song", array_merge($song, $data));
-                // response_json(array_merge($song, $data));
+
                 return;
             default:
                 response_not_allowed_method();
