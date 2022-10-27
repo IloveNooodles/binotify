@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="/public/css/navbar.css">
   <link rel="stylesheet" href="/public/css/songList.css">
   <link rel="stylesheet" href="/public/css/albumDetail.css">
-  <link rel="stylesheet" href="/public/css/songDetail.css">
   <link rel="shortcut icon" href="/public/img/favicon.png" type="image/x-icon">
 </head>
 <body>
@@ -31,9 +30,6 @@
   <?php 
   include_once 'src/view/component/song_list.php';
   return_html($data['songs'], true);
-  ?>
-  <?php include_once 'src/view/component/song_detail.php';
-   show_song_detail();
   ?>
 </body>
 </html>
