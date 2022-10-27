@@ -20,8 +20,8 @@ class Album extends Controller {
         }
 
         $data = $album_service->detail($_GET['id']);
-        response_json($data);
-        // $this->view('album/detail', $album);
+        // response_json($data);
+        $this->view('album/album_detail', $data);
         return;
     }
 

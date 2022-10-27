@@ -14,7 +14,10 @@
   <?php include_once 'src/view/component/navbar.php' ?>
   <h2 class="title">Albums</h2>
   <div class="album-list-container">
-    <?php include_once 'src/view/component/album_list.php' ?>
+    <?php 
+      include_once 'src/view/component/album_list.php';
+      return_html($data);  
+    ?>
   </div>
   <script>
     document.getElementById("album-order-btn").addEventListener("click", function() {
