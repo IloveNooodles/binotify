@@ -15,7 +15,7 @@
         <i class="arrow left"></i>
     </a>
 
-    <form class="insert-song-form" action="/login" method="POST" enctype="multipart/form-data">
+    <form class="insert-song-form" action="/song/new" method="POST" enctype="multipart/form-data">
         <h3>Insert New Song</h3>
         <input type="text" placeholder="Judul" id="judul" name="judul">
         <input type="text" placeholder="Penyanyi" id="penyanyi" name="penyanyi">
@@ -27,7 +27,7 @@
         <h4>Song Cover</h4>
         <input type="file" id="cover" name="cover" accept="image/*">
         <h4>Song Audio</h4>
-        <input type="file" id="audio" name="audio" accept="audio/*">
+        <input type="file" id="song" name="song" accept="audio/*">
 
         <?php
             if (isset($data['status_message']) && $data['status_message'] == SUCCESS) {
