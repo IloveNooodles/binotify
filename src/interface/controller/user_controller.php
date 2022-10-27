@@ -19,7 +19,7 @@ class User extends Controller {
           $this->logout_user();
           break;
         default:
-          response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+          response_not_allowed_method();
           break;
       }
     }
@@ -38,7 +38,7 @@ class User extends Controller {
           $this->view('user/index', $data);
           return;
         default:
-          response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+          response_not_allowed_method();
           break;
       }
     }
@@ -56,7 +56,7 @@ class User extends Controller {
           redirect_home();
           return;
         default:
-          response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+          response_not_allowed_method();
           break;
       }
     }

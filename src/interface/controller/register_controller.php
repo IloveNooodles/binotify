@@ -12,7 +12,7 @@ class Register extends Controller {
           $this->register();
           break;
         default:
-          response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+          response_not_allowed_method();
           return;
           break;
       }
@@ -53,7 +53,7 @@ class Register extends Controller {
           return;
           break;
         default:
-          response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+          response_not_allowed_method();
           return;
           break;
       }
@@ -72,7 +72,7 @@ class Register extends Controller {
           $this->view("register/index", ["status_message" => SUCCESS]);
           return;
         default:
-          response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+          response_not_allowed_method();
           return;
           break;
       }

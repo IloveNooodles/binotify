@@ -9,7 +9,7 @@ class Song extends Controller {
                 redirect_to("search/index");
                 break;
             default:
-                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                response_not_allowed_method();
                 break;
         }
     }
@@ -23,7 +23,7 @@ class Song extends Controller {
                 response_json($song);
                 break;
             default:
-                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                response_not_allowed_method();
                 break;
         }
     }
@@ -48,7 +48,7 @@ class Song extends Controller {
                 return;
                 break;
             default:
-                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                response_not_allowed_method();
                 break;
         }
     }
@@ -77,7 +77,7 @@ class Song extends Controller {
                 return;
                 break;
             default:
-                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                response_not_allowed_method();
                 break;
         }
     }
@@ -97,7 +97,7 @@ class Song extends Controller {
                 return;
                 break;
             default:
-                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                response_not_allowed_method();
                 return;
                 break;
         }
@@ -120,7 +120,7 @@ class Song extends Controller {
                 return;
                 break;
             default:
-                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                response_not_allowed_method();
                 return;
                 break;
         }
@@ -134,7 +134,7 @@ class Song extends Controller {
                 response_json($data);
                 return;
             default:
-                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                response_not_allowed_method();
                 return;
                 break;
         }
@@ -146,7 +146,7 @@ class Song extends Controller {
             case "GET":
                 break;
             default:
-                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                response_not_allowed_method();
                 break;
         }
     }

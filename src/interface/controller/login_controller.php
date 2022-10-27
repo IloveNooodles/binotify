@@ -20,7 +20,7 @@ class Login extends Controller {
             redirect_home();
             break;
         default:
-            response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+            response_not_allowed_method();
             return;
             break;
       }
@@ -46,7 +46,7 @@ class Login extends Controller {
           }
           return;
         default:
-          response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+          response_not_allowed_method();
           return;
           break;
     }

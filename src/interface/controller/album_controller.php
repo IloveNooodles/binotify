@@ -11,7 +11,7 @@ class Album extends Controller {
                 $this->view('album/index', $data);
                 return;
             default:
-                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                response_not_allowed_method();
                 return;
                 break;
         }
@@ -34,7 +34,7 @@ class Album extends Controller {
                 $this->view('album/album_detail', $data);
                 return;
             default:
-                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                response_not_allowed_method();
                 return;
                 break;
         }
@@ -59,7 +59,7 @@ class Album extends Controller {
                 return;
                 break;
             default:
-                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                response_not_allowed_method();
                 return;
                 break;
         }
@@ -87,7 +87,7 @@ class Album extends Controller {
                 return;
                 break;
             default:
-                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                response_not_allowed_method();
                 return;
                 break;
         }
@@ -109,7 +109,7 @@ class Album extends Controller {
                 return;
                 break;
             default:
-                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                response_not_allowed_method();
                 return;
                 break;
         }
@@ -130,7 +130,7 @@ class Album extends Controller {
                 return;
                 break;
             default:
-                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                response_not_allowed_method();
                 return;
                 break;
         }
@@ -151,7 +151,7 @@ class Album extends Controller {
                 return;
                 break;
             default:
-                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                response_not_allowed_method();
                 return;
                 break;
         }
@@ -172,7 +172,7 @@ class Album extends Controller {
                 return;
                 break;
             default:
-                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                response_not_allowed_method();
                 return;
                 break;
         }
