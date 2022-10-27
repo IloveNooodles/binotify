@@ -208,4 +208,26 @@ class SongService {
         $data['status_message'] = SUCCESS;
         return SUCCESS;
     }
+
+    public function get_unlinked_song($album_id) {
+        $data = null;
+        try {
+            $song_model = new SongModel();
+            $album_model = new AlbumModel();
+
+            $cur_album = $album_model->find_detail_album($album_id);
+            if ($cur_album == null) {
+                $data['status_message'] = ALBUM_NOT_FOUND;
+                return $data;
+            }
+
+            $cur_singer = $cur_album['penyanyi'];
+
+            $data['songs'] = $song_model->find_unlinked_song_by_singer($cur_singer);
+        } catch (Throwable $e) {
+            $data['status_message'] = INTERNAL_ERROR;
+            return $data;
+        }
+        return $data;
+    }
 }

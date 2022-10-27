@@ -133,4 +133,25 @@ class Album extends Controller {
                 break;
         }
     }
+
+    public function unlinked_song() {
+        switch($_SERVER["REQUEST_METHOD"]) {
+            case "GET":
+                $album_service = new SongService();
+
+                if (!isset($_GET['album_id'])) {
+                    $this->view("album/index");
+                    return;
+                }
+
+                $data = $album_service->get_unlinked_song($_GET['album_id']);
+                response_json($data);
+                return;
+                break;
+            default:
+                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                return;
+                break;
+        }
+    }
 }

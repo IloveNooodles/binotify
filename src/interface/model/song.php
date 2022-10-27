@@ -299,4 +299,14 @@ class SongModel {
 
     $this->db->execute();
   }
+
+  public function find_unlinked_song_by_singer($penyanyi) {
+    $query = "SELECT * FROM Song WHERE penyanyi = :penyanyi AND album_id IS NULL";
+
+    $this->db->query($query);
+    $this->db->bind("penyanyi", $penyanyi);
+
+    $result = $this->db->result_set();
+    return $result;
+  }
 }
