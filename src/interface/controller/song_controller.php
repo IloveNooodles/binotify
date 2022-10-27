@@ -34,14 +34,15 @@ class Song extends Controller {
                 $song_service = new SongService();
                 $data = NULL;
 
-                if (empty($_POST['judul']) || empty($_POST['penyanyi']) || empty($_POST['tanggal']) || empty($_POST['genre']) || empty($_FILES['cover']) || empty($_FILES['audio'])) {
+                if (empty($_POST['judul']) || empty($_POST['penyanyi']) || empty($_POST['tanggal']) || empty($_POST['genre']) || empty($_FILES['cover']) || empty($_FILES['song'])) {
                     $data = ["status_message" => DATA_NOT_COMPLETE];
                 }
                 else {
-                    $status = $song_service->new($_POST['judul'], $_POST['penyanyi'], $_POST['tanggal'], $_POST['genre'], $_FILES);
+                    $status = $song_service->new($_POST['judul'], $_POST['penyanyi'], $_POST['tanggal'], $_POST['genre'], $_FILES['cover'], $_FILES['song']);
                     $data = ["status_message" => $status];
                 }
-                $this->view("song/insert_song", $data);
+                response_json($data);
+                // $this->view("song/insert_song", $data);
                 return;
                 break;
         }

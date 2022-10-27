@@ -6,23 +6,16 @@ class AudioStorage {
     public function __construct() {
     }
 
-    public function save_audio($file, $type){
+    public function save_audio($file_name, $tmp_path, $type){
         $file_infra = new File();
         $result = null;
     
-        if (!isset($file['audio'])) {
+        if (!$this->is_audio_valid($file_name)) {
             return $result;
         }
     
-        $filename = $file['audio']['name'];
-        $tmp_path = $file['audio']['tmp_name'];
-    
-        if (!$this->is_audio_valid($filename)) {
-            return $result;
-        }
-    
-        $unique_name = $this->generate_unique_name($filename);
-        $file_ext = $file_infra->get_file_extension($filename);
+        $unique_name = $this->generate_unique_name($file_name);
+        $file_ext = $file_infra->get_file_extension($file_name);
         $unique_name = $unique_name . "." . $file_ext;
     
         if(!$file_infra->filename_exists($type, $unique_name)){

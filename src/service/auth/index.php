@@ -1,7 +1,6 @@
 <?php
 require_once $_ENV['PWD'] . '/src/interface/model/user.php';
 require_once $_ENV['PWD'] . '/src/infrastructure/password/password.php';
-require_once "utils/constant.php";
 
 class AuthService {
     public function login($username, $password) {

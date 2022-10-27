@@ -1,0 +1,2 @@
+<?php
+define("SUCCESS", "SUCCESS");

@@ -17,7 +17,7 @@ class SongService {
         return $data;
     }
 
-    public function new($judul, $penyanyi, $tanggal_terbit, $genre, $files) {
+    public function new($judul, $penyanyi, $tanggal_terbit, $genre, $file_image, $file_audio) {
         $total_duration = 0;
         
         try {
@@ -25,14 +25,22 @@ class SongService {
             $audio_storage = new AudioStorage();
             $image_storage = new ImageStorage();
 
-            $audio_path = $audio_storage->save_audio($files, AUDIO_DIR);
-            $image_path = $image_storage->save_image($files['image']['name'], $files['image']['tmp_name'], IMAGE_DIR);
+            if (!isset($file_image['name']) || !isset($file_image['tmp_name'])) {
+                return DATA_NOT_COMPLETE;
+            }
+            if (!isset($file_audio['name']) || !isset($file_audio['tmp_name'])) {
+                return DATA_NOT_COMPLETE;
+            }
+
+            $audio_path = $audio_storage->save_audio($file_audio['name'], $file_audio['tmp_name'], AUDIO_DIR);
+            $image_path = $image_storage->save_image($file_image['name'], $file_image['tmp_name'], IMAGE_DIR);
+
             if ($audio_path == null || $image_path == null) {
                 return INTERNAL_ERROR;
             }
 
             $total_duration = $audio_storage->get_audio_duration($audio_path);
-            if ($total_duration == null || $total_duration == 0) {
+            if ($total_duration == null || $total_duration <= 0) {
                 return DATA_NOT_COMPLETE;
             }
 

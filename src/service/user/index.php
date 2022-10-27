@@ -1,6 +1,5 @@
 <?php
 require_once BASE_URL . '/src/interface/model/user.php';
-require_once BASE_URL . '/src/service/user/utils/constant.php';
 
 class UserService {
     public function detail($user_id) {

@@ -2,7 +2,6 @@
 require_once BASE_URL . '/src/interface/model/album.php';
 require_once BASE_URL . '/src/interface/model/song.php';
 require_once BASE_URL . '/src/interface/storage/image.php';
-require_once "utils/constant.php";
 
 class AlbumService {
     public function detail($album_id) {
