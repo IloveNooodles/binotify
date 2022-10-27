@@ -7,14 +7,13 @@ class Register extends Controller {
       switch($_SERVER["REQUEST_METHOD"]){
         case "GET":
           $this->view("register/index");
-          break;
+          return;
         case "POST":
           $this->register();
-          break;
+          return;
         default:
           response_not_allowed_method();
           return;
-          break;
       }
     }
 
@@ -51,11 +50,9 @@ class Register extends Controller {
             "confirm-password" => $confirm_password_validate
           ));
           return;
-          break;
         default:
           response_not_allowed_method();
           return;
-          break;
       }
     }
 
@@ -74,7 +71,6 @@ class Register extends Controller {
         default:
           response_not_allowed_method();
           return;
-          break;
       }
     }
 }

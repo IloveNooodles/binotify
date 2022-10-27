@@ -14,13 +14,13 @@ class User extends Controller {
             return;
           }
           redirect_home();
-          break;
+          return;
         case "POST":
           $this->logout_user();
-          break;
+          return;
         default:
           response_not_allowed_method();
-          break;
+          return;
       }
     }
 
@@ -39,7 +39,7 @@ class User extends Controller {
           return;
         default:
           response_not_allowed_method();
-          break;
+          return;
       }
     }
 
@@ -57,7 +57,7 @@ class User extends Controller {
           return;
         default:
           response_not_allowed_method();
-          break;
+          return;
       }
     }
 }

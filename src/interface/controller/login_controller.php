@@ -11,18 +11,17 @@ class Login extends Controller {
               return;
             }
             redirect_home();
-            break;
+            return;
         case "POST":
             if(!isset($_SESSION['username'])){
               $this->login();
               return;
             }
             redirect_home();
-            break;
+            return;
         default:
             response_not_allowed_method();
             return;
-            break;
       }
     }
 
@@ -48,7 +47,6 @@ class Login extends Controller {
         default:
           response_not_allowed_method();
           return;
-          break;
     }
   }
 }

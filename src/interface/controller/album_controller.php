@@ -13,7 +13,6 @@ class Album extends Controller {
             default:
                 response_not_allowed_method();
                 return;
-                break;
         }
     }
 
@@ -36,7 +35,6 @@ class Album extends Controller {
             default:
                 response_not_allowed_method();
                 return;
-                break;
         }
     }
 
@@ -57,11 +55,9 @@ class Album extends Controller {
                 }
                 $this->view("album/insert_album", $data);
                 return;
-                break;
             default:
                 response_not_allowed_method();
                 return;
-                break;
         }
     }
 
@@ -85,11 +81,9 @@ class Album extends Controller {
                 }
                 $this->view("album/edit_album", $data);
                 return;
-                break;
             default:
                 response_not_allowed_method();
                 return;
-                break;
         }
     }
 
@@ -105,13 +99,10 @@ class Album extends Controller {
 
                 $data = $album_service->delete($_GET['album_id']);
                 response_json($data);
-                // $this->view("album/index", $data);
                 return;
-                break;
             default:
                 response_not_allowed_method();
                 return;
-                break;
         }
     }
 
@@ -128,11 +119,9 @@ class Album extends Controller {
                 $data = $album_service->add_song_to_album($_POST['song_id'], $_POST['album_id']);
                 response_json($data);
                 return;
-                break;
             default:
                 response_not_allowed_method();
                 return;
-                break;
         }
     }
 
@@ -149,11 +138,9 @@ class Album extends Controller {
                 $data = $album_service->delete_song_from_album($_GET['song_id']);
                 response_json($data);
                 return;
-                break;
             default:
                 response_not_allowed_method();
                 return;
-                break;
         }
     }
 
@@ -170,11 +157,9 @@ class Album extends Controller {
                 $data = $album_service->get_unlinked_song($_GET['album_id']);
                 response_json($data);
                 return;
-                break;
             default:
                 response_not_allowed_method();
                 return;
-                break;
         }
     }
 }

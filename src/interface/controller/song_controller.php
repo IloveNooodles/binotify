@@ -7,10 +7,10 @@ class Song extends Controller {
         switch($_SERVER['REQUEST_METHOD']){
             case "GET":
                 redirect_to("search/index");
-                break;
+                return;
             default:
                 response_not_allowed_method();
-                break;
+                return;
         }
     }
 
@@ -21,10 +21,10 @@ class Song extends Controller {
                 $id = $_GET['id'];
                 $song = $song_service->detail($id);
                 response_json($song);
-                break;
+                return;
             default:
                 response_not_allowed_method();
-                break;
+                return;
         }
     }
 
@@ -32,7 +32,7 @@ class Song extends Controller {
         switch($_SERVER["REQUEST_METHOD"]) {
             case "GET":
                 $this->view("song/insert_song");
-                break;
+                return;
             case "POST":
                 $song_service = new SongService();
                 $data = NULL;
@@ -46,10 +46,9 @@ class Song extends Controller {
                 }
                 $this->view("song/insert_song", $data);
                 return;
-                break;
             default:
                 response_not_allowed_method();
-                break;
+                return;
         }
     }
 
@@ -59,7 +58,7 @@ class Song extends Controller {
                 $song_service = new SongService();
                 $song = $song_service->detail($_GET['id']);
                 $this->view("song/edit_song", $song);
-                break;
+                return;
             case "POST":
                 $song_service = new SongService();
                 if (empty($_POST['song_id'] || $_POST['judul']) || empty($_POST['penyanyi']) || empty($_POST['tanggal']) || empty($_POST['genre'])) {
@@ -75,10 +74,9 @@ class Song extends Controller {
                 // $this->view("song/edit_song", $data);
                 response_json($data);
                 return;
-                break;
             default:
                 response_not_allowed_method();
-                break;
+                return;
         }
     }
 
@@ -95,11 +93,9 @@ class Song extends Controller {
                 $data = $song_service->delete($_GET['song_id']);
                 response_json($data);
                 return;
-                break;
             default:
                 response_not_allowed_method();
                 return;
-                break;
         }
     }
 
@@ -118,11 +114,9 @@ class Song extends Controller {
 
                 response_json($data);
                 return;
-                break;
             default:
                 response_not_allowed_method();
                 return;
-                break;
         }
     }
 
@@ -136,7 +130,6 @@ class Song extends Controller {
             default:
                 response_not_allowed_method();
                 return;
-                break;
         }
     }
 
@@ -144,10 +137,10 @@ class Song extends Controller {
         $middleware = new Middleware();
         switch($_SERVER['REQUEST_METHOD']){
             case "GET":
-                break;
+                return;
             default:
                 response_not_allowed_method();
-                break;
+                return;
         }
     }
 }

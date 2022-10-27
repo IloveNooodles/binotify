@@ -16,13 +16,12 @@ class Home extends Controller {
           $data = $search_service->search_all_song($page);
           
           $this->view('home/index', $data);
-          break;
+          return;
         case "POST":
-          break;
+          return;
         default:
           response_not_allowed_method();
           return;
-          break;
       }
     }
 }
