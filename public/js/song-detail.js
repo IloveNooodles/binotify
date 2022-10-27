@@ -30,7 +30,7 @@ document.querySelectorAll("tr.content").forEach((row) => {
                     setTimeout(() => {
                         seekBar.max = music.duration;
                         musicDuration.innerHTML = formatTime(music.duration);
-                    }, 500);
+                    }, 200);
                 }
 
                 setMusic();
@@ -62,14 +62,19 @@ document.querySelectorAll("tr.content").forEach((row) => {
                 setInterval(() => {
                     seekBar.value = music.currentTime;
                     currentTime.innerHTML = formatTime(music.currentTime);
-                }, 750)
+                }, 400)
 
                 seekBar.addEventListener('change', () => {
                     music.currentTime = seekBar.value;
                 })
 
-                document.querySelector(".modal").classList.add("show");
-                document.querySelector(".song-detail-content").classList.add("show");
+                setTimeout(() => {
+                    document.querySelector(".modal").classList.add("show");
+                    document.querySelector(".song-detail-content").classList.add("show");
+                }, 300);
+
+
+                
             }
         };
         xhr.send();
