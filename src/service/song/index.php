@@ -124,9 +124,43 @@ class SongService {
         return SUCCESS;
     }
 
-    public function count_genre() {
+    public function all_distinct_genre() {
         $song_model = new SongModel();
-        $data = $song_model->count_genre();
+        $data['genre'] = $song_model->all_distinct_genre();
         return $data;
+    }
+
+    public function delete_song_from_album($song_id) {
+        $data = null;
+        try {
+            $song_model = new SongModel();
+            $album_model = new AlbumModel();
+
+            $cur_song = $song_model->find_detail_song($song_id);
+            if ($cur_song == null) {
+                $data['status_message'] = SONG_NOT_FOUND;
+                return $data;
+            }
+
+            $song_duration = $cur_song['duration'];
+            $album_id = $cur_song['album_id'];
+
+            $song_model->delete_album_id_from_song($song_id);
+            if (!isset($album_id) or $album_id == null) {
+                return SUCCESS;
+            }
+
+            $cur_album = $album_model->find_detail_album($album_id);
+            if ($cur_album == null) {
+                return SUCCESS;
+            }
+
+            $new_album_total_duration = $cur_album['total_duration'] - $song_duration;
+
+            $album_model->update_album_duration($album_id, $new_album_total_duration);
+        } catch (Throwable $e) {
+            return INTERNAL_ERROR;
+        }
+        return SUCCESS;
     }
 }

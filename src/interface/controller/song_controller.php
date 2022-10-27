@@ -126,11 +126,11 @@ class Song extends Controller {
         }
     }
 
-    public function count_genre() {
+    public function all_distinct_genre() {
         switch($_SERVER["REQUEST_METHOD"]) {
             case "GET":
                 $song_service = new SongService();
-                $data = $song_service->count_genre();
+                $data = $song_service->all_distinct_genre();
                 response_json($data);
                 return;
             default:

@@ -93,6 +93,44 @@ class Album extends Controller {
     }
 
     public function add_song() {
+        switch($_SERVER["REQUEST_METHOD"]) {
+            case "POST":
+                $album_service = new SongService();
 
+                if (!isset($_POST['song_id'])) {
+                    $this->view("album/index");
+                    return;
+                }
+
+                $data = $album_service->delete_song_from_album($_POST['song_id']);
+                response_json($data);
+                return;
+                break;
+            default:
+                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                return;
+                break;
+        }
+    }
+
+    public function delete_song() {
+        switch($_SERVER["REQUEST_METHOD"]) {
+            case "DELETE":
+                $album_service = new SongService();
+
+                if (!isset($_GET['song_id'])) {
+                    $this->view("album/index");
+                    return;
+                }
+
+                $data = $album_service->delete_song_from_album($_GET['song_id']);
+                response_json($data);
+                return;
+                break;
+            default:
+                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                return;
+                break;
+        }
     }
 }
