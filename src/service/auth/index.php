@@ -1,6 +1,5 @@
 <?php
 require_once $_ENV['PWD'] . '/src/interface/model/user.php';
-require_once $_ENV['PWD'] . '/src/infrastructure/password/password.php';
 
 class AuthService {
     public function login($username, $password) {
@@ -17,7 +16,7 @@ class AuthService {
         return USER_NOT_FOUND;
       }
 
-      if(!check_password($password, $user['password'])){
+      if(!$this->check_password($password, $user['password'])){
         return WRONG_PASSWORD;
       }
 
@@ -38,5 +37,10 @@ class AuthService {
       session_destroy();
 
       return SUCCESS;
+    }
+
+    private function check_password($password, $hashedPassword) {
+      $isPasswordCorrect = password_verify($password, $hashedPassword);
+      return $isPasswordCorrect;
     }
 }

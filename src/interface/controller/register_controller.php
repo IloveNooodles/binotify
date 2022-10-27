@@ -1,6 +1,5 @@
 <?php
 require_once BASE_URL . '/src/interface/model/user.php';
-require_once BASE_URL . '/src/infrastructure/password/password.php';
 
 class Register extends Controller {
     public function index(){
@@ -61,7 +60,7 @@ class Register extends Controller {
         case "POST":
           $user_model = new UserModel();
           try {
-            $hashed_password = hash_user_password($_POST['password']);
+            $hashed_password = $this->hash_user_password($_POST['password']);
             $user_model->insert_user($_POST['username'], $_POST['email'], $hashed_password, 0);
           } catch (Exception $e) {
             $this->view("register/index", ["status_message" => INTERNAL_ERROR]);
@@ -72,5 +71,10 @@ class Register extends Controller {
           response_not_allowed_method();
           return;
       }
+    }
+
+    private function hash_user_password($password) {
+      $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+      return $hashedPassword;
     }
 }
