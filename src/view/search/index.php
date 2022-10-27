@@ -37,13 +37,14 @@
               </select>
             </div>
             <div class="search-by">
-              <label for="orderby">Orderby</label>
+              <label for="orderby">Order by</label>
               <select class="search-bar" name="orderby" id="orderby">
-                <option value="judul" selected> Judul </option>
-                <option value="penyanyi"> Penyanyi </option>
-                <option value="tanggal_terbit"> Tahun terbit </option>
+                <option value="judul" selected> Title </option>
+                <option value="penyanyi"> Artist </option>
+                <option value="tanggal_terbit"> Released Year </option>
               </select>
             </div>
+            <button class="btn primary submit-search" id="submit-search-btn" type="submit">Search</button>
         </form>
     </div>
     <div class="search-result">

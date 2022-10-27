@@ -89,6 +89,12 @@ select.search-bar {
   justify-content: space-between;
 }
 
+.submit-search {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 300px;
+}
+
 @media screen and (min-width: 1024px) {
   .title {
     text-align: left;
@@ -100,14 +106,18 @@ select.search-bar {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: flex-start;
+    align-items: flex-end;
     padding-left: 3rem;
   }
 
-  input.search-bar {
-    width: 350px;
+  select.search-bar {
+    width: 200px;
   }
 
   .error-text {
     font-size: var(--fs-album-subtitle-pc);
+  }
+  .submit-search {
+    width: 200px;
   }
 }

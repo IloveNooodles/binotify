@@ -9,6 +9,7 @@ const leftbutton = document.getElementById("left-button");
 const rightbutton = document.getElementById("right-button");
 const current_page_DOM = document.getElementById("current-page");
 const total_page_DOM = document.getElementById("total-page");
+const submitBtn = document.getElementById("submit-search-btn");
 
 var fetch_search_result_song = new XMLHttpRequest();
 var fetch_search_genre = new XMLHttpRequest();
@@ -41,6 +42,22 @@ window.addEventListener("load", (e) => {
       fetch_search_genre.status === 200
     ) {
       updateListGenre(fetch_search_genre.responseText);
+    }
+  };
+});
+
+submitBtn.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const URL = `song/search?q=${search.value}&genre=${genre.value}&asc=${order.value}&orderby=${orderby.value}&page=${current_page.value}`;
+  fetch_search_result_song.open("GET", URL);
+  fetch_search_result_song.send();
+
+  fetch_search_result_song.onreadystatechange = function () {
+    if (
+      fetch_search_result_song.readyState === 4 &&
+      fetch_search_result_song.status === 200
+    ) {
+      updateDOM(fetch_search_result_song.responseText);
     }
   };
 });
