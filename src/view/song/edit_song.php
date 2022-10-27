@@ -15,28 +15,29 @@
         <i class="arrow left"></i>
     </a>
 
-    <form class="insert-song-form" action="/song/new" method="POST" enctype="multipart/form-data">
-        <h3>Insert New Song</h3>
-        <input type="text" placeholder="Judul" id="judul" name="judul">
-        <input type="text" placeholder="Penyanyi" id="penyanyi" name="penyanyi">
-        <input type="text" placeholder="Genre" id="genre" name="genre">
+    <form class="insert-song-form" action="/song/edit/<?=$data['song']['song_id']?>" method="POST" enctype="multipart/form-data">
+        <h3>Edit Song</h3>
+        <input type="hidden" id="song_id" name="song_id" value="<?=$data['song']['song_id']?>">
+        <input type="text" placeholder="Title" id="judul" name="judul" value="<?=$data['song']['judul']?>">
+        <input type="text" disabled placeholder="Artist" id="penyanyi" name="penyanyi" value="<?=$data['song']['penyanyi']?>">
+        <input type="text" placeholder="Genre" id="genre" name="genre" value="<?=$data['song']['genre']?>">
 
-        <h4>Tanggal Terbit</h4>
-        <input type="date" placeholder="Tanggal Terbit" id="tanggal" name="tanggal">
+        <h4>Release Date</h4>
+        <input type="date" placeholder="Release Date" id="tanggal" name="tanggal" value="<?=$data['song']['tanggal_terbit']?>">
 
         <h4>Song Cover</h4>
         <input type="file" id="cover" name="cover" accept="image/*">
         <h4>Song Audio</h4>
-        <input type="file" id="song" name="song" accept="audio/*">
+        <input type="file" id="audio" name="audio" accept="audio/*">
 
         <?php
             if (isset($data['status_message']) && $data['status_message'] == SUCCESS) {
-                echo '<label class="sumbit-success">Submit Album Successful</label>';
+                echo '<label class="sumbit-success">Update Song Successful</label>';
             }
             else if (isset($data['status_message']) && ($data['status_message'] != SUCCESS)) {
                 $msg = $data['status_message'];
                 if ($data['status_message'] == 'INTERNAL_SERVER_ERROR') {
-                    $msg = "Album already exists";
+                    $msg = "Something went wrong";
                 } else if ($data['status_message'] == 'DATA_NOT_COMPLETE') {
                     $msg = "Please fill all the fields";
                 } else {
@@ -46,7 +47,7 @@
             }
         ?>
         
-        <button type="submit" class="btn primary submit-song">Submit Song</button>
+        <button type="submit" class="btn primary submit-song">Update Song</button>
     </form>
 
 </body>

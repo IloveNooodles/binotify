@@ -16,12 +16,12 @@ class Album extends Controller {
         }
     }
 
-    public function detail($id) {
+    public function detail($id = -1) {
         switch($_SERVER["REQUEST_METHOD"]){
             case "GET":
                 $album_service = new AlbumService();
 
-                if (!isset($id)) {
+                if ($id == -1) {
                     $page = 1;
                     $data = $album_service->getAlbums($page);
                     $this->view('album/index', $data);
@@ -29,7 +29,14 @@ class Album extends Controller {
                 }
 
                 $data = $album_service->detail($id);
-                // response_json($data);
+
+                if (isset($data) and isset($data['status_message']) and $data['status_message'] != SUCCESS) {
+                    $page = 1;
+                    $data = $album_service->getAlbums($page);
+                    $this->view('album/index', $data);
+                    return;
+                }
+
                 $this->view('album/album_detail', $data);
                 return;
             default:
@@ -61,11 +68,12 @@ class Album extends Controller {
         }
     }
 
-    public function edit() {
+    public function edit($album_id) {
         switch($_SERVER["REQUEST_METHOD"]){
             case "GET":
                 $album_service = new AlbumService();
-                $album = $album_service->detail($_GET['id']);
+                $album = $album_service->detail($album_id);
+                // response_json($album);
                 $this->view("album/edit_album", $album);
                 break;
             case "POST":
@@ -79,7 +87,8 @@ class Album extends Controller {
                     $status = $album_service->edit($_POST['album_id'], $_POST['judul'], $_POST['penyanyi'], $_POST['tanggal'], $_POST['genre'], $cover);
                     $data = ["status_message" => $status];
                 }
-                $this->view("album/edit_album", $data);
+                $album = $album_service->detail($_POST['album_id']);
+                $this->view("album/edit_album", array_merge($album, $data));
                 return;
             default:
                 response_not_allowed_method();
