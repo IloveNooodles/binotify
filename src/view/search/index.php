@@ -13,7 +13,7 @@
 </head>
 <body>
     <?php include_once 'src/view/component/navbar.php' ?>
-    <h2 class="title">Search</h2>
+    <h2 class="title">Search Song</h2>
     <div class="top-menu">
         <form class="form-search" id="form-search">
             <div class="search-by">
@@ -32,8 +32,8 @@
             <div class="search-by">
               <label for="asc">Order</label>
               <select class="search-bar" name="asc" id="asc">
-                <option value="0" selected> Ascending</option>
-                <option value="1"> Descending </option>
+                <option value="1" selected> Ascending</option>
+                <option value="0"> Descending </option>
               </select>
             </div>
             <div class="search-by">
