@@ -19,7 +19,7 @@
         <h3>Edit Album</h3>
         <input type="hidden" id="album_id" name="album_id" value="<?=$data['album']['album_id']?>">
         <input type="text" placeholder="Title" id="judul" name="judul" value="<?=$data['album']['judul']?>">
-        <input type="text" placeholder="Artist" id="penyanyi" name="penyanyi" value="<?=$data['album']['penyanyi']?>">
+        <input type="text" disabled placeholder="Artist" id="penyanyi" name="penyanyi" value="<?=$data['album']['penyanyi']?>">
         <input type="text" placeholder="Genre" id="genre" name="genre" value="<?=$data['album']['genre']?>">
         <h4>Release Date</h4>
         <input type="date" placeholder="Release Date" id="tanggal" name="tanggal" value="<?=$data['album']['tanggal_terbit']?>">
