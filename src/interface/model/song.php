@@ -201,7 +201,7 @@ class SongModel {
     $this->db->execute();
   }
 
-  public function search_song_per_word($word, $page = 1, $genre = 'all', $order = 'ASC', $orderby = 'song_id', $limit = PAGINATION_LIMIT) {
+  public function search_song_per_word($word, $page = 1, $genre = 'all', $order = 'ASC', $orderby = 'judul', $limit = PAGINATION_LIMIT) {
     $query = "SELECT * FROM Song ";
     $contain_genre = false;
 

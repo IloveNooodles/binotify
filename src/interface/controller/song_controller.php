@@ -97,8 +97,9 @@ class Song extends Controller {
                 $genre = isset($_GET['genre']) ? $_GET['genre'] : "all";
                 $asc = isset($_GET['asc']) ? $_GET['asc'] : true;
                 $page = (isset($_GET['page']) and (int)$_GET['page'] >= 1)? $_GET['page'] : 1;
+                $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : "judul";
 
-                $data = $search_service->search_song($word, $genre, $asc, $page);
+                $data = $search_service->search_song($word, $genre, $asc, $orderby, $page);
                 $this->view("search/index", $data);
                 return;
                 break;
