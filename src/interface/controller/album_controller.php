@@ -97,12 +97,12 @@ class Album extends Controller {
             case "POST":
                 $album_service = new SongService();
 
-                if (!isset($_POST['song_id'])) {
+                if (!isset($_POST['song_id']) || !isset($_POST['album_id'])) {
                     $this->view("album/index");
                     return;
                 }
 
-                $data = $album_service->delete_song_from_album($_POST['song_id']);
+                $data = $album_service->add_song_to_album($_POST['song_id'], $_POST['album_id']);
                 response_json($data);
                 return;
                 break;

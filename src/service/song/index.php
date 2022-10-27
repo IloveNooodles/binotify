@@ -99,6 +99,7 @@ class SongService {
 
             $cur_song = $song_model->find_detail_song($song_id);
             if ($cur_song == null) {
+                $data['status_message'] = SONG_NOT_FOUND;
                 return SONG_NOT_FOUND;
             }
 
@@ -107,11 +108,13 @@ class SongService {
 
             $song_model->delete_song_by_id($song_id);
             if (!isset($album_id) or $album_id == null) {
+                $data['status_message'] = SUCCESS;
                 return SUCCESS;
             }
 
             $cur_album = $album_model->find_detail_album($album_id);
             if ($cur_album == null) {
+                $data['status_message'] = SUCCESS;
                 return SUCCESS;
             }
 
@@ -119,8 +122,10 @@ class SongService {
 
             $album_model->update_album_duration($album_id, $new_album_total_duration);
         } catch (Throwable $e) {
+            $data['status_message'] = INTERNAL_ERROR;
             return INTERNAL_ERROR;
         }
+        $data['status_message'] = SUCCESS;
         return SUCCESS;
     }
 
@@ -147,11 +152,13 @@ class SongService {
 
             $song_model->delete_album_id_from_song($song_id);
             if (!isset($album_id) or $album_id == null) {
+                $data['status_message'] = SUCCESS;
                 return SUCCESS;
             }
 
             $cur_album = $album_model->find_detail_album($album_id);
             if ($cur_album == null) {
+                $data['status_message'] = SUCCESS;
                 return SUCCESS;
             }
 
@@ -159,8 +166,46 @@ class SongService {
 
             $album_model->update_album_duration($album_id, $new_album_total_duration);
         } catch (Throwable $e) {
+            $data['status_message'] = INTERNAL_ERROR;
             return INTERNAL_ERROR;
         }
+        $data['status_message'] = SUCCESS;
+        return SUCCESS;
+    }
+
+    public function add_song_to_album($song_id, $album_id) {
+        $data = null;
+        try {
+            $song_model = new SongModel();
+            $album_model = new AlbumModel();
+
+            $cur_song = $song_model->find_detail_song($song_id);
+            if ($cur_song == null) {
+                $data['status_message'] = SONG_NOT_FOUND;
+                return $data;
+            }
+
+            if ($cur_song['album_id'] != null) {
+                $data['status_message'] = ALBUM_SONG_NOT_NULL;
+                return $data;
+            }
+
+            $cur_album = $album_model->find_detail_album($album_id);
+            if ($cur_album == null) {
+                $data['status_message'] = ALBUM_NOT_FOUND;
+                return $data;
+            }
+
+            $song_duration = $cur_song['duration'];
+            $new_album_total_duration = $cur_album['total_duration'] + $song_duration;
+
+            $song_model->update_album_id($song_id, $album_id);
+            $album_model->update_album_duration($album_id, $new_album_total_duration);
+        } catch (Throwable $e) {
+            $data['status_message'] = INTERNAL_ERROR;
+            return INTERNAL_ERROR;
+        }
+        $data['status_message'] = SUCCESS;
         return SUCCESS;
     }
 }

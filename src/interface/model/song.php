@@ -289,4 +289,14 @@ class SongModel {
 
     $this->db->execute();
   }
+
+  public function update_album_id($song_id, $album_id) {
+    $query = "UPDATE Song SET album_id = :album_id WHERE song_id = :song_id";
+
+    $this->db->query($query);
+    $this->db->bind("song_id", $song_id);
+    $this->db->bind("album_id", $album_id);
+
+    $this->db->execute();
+  }
 }
