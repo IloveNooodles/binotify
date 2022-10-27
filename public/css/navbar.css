@@ -138,3 +138,52 @@ select.search-bar {
 .dropdown-content .btn-submit:hover {
   background-color: var(--clr-background-highlight-three);
 }
+
+.navbar .show-mobile {
+  display: none;
+}
+
+.navbar .hidden-mobile {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .dropdown-content {
+    background-color: var(--clr-background-highlight-two);
+    min-width: 95vw;
+    z-index: 1;
+    left: 0;
+  }
+
+  .navbar .show-mobile {
+    display: block;
+  }
+
+  .navbar .hidden-mobile {
+    display: none;
+  }
+
+  .navbar .navbar-right {
+    /* float: right; */
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+  }
+
+  .navbar .navbar-right {
+    /* float: right; */
+    align-items: center;
+    display: inline-flex;
+  }
+  .hidden-mobile {
+    display: none;
+  }
+
+  .show-mobile {
+    display: block;
+  }
+  input.search-bar {
+    width: 200px;
+  }
+}
