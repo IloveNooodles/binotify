@@ -19,9 +19,5 @@
     require_once 'src/view/component/song_list.php';
     return_html($data);
   ?>
-  <?php include_once 'src/view/component/song_detail.php';
-    show_song_detail();
-  ?>
-  <?php include_once 'src/view/component/edit_song.php' ?>
 </body>
 </html>

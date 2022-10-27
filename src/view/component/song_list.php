@@ -13,7 +13,7 @@ function return_html($data = [], $no_cover = false){
         $all_song
     </table>
     </body>
-    <script src="public/js/song-list.js"></script>
+    <script src="/public/js/song-list.js"></script>
 EOT;
 echo $html;
 }
