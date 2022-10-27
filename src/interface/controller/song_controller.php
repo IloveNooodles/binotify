@@ -20,8 +20,9 @@ class Song extends Controller {
                 $song_service = new SongService();
                 $id = $_GET['id'];
                 $song = $song_service->detail($id);
-                response_json($song);
-                return;
+                $this->view('song/song_detail', $song);
+                // response_json($song);
+                break;
             default:
                 response_not_allowed_method();
                 return;
@@ -71,7 +72,7 @@ class Song extends Controller {
                     $status = $song_service->edit($_POST['song_id'], $_POST['judul'], $_POST['penyanyi'], $_POST['tanggal'], $_POST['genre'], $cover, $song);
                     $data = ["status_message" => $status];
                 }
-                // $this->view("song/edit_song", $data);
+                // $this->view("home/index", $data);
                 response_json($data);
                 return;
             default:

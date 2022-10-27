@@ -50,7 +50,7 @@ class AlbumService {
                 return ALBUM_NOT_FOUND;
             }
             $cover = $cur_album['image_path'];
-            if (isset($file_image) && isset($file_image['name']) && isset($file_image['tmp_name'])) {
+            if (isset($file_image) && isset($file_image['name']) && isset($file_image['tmp_name']) && $file_image['name'] != '' && $file_image['tmp_name'] != '') {
                 $result = $image_storage->save_image($file_image['name'], $file_image['tmp_name'], IMAGE_DIR);
                 if ($result == null) {
                     return INTERNAL_ERROR;

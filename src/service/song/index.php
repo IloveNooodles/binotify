@@ -66,7 +66,7 @@ class SongService {
             $cover = $cur_song['image_path'];
             $total_duration = $cur_song['duration'];
 
-            if (isset($file_audio) && isset($file_audio['name']) && isset($file_audio['tmp_name'])) {
+            if (isset($file_audio) && isset($file_audio['name']) && isset($file_audio['tmp_name']) && $file_audio['name'] != "" && $file_audio['tmp_name'] != "") {
                 $result = $audio_storage->save_audio($file_audio['name'], $file_audio['tmp_name'], AUDIO_DIR);
                 if ($result == null) {
                     return INTERNAL_ERROR;
@@ -77,7 +77,7 @@ class SongService {
                     return DATA_NOT_COMPLETE;
                 }
             }
-            if (isset($file_image) && isset($file_image['name']) && isset($file_image['tmp_name'])) {
+            if (isset($file_image) && isset($file_image['name']) && isset($file_image['tmp_name']) && $file_image['name'] != "" && $file_image['tmp_name'] != "") {
                 $result = $image_storage->save_image($file_image['name'], $file_image['tmp_name'], IMAGE_DIR);
                 if ($result == null) {
                     return INTERNAL_ERROR;
