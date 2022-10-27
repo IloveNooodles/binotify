@@ -53,11 +53,11 @@ class Song extends Controller {
         }
     }
 
-    public function edit() {
+    public function edit($id = 1) {
         switch($_SERVER["REQUEST_METHOD"]) {
             case "GET":
                 $song_service = new SongService();
-                $song = $song_service->detail($_GET['id']);
+                $song = $song_service->detail($id);
                 $this->view("song/edit_song", $song);
                 return;
             case "POST":
@@ -72,8 +72,9 @@ class Song extends Controller {
                     $status = $song_service->edit($_POST['song_id'], $_POST['judul'], $_POST['penyanyi'], $_POST['tanggal'], $_POST['genre'], $cover, $song);
                     $data = ["status_message" => $status];
                 }
-                // $this->view("home/index", $data);
-                response_json($data);
+                $song = $song_service->detail($id);
+                $this->view("song/edit_song", array_merge($song, $data));
+                // response_json(array_merge($song, $data));
                 return;
             default:
                 response_not_allowed_method();
