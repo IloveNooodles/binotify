@@ -18,30 +18,46 @@ class User extends Controller {
         case "POST":
           $this->logout_user();
           break;
+        default:
+          response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+          break;
       }
     }
 
     public function list() {
-      $search_service = new SearchService();
-      $page = 1;
+      switch($_SERVER['REQUEST_METHOD']){
+        case "GET":
+          $search_service = new SearchService();
+          $page = 1;
 
-      if (isset($_GET['page']) and $_GET['page'] > 0) {
-        $page = $_GET['page'];
-      } 
+          if (isset($_GET['page']) and $_GET['page'] > 0) {
+            $page = $_GET['page'];
+          } 
 
-      $data = $search_service->search_all_user($page);
-      $this->view('user/index', $data);
+          $data = $search_service->search_all_user($page);
+          $this->view('user/index', $data);
+          return;
+        default:
+          response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+          break;
+      }
     }
 
     private function logout_user() {
-      if(!(isset($_SESSION['username']) && isset($_SESSION['user_id']))){
-        redirect_home();
-        return;
+      switch($_SERVER['REQUEST_METHOD']){
+        case "POST":
+          if(!(isset($_SESSION['username']) && isset($_SESSION['user_id']))){
+            redirect_home();
+            return;
+          }
+        
+          $auth_service = new AuthService();
+          $auth_service->logout();
+          redirect_home();
+          return;
+        default:
+          response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+          break;
       }
-    
-      $auth_service = new AuthService();
-      $auth_service->logout();
-      redirect_home();
-      return;
     }
 }

@@ -19,6 +19,10 @@ class Home extends Controller {
           break;
         case "POST":
           break;
+        default:
+          response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+          return;
+          break;
       }
     }
 }
