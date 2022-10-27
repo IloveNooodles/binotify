@@ -128,7 +128,7 @@ rightbutton.addEventListener("click", (e) => {
 function updateListGenre(data) {
   res = JSON.parse(data);
   list_song = res["data"]["genre"];
-  template_html = `<option value="all" selected>No genre selected</option>`;
+  template_html = `<option value="all" selected>All</option>`;
   list_song.map((item) => {
     item_genre = item["total_genre"];
     template_html += `<option value="${item_genre}">${capitalize(
