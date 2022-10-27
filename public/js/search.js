@@ -10,31 +10,54 @@ const rightbutton = document.getElementById("right-button");
 const current_page_DOM = document.getElementById("current-page");
 const total_page_DOM = document.getElementById("total-page");
 
-var xhr = new XMLHttpRequest();
+var fetch_search_result_song = new XMLHttpRequest();
+var fetch_search_genre = new XMLHttpRequest();
+var remove_pagination = new XMLHttpRequest();
 
 window.addEventListener("load", (e) => {
   e.preventDefault();
-  const URL = `song/search?q=${search.value}`;
+  let url = `song/search?q=${search.value}`;
 
-  xhr.open("GET", URL);
-  xhr.send();
+  fetch_search_result_song.open("GET", url);
+  fetch_search_result_song.send();
 
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      updateDOM(xhr.responseText);
+  fetch_search_result_song.onreadystatechange = function () {
+    if (
+      fetch_search_result_song.readyState === 4 &&
+      fetch_search_result_song.status === 200
+    ) {
+      updateDOM(fetch_search_result_song.responseText);
+    }
+  };
+
+  url = `song/all_distinct_genre`;
+
+  fetch_search_genre.open("GET", url);
+  fetch_search_genre.send();
+
+  fetch_search_genre.onreadystatechange = function () {
+    if (
+      fetch_search_genre.readyState === 4 &&
+      fetch_search_genre.status === 200
+    ) {
+      updateListGenre(fetch_search_genre.responseText);
     }
   };
 });
 
 formsearch.addEventListener("submit", (e) => {
   e.preventDefault();
-  const URL = `song/search?q=${search.value}&genre=Progressive&asc=${order.value}&orderby=${orderby.value}&page=${current_page.value}`;
-  xhr.open("GET", URL);
-  xhr.send();
+  const URL = `song/search?q=${search.value}&genre=${genre.value}&asc=${order.value}&orderby=${orderby.value}&page=${current_page.value}`;
+  console.log(URL);
+  fetch_search_result_song.open("GET", URL);
+  fetch_search_result_song.send();
 
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      updateDOM(xhr.responseText);
+  fetch_search_result_song.onreadystatechange = function () {
+    if (
+      fetch_search_result_song.readyState === 4 &&
+      fetch_search_result_song.status === 200
+    ) {
+      updateDOM(fetch_search_result_song.responseText);
     }
   };
 });
@@ -45,17 +68,20 @@ leftbutton.addEventListener("click", (e) => {
   if (cur_page <= 1) {
     return;
   }
-  const URL = `song/search?q=${search.value}&genre=Progressive&asc=${
+  const URL = `song/search?q=${search.value}&genre=${genre.value}&asc=${
     order.value
   }&orderby=${orderby.value}&page=${cur_page - 1}`;
+  console.log(URL);
 
-  xhr.open("GET", URL);
-  xhr.send();
+  fetch_search_result_song.open("GET", URL);
+  fetch_search_result_song.send();
 
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      console.log(xhr.responseText);
-      updateDOM(xhr.responseText);
+  fetch_search_result_song.onreadystatechange = function () {
+    if (
+      fetch_search_result_song.readyState === 4 &&
+      fetch_search_result_song.status === 200
+    ) {
+      updateDOM(fetch_search_result_song.responseText);
     }
   };
 });
@@ -68,19 +94,35 @@ rightbutton.addEventListener("click", (e) => {
   if (cur_page >= total_page) {
     return;
   }
-  const URL = `song/search?q=${search.value}&genre=Progressive&asc=${
+  const URL = `song/search?q=${search.value}&genre=${genre.value}&asc=${
     order.value
   }&orderby=${orderby.value}&page=${cur_page + 1}`;
-  xhr.open("GET", URL);
-  xhr.send();
+  console.log(URL);
+  fetch_search_result_song.open("GET", URL);
+  fetch_search_result_song.send();
 
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      updateDOM(xhr.responseText);
+  fetch_search_result_song.onreadystatechange = function () {
+    if (
+      fetch_search_result_song.readyState === 4 &&
+      fetch_search_result_song.status === 200
+    ) {
+      updateDOM(fetch_search_result_song.responseText);
     }
   };
 });
-// const URL = `/song/search/?q=${search.value}&genre=${genre.value}&asc=${order.value}&orderby=${orderby.value}`;
+
+function updateListGenre(data) {
+  res = JSON.parse(data);
+  list_song = res["data"]["genre"];
+  template_html = `<option value="all" selected>No genre selected</option>`;
+  list_song.map((item) => {
+    item_genre = item["total_genre"];
+    template_html += `<option value="${item_genre}">${capitalize(
+      item_genre
+    )}</option>`;
+  });
+  genre.innerHTML = template_html;
+}
 
 function updateDOM(data) {
   res = JSON.parse(data);
@@ -121,4 +163,8 @@ function updateDOM(data) {
   total_page_DOM.innerHTML = `<p id="total-page">${total_page}</p>`;
   template_html += `</table>`;
   searchresultlist.innerHTML = template_html;
+}
+
+function capitalize(s) {
+  return s && s[0].toUpperCase() + s.slice(1);
 }
