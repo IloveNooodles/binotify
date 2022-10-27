@@ -2,9 +2,16 @@
 
 Binotify is a spotify like monolithic web application made using PHP and vanilla html css js. This app This repository is made to fulfill Tugas Besar 1 Pengembangan Aplikasi Berbasis Web IF3110 2022/2023. This app is also using docker for easy of use and same environment. Also includes with mysql and phpmyadmin for easier database management. This app have auth feature, see list of song and albums, searching, and many more. Currently this app supports thee role admin, user, and guest mode.
 
-## Daftar requirement
+Made with ❤ with
+| Name | NIM |
+| :-------------: |:-------------:|
+| Muhammad Garebaldhie ER Rahman | 13520029 |
+| I Gede Arya R. P | 13520036 |
+| Arik Rayi Arkananta | 13520048 |
 
-### User Functionality
+## Screenshot
+
+## User Functionality
 
 1. All user
 
@@ -45,18 +52,54 @@ Binotify is a spotify like monolithic web application made using PHP and vanilla
      - Add song to album
      - Remove song from album
 
-## Cara instalasi
+## Requirement list
 
-## Cara menjalankan server
+1. Docker
+2. Php 8
 
-## Screenshot tampilan aplikasi (tidak perlu semua kasus, minimal 1 per halaman), dan
+## Installation
 
-## Penjelasan mengenai pembagian tugas masing-masing anggota (lihat formatnya pada bagian pembagian tugas).
+1. Install requirements
 
-1. Buatlah file README yang berisi:
-   - Deskripsi aplikasi web
-   - Daftar requirement
-   - Cara instalasi
-   - Cara menjalankan server
-   - Screenshot tampilan aplikasi (tidak perlu semua kasus, minimal 1 per halaman), dan
-   - Penjelasan mengenai pembagian tugas masing-masing anggota (lihat formatnya pada bagian pembagian tugas).
+   - For window and mac user
+
+     - Download docker desktop [here](https://www.docker.com/products/docker-desktop/)
+
+   - For UNIX like user run commands below
+
+   ```sh
+    sudo apt-get update
+    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+   ```
+
+   To verify if docker is already installed run with `docker run hello-world` and for UNIX users don't forget to add `sudo`
+
+2. Clone this repository
+3. By default this application use port `8001, 8002, 8003` and if your computer already use the port please change it in `docker-compose.yml` file and you can refer to guide in [here](https://docs.docker.com/compose/gettingstarted/)
+
+## How to run
+
+1. Change directory to the clonned repo
+2. Run `./scripts/run.sh` to start the applications
+3. Run `./scripts/shutdown.sh` to shutdown the applications
+4. If it seems the application response with an error try to run `./scripts/build-image.sh` and then `./scripts/run.sh`
+
+NOTE: If you are UNIX users don't forget to add sudo (ex: `sudo ./scripts/run.sh`)
+
+## How are the tasks divided?
+
+### Server side
+
+| Muhammad Garebaldhie ER Rahman | I Gede Arya R. P | Arik Rayi Arkananta |
+| ------------------------------ | :--------------: | ------------------- |
+| login                          |    right foo     | right foo           |
+| fetch list user                |    right bar     | right foo           |
+| fetch list song                |    right baz     | right foo           |
+
+### Client Side
+
+| Muhammad Garebaldhie ER Rahman | I Gede Arya R. P | Arik Rayi Arkananta |
+| ------------------------------ | :--------------: | ------------------- |
+| Responsive user list page      |    right foo     | right foo           |
+|                                |    right bar     | right foo           |
+|                                |    right baz     | right foo           |

@@ -1,1 +1,1 @@
-docker build -t tubes-1:latest .
+docker build --no-cache -t tubes-1:latest .

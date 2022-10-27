@@ -1,1 +1,1 @@
-./scripts/build-image.sh && docker-compose up -d --build
+docker build -t tubes-1:latest . && docker-compose up -d --build
