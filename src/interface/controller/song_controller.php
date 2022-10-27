@@ -6,7 +6,7 @@ class Song extends Controller {
     public function index($query=null){
         switch($_SERVER['REQUEST_METHOD']){
             case "GET":
-                $this->view("search/index");
+                redirect_to("search/index");
                 break;
             default:
                 response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
