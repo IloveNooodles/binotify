@@ -39,6 +39,12 @@ class Song extends Controller {
     }
 
     public function new() {
+        $middleware = new Middleware();
+        $can_access_admin = $middleware->can_access_admin_page();
+        if (!$can_access_admin) {
+            redirect_home();
+            return;
+        }
         switch($_SERVER["REQUEST_METHOD"]) {
             case "GET":
                 $this->view("song/insert_song");
@@ -63,6 +69,12 @@ class Song extends Controller {
     }
 
     public function edit($id = 1) {
+        $middleware = new Middleware();
+        $can_access_admin = $middleware->can_access_admin_page();
+        if (!$can_access_admin) {
+            redirect_home();
+            return;
+        }
         switch($_SERVER["REQUEST_METHOD"]) {
             case "GET":
                 $song_service = new SongService();
@@ -92,6 +104,12 @@ class Song extends Controller {
     }
 
     public function delete() {
+        $middleware = new Middleware();
+        $can_access_admin = $middleware->can_access_admin_page();
+        if (!$can_access_admin) {
+            redirect_home();
+            return;
+        }
         switch($_SERVER["REQUEST_METHOD"]) {
             case "DELETE":
                 $song_service = new SongService();
@@ -132,6 +150,12 @@ class Song extends Controller {
     }
 
     public function all_distinct_genre() {
+        $middleware = new Middleware();
+        $can_access_admin = $middleware->can_access_admin_page();
+        if (!$can_access_admin) {
+            redirect_home();
+            return;
+        }
         switch($_SERVER["REQUEST_METHOD"]) {
             case "GET":
                 $song_service = new SongService();
@@ -145,7 +169,6 @@ class Song extends Controller {
     }
 
     public function play_song(){
-        $middleware = new Middleware();
         switch($_SERVER['REQUEST_METHOD']){
             case "GET":
                 return;

@@ -46,6 +46,12 @@ class Album extends Controller {
     }
 
     public function new() {
+        $middleware = new Middleware();
+        $can_access_admin = $middleware->can_access_admin_page();
+        if (!$can_access_admin) {
+            redirect_home();
+            return;
+        }
         switch($_SERVER["REQUEST_METHOD"]){
             case "GET":
                 $this->view("album/insert_album");
@@ -69,6 +75,12 @@ class Album extends Controller {
     }
 
     public function edit($album_id) {
+        $middleware = new Middleware();
+        $can_access_admin = $middleware->can_access_admin_page();
+        if (!$can_access_admin) {
+            redirect_home();
+            return;
+        }
         switch($_SERVER["REQUEST_METHOD"]){
             case "GET":
                 $album_service = new AlbumService();
@@ -97,6 +109,12 @@ class Album extends Controller {
     }
 
     public function delete() {
+        $middleware = new Middleware();
+        $can_access_admin = $middleware->can_access_admin_page();
+        if (!$can_access_admin) {
+            redirect_home();
+            return;
+        }
         switch($_SERVER["REQUEST_METHOD"]) {
             case "DELETE":
                 $album_service = new AlbumService();
@@ -116,6 +134,12 @@ class Album extends Controller {
     }
 
     public function add_song() {
+        $middleware = new Middleware();
+        $can_access_admin = $middleware->can_access_admin_page();
+        if (!$can_access_admin) {
+            redirect_home();
+            return;
+        }
         switch($_SERVER["REQUEST_METHOD"]) {
             case "POST":
                 $album_service = new SongService();
@@ -135,6 +159,12 @@ class Album extends Controller {
     }
 
     public function delete_song() {
+        $middleware = new Middleware();
+        $can_access_admin = $middleware->can_access_admin_page();
+        if (!$can_access_admin) {
+            redirect_home();
+            return;
+        }
         switch($_SERVER["REQUEST_METHOD"]) {
             case "DELETE":
                 $album_service = new SongService();
@@ -154,6 +184,12 @@ class Album extends Controller {
     }
 
     public function unlinked_song() {
+        $middleware = new Middleware();
+        $can_access_admin = $middleware->can_access_admin_page();
+        if (!$can_access_admin) {
+            redirect_home();
+            return;
+        }
         switch($_SERVER["REQUEST_METHOD"]) {
             case "GET":
                 $album_service = new SongService();
