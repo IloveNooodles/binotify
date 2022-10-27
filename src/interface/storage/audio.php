@@ -40,7 +40,7 @@ class AudioStorage {
     private function is_audio_valid($audio_path){
         $audio_extension = pathinfo($audio_path, PATHINFO_EXTENSION);
         $audio_extension = strtolower($audio_extension);
-        $valid_audio_extension = ["jpg", "jpeg", "png"];
+        $valid_audio_extension = ["mp3", "wav", "ogg"];
         return in_array($audio_extension, $valid_audio_extension);
     }
 
