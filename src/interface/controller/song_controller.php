@@ -1,5 +1,6 @@
 <?php
 require_once BASE_URL . '/src/service/song/index.php';
+require_once BASE_URL . '/src/service/search/index.php';
 
 class Song extends Controller {
     public function index($query=null){
@@ -71,7 +72,8 @@ class Song extends Controller {
                     $status = $song_service->edit($_POST['song_id'], $_POST['judul'], $_POST['penyanyi'], $_POST['tanggal'], $_POST['genre'], $cover, $song);
                     $data = ["status_message" => $status];
                 }
-                $this->view("song/edit_song", $data);
+                // $this->view("song/edit_song", $data);
+                response_json($data);
                 return;
                 break;
             default:
@@ -87,24 +89,35 @@ class Song extends Controller {
     }
 
     public function search() {
-      switch($_SERVER['REQUEST_METHOD']){
-        case "GET":
-            $this->view("search/index");
-            break;
-        default:
-            response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
-            break;
-      }
+        switch($_SERVER["REQUEST_METHOD"]) {
+            case "GET":
+                $search_service = new SearchService();
+
+                $word = isset($_GET['q']) ? $_GET['q'] : "";
+                $genre = isset($_GET['genre']) ? $_GET['genre'] : "all";
+                $asc = isset($_GET['asc']) ? $_GET['asc'] : true;
+                $page = (isset($_GET['page']) and (int)$_GET['page'] >= 1)? $_GET['page'] : 1;
+                $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : "judul";
+
+                $data = $search_service->search_song($word, $genre, $asc, $orderby, $page);
+                $this->view("search/index", $data);
+                return;
+                break;
+            default:
+                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                return;
+                break;
+        }
     }
 
     public function play_song(){
-      $middleware = new Middleware();
-      switch($_SERVER['REQUEST_METHOD']){
-        case "GET":
-            break;
-        default:
-            response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
-            break;
-      }
+        $middleware = new Middleware();
+        switch($_SERVER['REQUEST_METHOD']){
+            case "GET":
+                break;
+            default:
+                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                break;
+        }
     }
 }

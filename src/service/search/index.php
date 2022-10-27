@@ -18,11 +18,18 @@ class SearchService {
         return $data;
     }
 
-    public function song() {
-        
-    }
+    public function search_song($word, $genre, $asc, $orderby, $page = 1) {
+        $song_model = new SongModel();
 
-    public function album() {
+        $word_array = [];
+        $word = trim($word);
+        if ($word != '') {
+            $word_array = explode(" ", $word);
+        }
 
+        $order = $asc ? "ASC" : "DESC";
+
+        $songs = $song_model->search_song_per_word($word_array, $page, $genre, $order, $orderby);
+        return $songs;
     }
 }

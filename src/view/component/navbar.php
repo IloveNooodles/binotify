@@ -3,11 +3,11 @@
         echo '
         <body>
         <div class="navbar">
-            <a class="active" href="/">Home</a>
-            <a href="/album">Albums</a>
-            <a href="/user">Users</a>
-            <a href="/song/new">Insert Song</a>
-            <a href="/album/new">Insert Album</a>
+            <a id="home-navbar" href="/">Home</a>
+            <a id="album-navbar" href="/album">Albums</a>
+            <a id="user-navbar" href="/user">Users</a>
+            <a id="insert-song-navbar" href="/song/new">Insert Song</a>
+            <a id="insert-album-navbar" href="/album/new">Insert Album</a>
             <div class="navbar-right">
                 <form class="inline-child" action="/song/search">
                     <input class="search-bar" type="text" placeholder="What do you want to listen to?" name="q">
@@ -25,15 +25,15 @@
             <button type="submit" class="btn-submit">Log Out</button>
         </form>
         </div>
-        <script defer src="/public/js/navbar.js"></script>
+        <script defer src="/public/js/admin-navbar.js"></script>
         <body>';
     }
     else {
         echo '
         <body>
         <div class="navbar">
-            <a class="active" href="/">Home</a>
-            <a href="/album">Albums</a>
+            <a id="home-navbar" href="/">Home</a>
+            <a id="album-navbar" href="/album">Albums</a>
             <div class="navbar-right">
                 <form class="inline-child" action="/song/search">
                     <input class="search-bar" type="text" placeholder="What do you want to listen to?" name="q">
@@ -51,7 +51,7 @@
         (isset($_SESSION['username']) ? '<button type="submit" class="btn-submit">Log Out</button>' : '<a href="/login">Log In</a><a href="/register">Register</a>') . '
         </form>
         </div>
-        <script defer src="/public/js/admin-navbar.js"></script>
+        <script defer src="/public/js/navbar.js"></script>
         </body>';
     }
 ?>
