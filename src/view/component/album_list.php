@@ -23,7 +23,7 @@ function albums_in_html($data){
             $genre = $album['genre'];
             $html = <<<"EOT"
             <li class="album-list-item" name="$album_id">
-                <a href="/album/detail?id=$album_id">
+                <a href="/album/detail/$album_id">
                     <img class="album-image" src="$image_path" alt="album1">
                     <div class="album-text">
                         <p class="album-song-title">$judul</p>

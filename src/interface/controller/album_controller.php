@@ -9,17 +9,17 @@ class Album extends Controller {
         $this->view('album/index', $data);
     }
 
-    public function detail() {
+    public function detail($id) {
         $album_service = new AlbumService();
 
-        if (!isset($_GET['id'])) {
+        if (!isset($id)) {
             $page = 1;
             $data = $album_service->getAlbums($page);
             $this->view('album/index', $data);
             return;
         }
 
-        $data = $album_service->detail($_GET['id']);
+        $data = $album_service->detail($id);
         // response_json($data);
         $this->view('album/album_detail', $data);
         return;
@@ -90,5 +90,9 @@ class Album extends Controller {
                 return;
                 break;
         }
+    }
+
+    public function add_song() {
+
     }
 }
