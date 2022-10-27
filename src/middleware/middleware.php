@@ -13,15 +13,23 @@ class Middleware {
   public function limit_song(){
     
     if(isset($_SESSION['role']) || isset($_SESSION['username'])){
-      return true;
-    }
-
-    $num_song_played = $_SESSION['num_song_played'];
-    if($num_song_played >= 3){
       return false;
     }
 
+    if($_SESSION['num_song_played'] >= 3){
+      return true;
+    }
+
     $_SESSION['num_song_played'] += 1;
+    return false;
+  }
+
+  public function is_query_params_complete($array_of_queryparams){
+    foreach($array_of_queryparams as $queryparams){
+      if(!isset($_GET[$queryparams])){
+        return false;
+      }
+    }
     return true;
   }
 }

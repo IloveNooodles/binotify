@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Binotify</title>
+  <title>Binotify - Album Detail</title>
   <link rel="stylesheet" href="/public/css/styles.css">
   <link rel="stylesheet" href="/public/css/navbar.css">
   <link rel="stylesheet" href="/public/css/songList.css">
@@ -32,6 +32,8 @@
   include_once 'src/view/component/song_list.php';
   return_html($data['songs'], true);
   ?>
-  <?php include_once 'src/view/component/song_detail.php' ?>
+  <?php include_once 'src/view/component/song_detail.php';
+   show_song_detail();
+  ?>
 </body>
 </html>
