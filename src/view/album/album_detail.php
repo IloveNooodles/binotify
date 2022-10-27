@@ -12,7 +12,13 @@
   <link rel="shortcut icon" href="/public/img/favicon.png" type="image/x-icon">
 </head>
 <body>
-  <?php include_once 'src/view/component/navbar.php' ?>
+  <?php include_once BASE_URL . '/src/view/component/navbar.php' ?>
+  <?php
+    if ($_SESSION['role'] == 'admin') {
+      echo '<a class="edit-btn" href="/album/edit/' . $data['album']['album_id'] . '">Edit</a>';
+      echo '<a class="delete-btn" href="/album/delete/' . $data['album']['album_id'] . '">Delete</a>';
+    }
+  ?>
   <div class="album-details">
     <img class="album-image" src=<?=str_replace(BASE_URL,"",$data["album"]["image_path"])?> alt="album1">
     <div class="title-artist">
