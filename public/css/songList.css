@@ -73,3 +73,7 @@
     font-size: var(--fs-heading);
   }
 }
+
+a.edit-button {
+  margin-right: 10px;
+}
