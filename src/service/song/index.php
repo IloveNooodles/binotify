@@ -92,15 +92,35 @@ class SongService {
         return SUCCESS;
     }
 
-    public function delete() {
-        $song_model = new SongModel();
-        $album_service = new AlbumService();
+    public function delete($song_id) {
         try {
-            $song_model->delete_song_by_id($_POST['id']);
-            $album_service->update_duration($_POST['album_id']);
+            $song_model = new SongModel();
+            $album_model = new AlbumModel();
+
+            $cur_song = $song_model->find_detail_song($song_id);
+            if ($cur_song == null) {
+                return SONG_NOT_FOUND;
+            }
+
+            $song_duration = $cur_song['duration'];
+            $album_id = $cur_song['album_id'];
+
+            $song_model->delete_song_by_id($song_id);
+            if (!isset($album_id) or $album_id == null) {
+                return SUCCESS;
+            }
+
+            $cur_album = $album_model->find_detail_album($album_id);
+            if ($cur_album == null) {
+                return SUCCESS;
+            }
+
+            $new_album_total_duration = $cur_album['total_duration'] - $song_duration;
+
+            $album_model->update_album_duration($album_id, $new_album_total_duration);
         } catch (Throwable $e) {
-            return ["status_message" => INTERNAL_ERROR];
+            return INTERNAL_ERROR;
         }
-        return ["status_message" => SUCCESS];
+        return SUCCESS;
     }
 }

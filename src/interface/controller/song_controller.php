@@ -83,9 +83,24 @@ class Song extends Controller {
     }
 
     public function delete() {
-        $song_service = new SongService();
-        $song_service->delete($_POST['id']);
-        // belom tau redirect kemana
+        switch($_SERVER["REQUEST_METHOD"]) {
+            case "DELETE":
+                $song_service = new SongService();
+
+                if (!isset($_GET['song_id'])) {
+                    $this->view("search/index");
+                    return;
+                }
+
+                $data = $song_service->delete($_GET['song_id']);
+                response_json($data);
+                return;
+                break;
+            default:
+                response_json(["status_message" => METHOD_NOT_ALLOWED], 405);
+                return;
+                break;
+        }
     }
 
     public function search() {
@@ -100,7 +115,8 @@ class Song extends Controller {
                 $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : "judul";
 
                 $data = $search_service->search_song($word, $genre, $asc, $orderby, $page);
-                $this->view("search/index", $data);
+                // $this->view("search/index", $data);
+                response_json($data);
                 return;
                 break;
             default:
