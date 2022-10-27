@@ -144,7 +144,7 @@ class AlbumModel {
     $this->db->execute();
   }
 
-  public function update_album_duration($total_duration, $album_id) {
+  public function update_album_duration($album_id, $total_duration) {
     $query = "UPDATE Album SET total_duration = :total_duration WHERE album_id = :album_id";
 
     $this->db->query($query);

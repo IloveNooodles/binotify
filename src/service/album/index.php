@@ -79,14 +79,20 @@ class AlbumService {
     }
 
     public function update_duration($id) {
-    $song_model = new SongModel();
-    $songs = $song_model->find_all_song_by_album_id($id);
-    $total_duration = 0;
-    foreach ($songs as $song) {
-        $total_duration += $song['duration'];
+        $song_model = new SongModel();
+        $album_model = new AlbumModel();
+        try {
+            $songs = $song_model->find_all_song_by_album_id($id);
+
+            $total_duration = 0;
+            foreach ($songs as $song) {
+                $total_duration += $song['duration'];
+            }
+
+            $album_model->update_album_duration($id, $total_duration);
+        } catch (Throwable $e) {
+            return INTERNAL_ERROR;
         }
-    $album_model = new AlbumModel();
-    $album_model->update_album_duration($id, $total_duration);
     }
 
     public function getAlbums($page) {
