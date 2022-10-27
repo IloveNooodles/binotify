@@ -5,16 +5,30 @@ require_once BASE_URL . '/src/interface/storage/image.php';
 
 class AlbumService {
     public function detail($album_id) {
-        $data = [];
+        try {
+            $data = [];
 
-        $album_model = new AlbumModel();
-        $album = $album_model->find_detail_album($album_id);
-        $data['album'] = $album;
+            $album_model = new AlbumModel();
+            $album = $album_model->find_detail_album($album_id);
+            $data['album'] = $album;
+            if (!isset($album) or $album == null) {
+                $data['status_message'] = ALBUM_NOT_FOUND;
+                return $data;
+            }
 
-        $songs = $this->find_all_song_from_album_id($album_id);
-        $data['songs'] = $songs;
+            $songs = $this->find_all_song_from_album_id($album_id);
+            $data['songs'] = $songs;
+            if (!isset($songs) or $songs == null) {
+                $data['status_message'] = SONG_NOT_FOUND;
+                return $data;
+            }
 
-        return $data;
+            $data['status_message'] = SUCCESS;
+            return $data;
+        } catch (Exception $e) {
+            $data['status_message'] = INTERNAL_ERROR;
+            return $data;
+        }
     }
 
     public function new($judul, $penyanyi, $tanggal_terbit, $genre, $file_image) {
