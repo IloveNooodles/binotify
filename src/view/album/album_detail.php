@@ -14,7 +14,7 @@
 <body>
   <?php include_once BASE_URL . '/src/view/component/navbar.php' ?>
   <?php
-    if ($_SESSION['role'] == 'admin') {
+    if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
       echo '<a class="edit-btn" href="/album/edit/' . $data['album']['album_id'] . '">Edit</a>';
       echo '<a class="delete-btn" href="/album/delete/' . $data['album']['album_id'] . '">Delete</a>';
     }

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/public/css/styles.css">
     <link rel="stylesheet" href="/public/css/navbar.css">
     <link rel="stylesheet" href="/public/css/songList.css">
-    <link rel="stylesheet" href="/public/css/songDetail.css">
+    <link rel="stylesheet" href="/public/css/songdetail.css">
     <link rel="stylesheet" href="/public/css/albumDetail.css">
     <link rel="shortcut icon" href="/public/img/favicon.png" type="image/x-icon">
 </head>
@@ -17,7 +17,7 @@
     <div class="vw">
         <img class="song-detail-image" src="<?=str_replace(BASE_URL,'',$data['song']['image_path'])?>" alt="song1">
         <?php
-        if ($_SESSION['role'] == 'admin') {
+        if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
             echo '<a class="edit-btn" href="/song/edit/' . $data['song']['song_id'] . '">Edit</a>';
             echo '<a class="delete-btn" href="/song/delete/' . $data['song']['song_id'] . '">Delete</a>';
         }

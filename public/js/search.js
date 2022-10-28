@@ -136,6 +136,7 @@ function updateListGenre(data) {
     )}</option>`;
   });
   genre.innerHTML = template_html;
+  // console.log(genre.innerHTML);
 }
 
 function updateDOM(data) {
@@ -163,9 +164,10 @@ function updateDOM(data) {
     template_html += `<tr class="content" name="${song["song_id"]}">
                 <td>${index + 1 + (current_page - 1) * 10}</td>
                 <td class="songlist-title">
-                    <img class="song-image" src="${
-                      song["image_path"].replace("/var/www/html", "")
-                    }" alt="album">
+                    <img class="song-image" src="${song["image_path"].replace(
+                      "/var/www/html",
+                      ""
+                    )}" alt="album">
                     <div class="title-artist">
                         <p class="song-title">${song["judul"]}</p>
                         <p class="song-artist">${song["penyanyi"]}</p>
