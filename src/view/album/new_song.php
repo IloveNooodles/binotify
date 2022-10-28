@@ -15,13 +15,13 @@
         <i class="arrow left"></i>
     </a>
 
-    <form class="insert-album-form" action="/album/add_song" method="POST" enctype="multipart/form-data">
+    <form class="insert-album-form" enctype="multipart/form-data">
         <h3>Insert Song to album</h3>
-        <select class="option-bar" name="song_to_insert" id="song_to_insert">
+        <select class="option-bar" name="song_id" id="song_to_insert">
             <option value="" selected>Choose Song to Insert</option>
             <option value="a">a</option>
         </select>
-        <select class="option-bar" name="album_to_insert" id="album_to_insert">
+        <select class="option-bar" name="album_id" id="album_to_insert">
             <option value="" selected>Choose Album Destination</option>
             <option value="a">a</option>
         </select>

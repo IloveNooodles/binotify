@@ -34,23 +34,23 @@ window.addEventListener("load", (e) => {
 
 submitBtn.addEventListener("submit", () => {
   e.preventDefault();
-  xhr_to_submit.open("POST", insert_song);
-  xhr_to_submit.send(
-    "album_id=" + album_to_insert.value + "&song_id=" + song_to_insert.value
-  );
+  xhr_to_submit.open("POST", insert_song, true);
   xhr_to_submit.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded"
+  );
+  xhr_to_submit.send(
+    "album_id=" + album_to_insert.value + "&song_id=" + song_to_insert.value
   );
   xhr_to_submit.onload = function () {
     if (xhr_to_submit.status === 200) {
       submit_message.classList.add("submit-success");
       submit_message.innerHTML = "Song has been added to album";
-    }
-    else {
+    } else {
       submit_message.classList.add("submit-failed");
       submit_message.innerHTML = xhr.responseText;
     }
+    console.log(xhr.responseText);
   };
 });
 
