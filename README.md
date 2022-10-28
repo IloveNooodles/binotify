@@ -11,22 +11,24 @@ Made with ❤ with
 |      Arik Rayi Arkananta       | 13520048 |
 
 ## Screenshot
-![image-1.png](./image-1.png)
-![image-4.png](./image-4.png)
-![image-6.png](./image-6.png)
-![image-7.png](./image-7.png)
-![image-8.png](./image-8.png)
-![image-9.png](./image-9.png)
-![image-10.png](./image-10.png)
-![image-11.png](./image-11.png)
-![image-12.png](./image-12.png)
-![image-13.png](./image-13.png)
-![image-14.png](./image-14.png)
-![image-15.png](./image-15.png)
-![image-16.png](./image-16.png)
-![image-17.png](./image-17.png)
-![image-18.png](./image-18.png)
-![image-19.png](./image-19.png)![image-20.png](./image-20.png)
+
+![image-1.png](./images/image-1.png)
+![image-4.png](./images/image-4.png)
+![image-6.png](./images/image-6.png)
+![image-7.png](./images/image-7.png)
+![image-8.png](./images/image-8.png)
+![image-9.png](./images/image-9.png)
+![image-10.png](./images/image-10.png)
+![image-11.png](./images/image-11.png)
+![image-12.png](./images/image-12.png)
+![image-13.png](./images/image-13.png)
+![image-14.png](./images/image-14.png)
+![image-15.png](./images/image-15.png)
+![image-16.png](./images/image-16.png)
+![image-17.png](./images/image-17.png)
+![image-18.png](./images/image-18.png)
+![image-19.png](./images/image-19.png)
+![image-20.png](./images/image-20.png)
 
 ## User Functionality
 
@@ -116,20 +118,20 @@ NOTE: If you are UNIX users don't forget to add sudo (ex: `sudo ./scripts/run.sh
 
 ### Server side
 
-| Muhammad Garebaldhie ER Rahman      | I Gede Arya R. P | Arik Rayi Arkananta        |
-| ----------------------------------- | :--------------: | -------------------------- |
-| login                               |   Insert song    | register & AJAX validation |
-| fetch list user                     |   Insert album   | fetch list album           |
-| fetch list song                     |    Edit Song     | fetch detail song          |
-| create song, albums, and user model |    Edit Album    | play music mechanism       |
-| upload file mechanism               |    Detail Song     |             |
-| count song duration mechanism       |    Detail Album     |             |
-| docker                              |    Delete Song     |             |
-|                                     |    Delete Album     |             |
-|                                     |    Get All Genre     |             |
-|                                     |    Add Song to Album     |             |
-|                                     |    Delete Song from Album     |             |
-|                                     |    Get Unlinked Song     |             |
+| Muhammad Garebaldhie ER Rahman      |    I Gede Arya R. P    | Arik Rayi Arkananta        |
+| ----------------------------------- | :--------------------: | -------------------------- |
+| login                               |      Insert song       | register & AJAX validation |
+| fetch list user                     |      Insert album      | fetch list album           |
+| fetch list song                     |       Edit Song        | fetch detail song          |
+| create song, albums, and user model |       Edit Album       | play music mechanism       |
+| upload file mechanism               |      Detail Song       |                            |
+| count song duration mechanism       |      Detail Album      |                            |
+| docker                              |      Delete Song       |                            |
+|                                     |      Delete Album      |                            |
+|                                     |     Get All Genre      |                            |
+|                                     |   Add Song to Album    |                            |
+|                                     | Delete Song from Album |                            |
+|                                     |   Get Unlinked Song    |                            |
 
 ### Client Side
 
