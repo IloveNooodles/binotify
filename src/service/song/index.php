@@ -167,13 +167,15 @@ class SongService {
             $song_model->delete_album_id_from_song($song_id);
             if (!isset($album_id) or $album_id == null) {
                 $data['status_message'] = SUCCESS;
-                return SUCCESS;
+                $data['album_id'] = $album_id;
+                return $data;
             }
 
             $cur_album = $album_model->find_detail_album($album_id);
             if ($cur_album == null) {
                 $data['status_message'] = SUCCESS;
-                return SUCCESS;
+                $data['album_id'] = $album_id;
+                return $data;
             }
 
             $new_album_total_duration = $cur_album['total_duration'] - $song_duration;
@@ -181,10 +183,12 @@ class SongService {
             $album_model->update_album_duration($album_id, $new_album_total_duration);
         } catch (Throwable $e) {
             $data['status_message'] = INTERNAL_ERROR;
+            $data['album_id'] = $album_id;
             return INTERNAL_ERROR;
         }
         $data['status_message'] = SUCCESS;
-        return SUCCESS;
+        $data['album_id'] = $album_id;
+        return $data;
     }
 
     public function add_song_to_album($song_id, $album_id) {

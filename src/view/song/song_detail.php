@@ -20,7 +20,7 @@
         <?php
         if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
             echo '<a class="edit-btn" href="/song/edit/' . $data['song']['song_id'] . '">Edit</a>';
-            echo '<a class="delete-btn" id="album-delete-btn">Delete</a>';
+            echo '<a class="delete-btn" id="song-delete-btn">Delete</a>';
         }
         ?>
     </div>
@@ -56,12 +56,11 @@
             <?=$data['song']['tanggal_terbit']?>
         </p>
         <audio src="<?=str_replace(BASE_URL,'',$data['song']['audio_path'])?>" id="audio"></audio>
-        <script src="/public/js/song-detail.js"></script>
     </div>
     <?php 
         include_once 'src/view/component/delete_confirmation.php';
-        delete_confirmation('song',$data['song']['song_id']);
+        delete_confirmation_song($data['song']['song_id']);
     ?>
 </body>
-<script src="/public/js/album-detail.js"></script>
+<script src="/public/js/song-detail.js"></script>
 </html>

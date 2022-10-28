@@ -40,13 +40,14 @@
     </div>
   </div>
   <?php 
-  include_once 'src/view/component/song_list.php';
-  return_html($data['songs'], true);
+    include_once 'src/view/component/song_list.php';
+    return_html($data['songs'], true);
   ?>
   <?php 
     include_once 'src/view/component/delete_confirmation.php';
-    delete_confirmation('album',$data['album']['album_id']);
+    delete_confirmation_album($data['album']['album_id']);
+    delete_confirmation_song(0);
   ?>
 </body>
-<script src="/public/js/album-detail.js"></script>
+<script src="/public/js/delete-confirmation.js"></script>
 </html>

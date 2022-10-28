@@ -65,3 +65,11 @@ seekBar.addEventListener("change", () => {
 
 // music.play();
 // playBtn.classList.remove("pause");
+
+document.getElementById('song-delete-btn').addEventListener('click', function(e) {
+  document.querySelector('div.song-delete-confirmation').classList.add('show');
+  document.querySelector('div.song-delete-confirmation div.confirmation-box').classList.add('show');});
+
+document.getElementById('song-cancel-btn').addEventListener('click', function(e) {
+  document.querySelector('div.song-delete-confirmation').classList.remove('show');
+  document.querySelector('div.song-delete-confirmation div.confirmation-box').classList.remove('show');});

@@ -176,7 +176,8 @@ class Album extends Controller {
                 }
 
                 $data = $album_service->delete_song_from_album($_GET['song_id']);
-                response_json($data);
+                // response_json($data);
+                header("Location: " . "/album/detail/" . $data['album_id']);
                 return;
             default:
                 response_not_allowed_method();

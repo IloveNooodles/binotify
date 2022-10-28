@@ -2,21 +2,40 @@
 function return_html($data = [], $no_cover = false){
   $all_song = songs_in_html($data, $no_cover);
   if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
-    $html = <<<"EOT"
-    <body>
-    <table id="songlist">
-        <tr>
-            <th>#</th>
-            <th>TITLE</th>
-            <th>RELEASED</th>
-            <th>GENRE</th>
-            <th>REMOVE</th>
-        </tr>
-        $all_song
-    </table>
-    </body>
-    <script src="/public/js/song-list.js"></script>
-EOT;
+    if ($no_cover) {
+        $html = <<<"EOT"
+        <body>
+        <table id="songlist">
+            <tr>
+                <th>#</th>
+                <th>TITLE</th>
+                <th>RELEASED</th>
+                <th>GENRE</th>
+                <th>REMOVE</th>
+            </tr>
+            $all_song
+        </table>
+        </body>
+        <script src="/public/js/song-list.js"></script>
+        EOT;
+    }
+    else {
+        $html = <<<"EOT"
+        <body>
+        <table id="songlist">
+            <tr>
+                <th>#</th>
+                <th>TITLE</th>
+                <th>RELEASED</th>
+                <th>GENRE</th>
+            </tr>
+            $all_song
+        </table>
+        </body>
+        <script src="/public/js/song-list.js"></script>
+        EOT;
+    }
+
   }
   else {
     $html = <<<"EOT"
@@ -61,7 +80,7 @@ function songs_in_html($data, $no_cover){
                     </td>
                     <td>$tanggal_terbit</td>
                     <td>$genre</td>
-                    <td><a class="remove-song-from-album" name=$id>Remove</a></td>
+                    <td name="/album/delete_song?song_id=$id"class="remove-song-from-album-button">Remove</td>
                 </tr>
                 EOT;
             }
