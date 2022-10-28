@@ -1,7 +1,8 @@
 <?php
 function return_html($data = [], $no_cover = false){
   $all_song = songs_in_html($data, $no_cover);
-  $html = <<<"EOT"
+  if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
+    $html = <<<"EOT"
     <body>
     <table id="songlist">
         <tr>
@@ -9,12 +10,30 @@ function return_html($data = [], $no_cover = false){
             <th>TITLE</th>
             <th>RELEASED</th>
             <th>GENRE</th>
+            <th>REMOVE</th>
         </tr>
         $all_song
     </table>
     </body>
     <script src="/public/js/song-list.js"></script>
 EOT;
+  }
+  else {
+    $html = <<<"EOT"
+        <body>
+        <table id="songlist">
+            <tr>
+                <th>#</th>
+                <th>TITLE</th>
+                <th>RELEASED</th>
+                <th>GENRE</th>
+            </tr>
+            $all_song
+        </table>
+        </body>
+        <script src="/public/js/song-list.js"></script>
+    EOT;
+  }
 echo $html;
 }
 
@@ -30,19 +49,37 @@ function songs_in_html($data, $no_cover){
         $tanggal_terbit = $song['tanggal_terbit'];
         $genre = $song['genre'];
         if ($no_cover) {
-            $html = <<<"EOT"
-            <tr class="content" name="$id">
-                <td>$cnt</td>
-                <td class="songlist-title">
-                    <div class="title-artist">
-                        <p class="song-title">$judul</p>
-                        <p class="song-artist">$penyanyi</p>
-                    </div>
-                </td>
-                <td>$tanggal_terbit</td>
-                <td>$genre</td>
-            </tr>
-            EOT;
+            if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
+                $html = <<<"EOT"
+                <tr class="content" name="$id">
+                    <td>$cnt</td>
+                    <td class="songlist-title">
+                        <div class="title-artist">
+                            <p class="song-title">$judul</p>
+                            <p class="song-artist">$penyanyi</p>
+                        </div>
+                    </td>
+                    <td>$tanggal_terbit</td>
+                    <td>$genre</td>
+                    <td><a class="remove-song-from-album" name=$id>Remove</a></td>
+                </tr>
+                EOT;
+            }
+            else {
+                $html = <<<"EOT"
+                <tr class="content" name="$id">
+                    <td>$cnt</td>
+                    <td class="songlist-title">
+                        <div class="title-artist">
+                            <p class="song-title">$judul</p>
+                            <p class="song-artist">$penyanyi</p>
+                        </div>
+                    </td>
+                    <td>$tanggal_terbit</td>
+                    <td>$genre</td>
+                </tr>
+                EOT;
+            }
         }
         else {
             $html = <<<"EOT"

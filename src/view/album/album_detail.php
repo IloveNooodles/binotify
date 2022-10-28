@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/public/css/navbar.css">
   <link rel="stylesheet" href="/public/css/songList.css">
   <link rel="stylesheet" href="/public/css/albumDetail.css">
+  <link rel="stylesheet" href="/public/css/deleteConfirmation.css">
   <link rel="shortcut icon" href="/public/img/favicon.png" type="image/x-icon">
 </head>
 <body>
@@ -16,7 +17,7 @@
   <?php
     if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
       echo '<a class="edit-btn" href="/album/edit/' . $data['album']['album_id'] . '">Edit</a>';
-      echo '<a class="delete-btn" href="/album/delete?album_id=' . $data['album']['album_id'] . '">Delete</a>';
+      echo '<a class="delete-btn" id="album-delete-btn">Delete</a>';
     }
   ?>
   <div class="album-details">
@@ -42,5 +43,10 @@
   include_once 'src/view/component/song_list.php';
   return_html($data['songs'], true);
   ?>
+  <?php 
+    include_once 'src/view/component/delete_confirmation.php';
+    delete_confirmation('album',$data['album']['album_id']);
+  ?>
 </body>
+<script src="/public/js/album-detail.js"></script>
 </html>

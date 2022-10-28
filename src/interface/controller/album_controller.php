@@ -167,7 +167,7 @@ class Album extends Controller {
             return;
         }
         switch($_SERVER["REQUEST_METHOD"]) {
-            case "DELETE":
+            case "GET":
                 $album_service = new SongService();
 
                 if (!isset($_GET['song_id'])) {

@@ -42,7 +42,7 @@
     position: absolute;
     right: 100px;
     top: 4rem;
-    background-color: var(--clr-text-info);
+    background-color: var(--clr-background-highlight-two);
     color: var(--clr-text-primary);
     margin: 30px;
     padding: 20px;
@@ -64,7 +64,7 @@
     position: absolute;
     right: 0;
     top: 4rem;
-    background-color: var(--clr-text-danger);
+    background-color: var(--clr-background-highlight-two);
     color: var(--clr-text-primary);
     margin: 30px;
     padding: 20px;
