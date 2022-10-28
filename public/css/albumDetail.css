@@ -36,8 +36,8 @@
     position: absolute;
     right: 100px;
     top: 4rem;
-    background-color: var(--clr-background-highlight-two);
-    color: var(--clr-text-secondary);
+    background-color: var(--clr-text-info);
+    color: var(--clr-background-base);
     margin: 30px;
     padding: 20px;
     cursor: pointer;
@@ -50,7 +50,7 @@
 }
 
 .edit-btn:hover {
-    background-color: var(--clr-background-highlight-three);
+    background-color: var(--clr-text-info);
     color: var(--clr-text-primary);
 }
 
@@ -58,8 +58,8 @@
     position: absolute;
     right: 0;
     top: 4rem;
-    background-color: var(--clr-background-highlight-two);
-    color: var(--clr-text-secondary);
+    background-color: var(--clr-text-danger);
+    color: var(--clr-background-base);
     margin: 30px;
     padding: 20px;
     cursor: pointer;
@@ -72,6 +72,6 @@
 }
 
 .delete-btn:hover {
-    background-color: var(--clr-background-highlight-three);
+    background-color: var(--clr-text-danger);
     color: var(--clr-text-primary);
 }
