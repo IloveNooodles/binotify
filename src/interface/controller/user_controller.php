@@ -5,14 +5,14 @@ require_once BASE_URL . '/src/middleware/middleware.php';
 
 class User extends Controller {
     public function index(){
-      $middleware = new Middleware();
-      $can_access_admin = $middleware->can_access_admin_page();
-      if (!$can_access_admin) {
-          redirect_home();
-          return;
-      }
       switch($_SERVER['REQUEST_METHOD']){
         case "GET":
+          $middleware = new Middleware();
+          $can_access_admin = $middleware->can_access_admin_page();
+          if (!$can_access_admin) {
+              redirect_home();
+              return;
+          }
           $this->list();
           return;
         case "POST":
