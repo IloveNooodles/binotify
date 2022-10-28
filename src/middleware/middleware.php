@@ -2,8 +2,6 @@
 
 if(session_status() == 1){
   session_start();
-  $_SESSION['time'] = time();
-  $_SESSION['num_song_played'] = 0;
 }
 class Middleware {  
 

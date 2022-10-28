@@ -2,7 +2,7 @@
 require_once BASE_URL . '/src/service/song/index.php';
 require_once BASE_URL . '/src/service/search/index.php';
 
-if (!session_id() || session_status() == 0) {
+if (session_status() == 0) {
   session_start();
   $_SESSION['time'] = time();
   $_SESSION['num_song_played'] = 0;
