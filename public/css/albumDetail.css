@@ -8,6 +8,11 @@
     display: inline-block;
 }
 
+.album-sign {
+    font-weight: 10;
+    font-size: 0.75rem;
+}
+
 .album-details {
     margin-top: 50px;
     align-items: center;
@@ -18,7 +23,8 @@
 
 .album-title {
     padding-left: 0;
-    font-size: var(--fs-album-title-pc);
+    font-size: 5rem;
+    font-weight: 1000;
     margin-bottom: 1rem;
 }
 

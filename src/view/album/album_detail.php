@@ -22,6 +22,7 @@
   <div class="album-details">
     <img class="album-image" src=<?=str_replace(BASE_URL,"",$data["album"]["image_path"])?> alt="album1">
     <div class="title-artist">
+      <p class="album-sign">ALBUM</p>
       <p class="album-title"><?=$data["album"]["judul"]?></p>
       <p class="album-artist"><?=$data["album"]["penyanyi"]?></p>
       <p class="album-duration">
