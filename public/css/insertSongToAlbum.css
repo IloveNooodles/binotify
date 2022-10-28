@@ -82,7 +82,7 @@ form.insert-album-form label.submit-success {
     color: var(--clr-text-info);
 }
 
-form.insert-album-form label.submit-failure {
+form.insert-album-form label.submit-failed {
     font-weight: 300;
     padding: 15px 0;
     color: var(--clr-text-danger);
