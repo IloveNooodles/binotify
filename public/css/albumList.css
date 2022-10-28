@@ -9,9 +9,10 @@
 }
 
 .title {
-  margin: 0;
-  padding: 0;
-  text-align: center;
+  text-align: left;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  margin: 2rem 50px;
   padding: 1rem;
 }
 
@@ -33,6 +34,7 @@
   text-align: center;
   /* display: inline-block; */
   transition: var(--transition);
+  border-radius: 3%;
 }
 
 .album-list-item:hover {
@@ -45,6 +47,7 @@
   width: 10rem;
   height: 10rem;
   display: inline-block;
+  border-radius: 3%;
 }
 
 .album-text {

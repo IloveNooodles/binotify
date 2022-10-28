@@ -1,4 +1,4 @@
-div.album-delete-confirmation {
+div.album-delete-confirmation, div.song-delete-confirmation {
     display: none;
     position: fixed;
     z-index: 2;
@@ -11,7 +11,7 @@ div.album-delete-confirmation {
     background-color: rgba(0,0,0,0.4);
 }
 
-div.album-delete-confirmation.show {
+div.album-delete-confirmation.show, div.song-delete-confirmation.show {
     display: block;
 }
 

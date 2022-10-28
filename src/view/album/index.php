@@ -19,12 +19,5 @@
       return_html($data);  
     ?>
   </div>
-  <!-- <script>
-    document.getElementById("album-order-btn").addEventListener("click", function() {
-      document.querySelector(".sort-menu").classList.toggle("show");
-      document.querySelector("#album-order-btn .arrow").classList.toggle("down");
-      document.querySelector("#album-order-btn .arrow").classList.toggle("up");
-    });
-  </script> -->
 </body>
 </html>
