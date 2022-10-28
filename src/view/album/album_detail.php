@@ -25,6 +25,8 @@
       <p class="album-title"><?=$data["album"]["judul"]?></p>
       <p class="album-artist"><?=$data["album"]["penyanyi"]?></p>
       <p class="album-duration">
+        <?=$data["album"]["tanggal_terbit"]?>
+        •
         <?php
           $min = intdiv($data["album"]["total_duration"],60);
           $sec = fmod($data["album"]["total_duration"],60);
