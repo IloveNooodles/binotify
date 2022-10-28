@@ -16,6 +16,21 @@ class Album extends Controller {
         }
     }
 
+    public function fetchAllAlbums(){
+      switch($_SERVER["REQUEST_METHOD"]){
+            case "GET":
+                $album_service = new AlbumService();
+                $page = (isset($_GET['page'])) ? $_GET['page'] : 1;
+                $data = $album_service->getAlbums($page);
+                response_json($data);
+                return;
+                break;
+            default:
+                response_not_allowed_method();
+                return;
+        }
+    }
+
     public function detail($id = -1) {
         switch($_SERVER["REQUEST_METHOD"]){
             case "GET":
@@ -129,7 +144,6 @@ class Album extends Controller {
                 // response_json($data);
                 return;
             default:
-                // response_not_allowed_method();
                 return;
         }
     }
@@ -146,7 +160,7 @@ class Album extends Controller {
                 $album_service = new SongService();
 
                 if (!isset($_POST['song_id']) || !isset($_POST['album_id'])) {
-                    $this->view("album/index");
+                    response_json(INCOMPLETE_QUERY_PARAMS, 400);
                     return;
                 }
 
@@ -171,7 +185,7 @@ class Album extends Controller {
                 $album_service = new SongService();
 
                 if (!isset($_GET['song_id'])) {
-                    $this->view("album/index");
+                    response_json(INCOMPLETE_QUERY_PARAMS, 400);
                     return;
                 }
 
@@ -203,6 +217,24 @@ class Album extends Controller {
 
                 $data = $album_service->get_unlinked_song($_GET['album_id']);
                 response_json($data);
+                return;
+            default:
+                response_not_allowed_method();
+                return;
+        }
+    }
+
+    public function new_song(){
+        $middleware = new Middleware();
+        $can_access_admin = $middleware->can_access_admin_page();
+        if (!$can_access_admin) {
+            redirect_home();
+            return;
+        }
+        switch($_SERVER["REQUEST_METHOD"]) {
+            case "GET":
+                $this->view("album/new_song");
+                break;
                 return;
             default:
                 response_not_allowed_method();
