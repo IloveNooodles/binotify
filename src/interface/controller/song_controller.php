@@ -2,6 +2,10 @@
 require_once BASE_URL . '/src/service/song/index.php';
 require_once BASE_URL . '/src/service/search/index.php';
 
+if(session_status() == 1){
+  session_start();
+}
+
 class Song extends Controller {
     public function index($query=null){
         switch($_SERVER['REQUEST_METHOD']){
@@ -165,6 +169,13 @@ class Song extends Controller {
     public function play_song(){
         switch($_SERVER['REQUEST_METHOD']){
             case "GET":
+                if(isset($_SESSION['num_song_played'])){
+                  $middleware = new Middleware();
+                  $can_access = $middleware->limit_song($_SESSION['num_song_played']);
+                  $_SESSION['num_song_played'] += 1;
+                  response_json($can_access);
+                  return;
+                }
                 return;
             default:
                 response_not_allowed_method();

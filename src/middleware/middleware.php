@@ -1,5 +1,8 @@
 <?php
 
+if(session_status() == 1){
+  session_start();
+}
 class Middleware {  
 
   public function can_access_admin_page(){
