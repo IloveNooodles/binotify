@@ -25,7 +25,7 @@
             <option value="" selected>Choose Album Destination</option>
             <option value="a">a</option>
         </select>
-        <label class="sumbit-message"></label>
+        <label id="sumbit-message-label"></label>
         <button type="button" id="submit-add-song" class="btn primary submit-album">Add Song to Album</button>
     </form>
     <script defer src="/public/js/insert-song-to-album.js"></script>

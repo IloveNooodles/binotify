@@ -1,7 +1,7 @@
 const submitBtn = document.getElementById("submit-add-song");
 const song_to_insert = document.getElementById("song_to_insert");
 const album_to_insert = document.getElementById("album_to_insert");
-const submit_message = document.getElementById("submit-message");
+const submit_message = document.getElementById("sumbit-message-label");
 
 let xhr_to_fetch_song = new XMLHttpRequest();
 let xhr_to_fetch_album = new XMLHttpRequest();
@@ -42,15 +42,13 @@ submitBtn.addEventListener("click", () => {
     "album_id=" + album_to_insert.value + "&song_id=" + song_to_insert.value
   );
   xhr_to_submit.onload = function () {
-
     if (xhr_to_submit.status === 200) {
       submit_message.classList.add("submit-success");
       submit_message.innerHTML = "Song has been added to album";
     } else {
       submit_message.classList.add("submit-failed");
-      submit_message.innerHTML = xhr.responseText;
+      submit_message.innerHTML = "Failed to add song to album";
     }
-    console.log(xhr.responseText);
   };
 });
 
