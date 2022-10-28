@@ -17,11 +17,11 @@
 
     <form class="insert-song-form" action="/song/new" method="POST" enctype="multipart/form-data">
         <h3>Insert New Song</h3>
-        <input type="text" placeholder="Judul" id="judul" name="judul">
-        <input type="text" placeholder="Penyanyi" id="penyanyi" name="penyanyi">
+        <input type="text" placeholder="Title" id="judul" name="judul">
+        <input type="text" placeholder="Artist" id="penyanyi" name="penyanyi">
         <input type="text" placeholder="Genre" id="genre" name="genre">
 
-        <h4>Tanggal Terbit</h4>
+        <h4>Release Date</h4>
         <input type="date" placeholder="Tanggal Terbit" id="tanggal" name="tanggal">
 
         <h4>Song Cover</h4>

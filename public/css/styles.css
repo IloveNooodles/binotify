@@ -86,6 +86,10 @@ h3 {
 }
 
 /* Button  */
+button {
+  cursor: pointer;
+}
+
 .btn {
   padding: 14px 32px;
   border-radius: var(--radius-lg);

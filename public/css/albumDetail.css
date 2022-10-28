@@ -53,6 +53,7 @@
     display: inline-flex;
     transition: var(--transition);
     text-decoration: none;
+    z-index: 2;
 }
 
 .edit-btn:hover {
@@ -75,6 +76,7 @@
     display: inline-flex;
     transition: var(--transition);
     text-decoration: none;
+    z-index: 2;
 }
 
 .delete-btn:hover {

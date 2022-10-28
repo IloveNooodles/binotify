@@ -104,7 +104,7 @@ select.search-bar {
   display: none;
   background-color: var(--clr-background-highlight-two);
   min-width: 160px;
-  z-index: 2;
+  z-index: 3;
 }
 
 .dropdown-content.show {
@@ -155,7 +155,7 @@ select.search-bar {
   .dropdown-content {
     background-color: var(--clr-background-highlight-two);
     min-width: 95vw;
-    z-index: 2;
+    z-index: 3;
     left: 0;
   }
 
