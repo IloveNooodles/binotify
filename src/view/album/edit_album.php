@@ -28,10 +28,10 @@
         <input type="file" id="cover" name="cover" accept="image/*">
 
         <?php
-            if (isset($data['status_message']) && $data['status_message'] == SUCCESS) {
+            if (isset($data['status_message']) && $data['status_message'] == SUCCESSS) {
                 echo '<label class="sumbit-success">Update Album Successful</label>';
             }
-            else if (isset($data['status_message']) && ($data['status_message'] != SUCCESS)) {
+            else if (isset($data['status_message']) && ($data['status_message'] != SUCCESSS && $data['status_message'] != SUCCESS)) {
                 $msg = $data['status_message'];
                 if ($data['status_message'] == 'INTERNAL_SERVER_ERROR') {
                     $msg = "Something went wrong";

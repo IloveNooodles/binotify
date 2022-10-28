@@ -72,7 +72,7 @@ class AlbumService {
         } catch (Throwable $e) {
             return INTERNAL_ERROR;
         }
-        return SUCCESS;
+        return SUCCESSS;
     }
 
     public function delete($id) {

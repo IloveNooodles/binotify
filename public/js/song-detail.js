@@ -48,3 +48,6 @@ setInterval(() => {
 seekBar.addEventListener('change', () => {
     music.currentTime = seekBar.value;
 })
+
+    music.play();
+    playBtn.classList.remove('pause');
