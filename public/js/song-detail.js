@@ -6,6 +6,8 @@ const currentTime = document.querySelector(".current-time");
 
 const xhr_limit_song = new XMLHttpRequest();
 
+let isPaused = true; // By default, musik belum diplay
+
 const setMusic = () => {
   seekBar.value = 0;
   currentTime.innerHTML = "00 : 00";
@@ -20,25 +22,32 @@ setMusic();
 if (playBtn.getAttribute("listener") != "true") {
   playBtn.setAttribute("listener", "true");
   playBtn.addEventListener("click", () => {
-    const url = `/song/play_song/`;
-    xhr_limit_song.open("GET", url);
-    xhr_limit_song.send();
+    isPaused = !isPaused;
 
-    xhr_limit_song.onreadystatechange = function () {
-      if (xhr_limit_song.readyState == 4 && xhr_limit_song.status == 200) {
-        console.log(xhr_limit_song.responseText);
-        is_limit_song = JSON.parse(xhr_limit_song.responseText);
-        is_limit_song = is_limit_song["data"]["can_access"];
-        if (is_limit_song) {
-          music.pause();
-          alert("Guest can only listen up to 3 music per day");
-          return;
-        } else {
-          music.play();
+    if (!isPaused) {
+      const url = `/song/play_song/`;
+      xhr_limit_song.open("GET", url);
+      xhr_limit_song.send();
+
+      xhr_limit_song.onreadystatechange = function () {
+        if (xhr_limit_song.readyState == 4 && xhr_limit_song.status == 200) {
+          console.log(xhr_limit_song.responseText);
+          is_limit_song = JSON.parse(xhr_limit_song.responseText);
+          is_limit_song = is_limit_song["data"]["can_access"];
+          if (is_limit_song) {
+            music.pause();
+            isPaused = true;
+          } else {
+            playBtn.classList.toggle("pause");
+            music.play();
+          }
         }
-        playBtn.classList.toggle("pause");
-      }
-    };
+      };
+    } else {
+      // Pause lagu
+      music.pause();
+      playBtn.classList.toggle("pause");
+    }
   });
 }
 
