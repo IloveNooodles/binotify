@@ -2,10 +2,6 @@
 
 if(session_status() == 1){
   session_start();
-  if (isset($_SESSION['time']) && (time() - $_SESSION['time'] > 60 * 60 * 24)) {
-    session_unset();     
-    session_destroy();   
-  }
   $_SESSION['time'] = time();
   $_SESSION['num_song_played'] = 0;
 }
