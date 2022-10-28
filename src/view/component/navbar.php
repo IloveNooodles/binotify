@@ -27,7 +27,7 @@
         <a id="none" class="show-mobile" href="/user">Users</a>
         <a id="none" class="show-mobile" href="/song/new">Insert Song</a>
         <a id="none" class="show-mobile" href="/album/new">Insert Album</a>
-        <a id="insert-album-song-navbar" class="show-mobile" href="/album/new_song">Insert Song to Album</a>
+        <a id="none" class="show-mobile" href="/album/new_song">Insert Song to Album</a>
         <form action="/user" method="post">
             <button type="submit" class="btn-submit">Log Out</button>
         </form>
@@ -44,7 +44,7 @@
             <a id="none" class="hidden-mobile" href="/user">Users</a>
             <a id="none" class="hidden-mobile" href="/song/new">Insert Song</a>
             <a id="none" class="hidden-mobile" href="/album/new">Insert Album</a>
-            <a id="insert-album-song-navbar" class="hidden-mobile" href="/album/new_song">Insert Song to Album</a>
+            <a id="none" class="hidden-mobile" href="/album/new_song">Insert Song to Album</a>
             <div class="navbar-right">
                 <button id="dropdown-btn">
                     <img class="profile-img" src="/public/img/avatar-template.jpeg" alt="user">
@@ -59,7 +59,7 @@
         <a id="none" class="show-mobile" href="/user">Users</a>
         <a id="none" class="show-mobile" href="/song/new">Insert Song</a>
         <a id="none" class="show-mobile" href="/album/new">Insert Album</a>
-        <a id="insert-album-song-navbar" class="show-mobile" href="/album/new_song">Insert Song to Album</a>
+        <a id="none" class="show-mobile" href="/album/new_song">Insert Song to Album</a>
         <form action="/user" method="post">
             <button type="submit" class="btn-submit">Log Out</button>
         </form>

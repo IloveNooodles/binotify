@@ -20,6 +20,8 @@ switch (window.location.pathname) {
   case "/album/new":
     document.getElementById("insert-album-navbar").classList.add("active");
     break;
+  case "/album/new_song":
+    document.getElementById("insert-album-song-navbar").classList.add("active");
   default:
     break;
 }

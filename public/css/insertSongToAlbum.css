@@ -1,0 +1,90 @@
+body {
+    height: 100%;
+}
+
+form.insert-album-form {
+    height: 500px;
+    width: 400px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    margin-top: 15rem;
+    left: 50%;
+    padding: 50px 35px;
+}
+
+  form.insert-album-form * {
+    color: var(--clr-text-primary);
+    outline: none;
+    border: none;
+}
+
+form.insert-album-form h3 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+    margin: 0 0;
+    margin-bottom: 75px;
+}
+
+form.insert-album-form select {
+    display: block;
+    height: 50px;
+    width: 100%;
+    margin-top: 25px;
+    color: var(--clr-text-black);
+    font-size: 14px;
+    font-weight: 300;
+    padding: 10px;
+    padding-left: 25px;
+    font-family: CircularStd;
+    border: none;
+    border-radius: var(--radius-lg);
+}
+
+button.submit-album {
+    margin-top: 5rem;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.back-btn {
+    background-color: var(--clr-background-highlight-two);
+    margin: 30px;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: var(--radius-lg);
+    border: none;
+    align-items: center;
+    display: inline-flex;
+    transition: var(--transition);
+}
+
+.back-btn:hover {
+    background-color: var(--clr-background-highlight-three);
+}
+
+form.insert-album-form label {
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 1px;
+    padding: 0 10px;
+    color: var(--clr-text-danger);
+    z-index: 1;
+    display: block;
+    position: absolute;
+}
+
+form.insert-album-form label.sumbit-success {
+    font-weight: 300;
+    padding: 15px 0;
+    color: var(--clr-text-info);
+}
+
+form.insert-album-form label.sumbit-failure {
+    font-weight: 300;
+    padding: 15px 0;
+    color: var(--clr-text-danger);
+}
