@@ -2,8 +2,6 @@
 require_once BASE_URL . '/src/interface/model/song.php';
 require_once BASE_URL . '/src/interface/storage/audio.php';
 require_once BASE_URL . '/src/interface/storage/image.php';
-
-
 class SongService {
     public function detail($id) {
         try {

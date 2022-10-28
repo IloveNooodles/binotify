@@ -147,6 +147,10 @@ select.search-bar {
   display: block;
 }
 
+#none {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .dropdown-content {
     background-color: var(--clr-background-highlight-two);
@@ -185,5 +189,8 @@ select.search-bar {
   }
   input.search-bar {
     width: 200px;
+  }
+  #none {
+    display: block;
   }
 }

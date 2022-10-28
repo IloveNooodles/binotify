@@ -21,11 +21,11 @@
             </div>
         </div>
         <div class="dropdown-content">
-        <a id="home-navbar" class="show-mobile" href="/">Home</a>
-        <a id="album-navbar" class="show-mobile" href="/album">Albums</a>
-        <a id="user-navbar" class="show-mobile" href="/user">Users</a>
-        <a id="insert-song-navbar" class="show-mobile" href="/song/new">Insert Song</a>
-        <a id="insert-album-navbar" class="show-mobile" href="/album/new">Insert Album</a>
+        <a id="none" class="show-mobile" href="/">Home</a>
+        <a id="none" class="show-mobile" href="/album">Albums</a>
+        <a id="none" class="show-mobile" href="/user">Users</a>
+        <a id="none" class="show-mobile" href="/song/new">Insert Song</a>
+        <a id="none" class="show-mobile" href="/album/new">Insert Album</a>
         <form action="/user" method="post">
             <button type="submit" class="btn-submit">Log Out</button>
         </form>
@@ -37,11 +37,11 @@
       echo '
         <body>
         <div class="navbar">
-            <a id="home-navbar" class="hidden-mobile" href="/">Home</a>
-            <a id="album-navbar" class="hidden-mobile" href="/album">Albums</a>
-            <a id="user-navbar" class="hidden-mobile" href="/user">Users</a>
-            <a id="insert-song-navbar" class="hidden-mobile" href="/song/new">Insert Song</a>
-            <a id="insert-album-navbar" class="hidden-mobile" href="/album/new">Insert Album</a>
+            <a id="none" class="hidden-mobile" href="/">Home</a>
+            <a id="none" class="hidden-mobile" href="/album">Albums</a>
+            <a id="none" class="hidden-mobile" href="/user">Users</a>
+            <a id="none" class="hidden-mobile" href="/song/new">Insert Song</a>
+            <a id="none" class="hidden-mobile" href="/album/new">Insert Album</a>
             <div class="navbar-right">
                 <button id="dropdown-btn">
                     <img class="profile-img" src="/public/img/avatar-template.jpeg" alt="user">
@@ -51,11 +51,11 @@
             </div>
         </div>
         <div class="dropdown-content">
-        <a id="home-navbar" class="show-mobile" href="/">Home</a>
-        <a id="album-navbar" class="show-mobile" href="/album">Albums</a>
-        <a id="user-navbar" class="show-mobile" href="/user">Users</a>
-        <a id="insert-song-navbar" class="show-mobile" href="/song/new">Insert Song</a>
-        <a id="insert-album-navbar" class="show-mobile" href="/album/new">Insert Album</a>
+        <a id="none" class="show-mobile" href="/">Home</a>
+        <a id="none" class="show-mobile" href="/album">Albums</a>
+        <a id="none" class="show-mobile" href="/user">Users</a>
+        <a id="none" class="show-mobile" href="/song/new">Insert Song</a>
+        <a id="none" class="show-mobile" href="/album/new">Insert Album</a>
         <form action="/user" method="post">
             <button type="submit" class="btn-submit">Log Out</button>
         </form>
@@ -78,8 +78,8 @@
             </div>
         </div>
         <div class="dropdown-content"> 
-        <a id="home-navbar" class="show-mobile" href="/">Home</a>
-        <a id="album-navbar" class="show-mobile" href="/album">Albums</a>
+        <a id="none" class="show-mobile" href="/">Home</a>
+        <a id="none" class="show-mobile" href="/album">Albums</a>
         <form action="/user" method="post">' .
         (isset($_SESSION['username']) ? '<button type="submit" class="btn-submit">Log Out</button>' : '<a href="/login">Log In</a><a href="/register">Register</a>') . '
         </form>
@@ -106,8 +106,8 @@
             </div>
         </div>
         <div class="dropdown-content">
-        <a id="home-navbar" class="show-mobile" href="/">Home</a>
-        <a id="album-navbar" class="show-mobile" href="/album">Albums</a> 
+        <a id="none" class="show-mobile" href="/">Home</a>
+        <a id="none" class="show-mobile" href="/album">Albums</a> 
         <form action="/user" method="post">' .
         (isset($_SESSION['username']) ? '<button type="submit" class="btn-submit">Log Out</button>' : '<a href="/login">Log In</a><a href="/register">Register</a>') . '
         </form>
