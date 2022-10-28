@@ -71,19 +71,18 @@ form.insert-album-form label {
     font-weight: 300;
     margin-top: 1px;
     padding: 0 10px;
-    color: var(--clr-text-danger);
     z-index: 1;
     display: block;
     position: absolute;
 }
 
-form.insert-album-form label.sumbit-success {
+form.insert-album-form label.submit-success {
     font-weight: 300;
     padding: 15px 0;
     color: var(--clr-text-info);
 }
 
-form.insert-album-form label.sumbit-failure {
+form.insert-album-form label.submit-failure {
     font-weight: 300;
     padding: 15px 0;
     color: var(--clr-text-danger);
