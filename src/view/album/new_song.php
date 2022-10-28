@@ -15,7 +15,7 @@
         <i class="arrow left"></i>
     </a>
 
-    <form class="insert-album-form" action="/album/new" method="POST" enctype="multipart/form-data">
+    <form class="insert-album-form" action="/album/add_song" method="POST" enctype="multipart/form-data">
         <h3>Insert Song to album</h3>
         <select class="option-bar" name="song_to_insert" id="song_to_insert">
             <option value="" selected>Choose Song to Insert</option>
@@ -25,22 +25,7 @@
             <option value="" selected>Choose Album Destination</option>
             <option value="a">a</option>
         </select>
-        <?php
-            if (isset($data['status_message']) && $data['status_message'] == SUCCESS) {
-                echo '<label class="sumbit-success">Insert Song to Album Successful</label>';
-            }
-            else if (isset($data['status_message']) && ($data['status_message'] != SUCCESS)) {
-                $msg = $data['status_message'];
-                if ($data['status_message'] == 'ALBUM_SONG_NOT_NULL') {
-                    $msg = "Album already exists";
-                } else if ($data['status_message'] == 'INCOMPLETE_QUERY_PARAMS') {
-                    $msg = "Please fill all the fields";
-                } else {
-                    $msg = "Something went wrong";
-                }
-                echo '<label class="sumbit-failure">' . $msg . '</label>';
-            }
-        ?>
+        <label class="sumbit-message"></label>
         <button type="submit" id="submit-add-song" class="btn primary submit-album">Add Song to Album</button>
     </form>
     <script defer src="/public/js/insert-song-to-album.js"></script>

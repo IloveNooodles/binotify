@@ -1,6 +1,7 @@
 const submitBtn = document.getElementById("submit-add-song");
 const song_to_insert = document.getElementById("song_to_insert");
 const album_to_insert = document.getElementById("album_to_insert");
+const submit_message = document.getElementById("submit-message");
 
 let xhr_to_fetch_song = new XMLHttpRequest();
 let xhr_to_fetch_album = new XMLHttpRequest();
@@ -26,10 +27,7 @@ window.addEventListener("load", (e) => {
   xhr_to_fetch_song.send();
   xhr_to_fetch_song.onreadystatechange = function () {
     if (xhr_to_fetch_song.readyState == 4 && xhr_to_fetch_song.status === 200) {
-      // console.log(xhr_to_fetch_song.responseText);
-      // console.log(JSON.parse(xhr_to_fetch_song.responseText));
       update_list_song(xhr_to_fetch_song.responseText);
-      //if [data][songs] = null
     }
   };
 });
@@ -44,13 +42,21 @@ submitBtn.addEventListener("submit", () => {
     "Content-Type",
     "application/x-www-form-urlencoded"
   );
-  xhr_to_submit.onload = function () {};
+  xhr_to_submit.onload = function () {
+    if (xhr_to_submit.status === 200) {
+      submit_message.classList.add("submit-success");
+      submit_message.innerHTML = "Song has been added to album";
+    }
+    else {
+      submit_message.classList.add("submit-failed");
+      submit_message.innerHTML = xhr.responseText;
+    }
+  };
 });
 
 function update_list_album(data) {
   res = JSON.parse(data);
   list_album = res["data"];
-  console.log(list_album);
   if (!list_album) {
     album_to_insert.innerHTML = `<option value="" selected>No Songs are available</option>`;
   }
@@ -66,7 +72,6 @@ function update_list_album(data) {
 function update_list_song(data) {
   res = JSON.parse(data);
   list_song = res["data"]["songs"];
-  console.log(list_song);
   if (!list_song) {
     song_to_insert.innerHTML = `<option value="" selected>No Songs are available</option>`;
   }
