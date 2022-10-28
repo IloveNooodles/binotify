@@ -100,28 +100,33 @@ NOTE: If you are UNIX users don't forget to add sudo (ex: `sudo ./scripts/run.sh
 
 ### Server side
 
-| Muhammad Garebaldhie ER Rahman      | I Gede Arya R. P | Arik Rayi Arkananta  |
-| ----------------------------------- | :--------------: | -------------------- |
-| login                               |   Insert song    | register             |
-| fetch list user                     |   Insert album   | fetch list album     |
-| fetch list song                     |    Edit Song     | fetch detail song    |
-| create song, albums, and user model |    Edit Album     | play music mechanism |
-| upload file mechanism               |    Detail Song     | right foo            |
+| Muhammad Garebaldhie ER Rahman      | I Gede Arya R. P | Arik Rayi Arkananta        |
+| ----------------------------------- | :--------------: | -------------------------- |
+| login                               |   Insert song    | register & AJAX validation |
+| fetch list user                     |   Insert album   | fetch list album           |
+| fetch list song                     |    Edit Song     | fetch detail song          |
+| create song, albums, and user model |    Edit Album    | play music mechanism       |
+| upload file mechanism               |    Detail Song     |             |
 | count song duration mechanism       |    Detail Album     |             |
 | docker                              |    Delete Song     |             |
-|                               |    Delete Album     |             |
-|                               |    Get All Genre     |             |
-|                               |    Add Song to Album     |             |
-|                               |    Delete Song from Album     |             |
-|                               |    Get Unlinked Song     |             |
+|                                     |    Delete Album     |             |
+|                                     |    Get All Genre     |             |
+|                                     |    Add Song to Album     |             |
+|                                     |    Delete Song from Album     |             |
+|                                     |    Get Unlinked Song     |             |
 
 ### Client Side
 
 | Muhammad Garebaldhie ER Rahman | I Gede Arya R. P  | Arik Rayi Arkananta          |
 | ------------------------------ | :---------------: | ---------------------------- |
 | Responsive user list page      | Insert song page  | Navbar user, guest and admin |
-| list of song in home           | Insert album page | login                        |
-| base css and animation         |                   | register                     |
-| responsive list of album page  |                   | Detail song                  |
-| admin list user page           |                   | homepage                     |
-|                                |                   | album page                   |
+| list of song in home           | Insert album page | Homepage                     |
+| base css and animation         |                   | Register                     |
+| responsive list of album page  |                   | Login                        |
+| admin list user page           |                   | Detail song (Song Player)    |
+| Song search and pagination     |                   | Album Page                   |
+|                                |                   | Detail album                 |
+|                                |                   | Edit Album                   |
+|                                |                   | Edit Song                    |
+|                                |                   | Delete Confirmations         |
+|                                |                   |
