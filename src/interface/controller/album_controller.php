@@ -116,7 +116,7 @@ class Album extends Controller {
             return;
         }
         switch($_SERVER["REQUEST_METHOD"]) {
-            case "DELETE":
+            case "GET":
                 $album_service = new AlbumService();
 
                 if (!isset($_GET['album_id'])) {
@@ -125,10 +125,11 @@ class Album extends Controller {
                 }
 
                 $data = $album_service->delete($_GET['album_id']);
-                response_json($data);
+                header("Location: " . "/album");
+                // response_json($data);
                 return;
             default:
-                response_not_allowed_method();
+                // response_not_allowed_method();
                 return;
         }
     }

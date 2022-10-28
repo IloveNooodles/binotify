@@ -19,7 +19,7 @@
         <?php
         if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
             echo '<a class="edit-btn" href="/song/edit/' . $data['song']['song_id'] . '">Edit</a>';
-            echo '<a class="delete-btn" href="/song/delete/' . $data['song']['song_id'] . '">Delete</a>';
+            echo ' <a class="delete-btn" href="/song/delete?song_id=' . $data['song']['song_id'] . '">Delete</a>';
         }
         ?>
     </div>

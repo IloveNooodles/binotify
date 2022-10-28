@@ -35,6 +35,7 @@
 .edit-btn {
     position: absolute;
     right: 100px;
+    top: 4rem;
     background-color: var(--clr-background-highlight-two);
     color: var(--clr-text-secondary);
     margin: 30px;
@@ -46,7 +47,6 @@
     display: inline-flex;
     transition: var(--transition);
     text-decoration: none;
-    z-index: 5;
 }
 
 .edit-btn:hover {
@@ -57,6 +57,7 @@
 .delete-btn {
     position: absolute;
     right: 0;
+    top: 4rem;
     background-color: var(--clr-background-highlight-two);
     color: var(--clr-text-secondary);
     margin: 30px;
@@ -68,7 +69,6 @@
     display: inline-flex;
     transition: var(--transition);
     text-decoration: none;
-    z-index: 5;
 }
 
 .delete-btn:hover {

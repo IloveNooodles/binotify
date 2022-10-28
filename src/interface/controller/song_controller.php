@@ -111,7 +111,7 @@ class Song extends Controller {
             return;
         }
         switch($_SERVER["REQUEST_METHOD"]) {
-            case "DELETE":
+            case "GET":
                 $song_service = new SongService();
 
                 if (!isset($_GET['song_id'])) {
@@ -120,7 +120,7 @@ class Song extends Controller {
                 }
 
                 $data = $song_service->delete($_GET['song_id']);
-                response_json($data);
+                header("Location: " . "/");
                 return;
             default:
                 response_not_allowed_method();

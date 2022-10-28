@@ -16,7 +16,7 @@
   <?php
     if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
       echo '<a class="edit-btn" href="/album/edit/' . $data['album']['album_id'] . '">Edit</a>';
-      echo '<a class="delete-btn" href="/album/delete/' . $data['album']['album_id'] . '">Delete</a>';
+      echo '<a class="delete-btn" href="/album/delete?album_id=' . $data['album']['album_id'] . '">Delete</a>';
     }
   ?>
   <div class="album-details">
