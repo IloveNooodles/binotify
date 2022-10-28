@@ -16,8 +16,16 @@ class AlbumService {
                 return $data;
             }
 
+            $tanggal_terbit = $album['tanggal_terbit'];
+            $year = date('Y', strtotime($tanggal_terbit));
+            $data['album']['tahun_terbit'] = $year;
+
             $songs = $this->find_all_song_from_album_id($album_id);
             $data['songs'] = $songs;
+            $total_song = count($songs);
+            // add songs or song after total song
+            $total_song = ($total_song > 1) ? $total_song . " songs" : $total_song . " song";
+            $data['total_song'] = $total_song;
 
             $data['status_message'] = SUCCESS;
             return $data;

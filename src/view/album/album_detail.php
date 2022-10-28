@@ -25,7 +25,9 @@
       <p class="album-title"><?=$data["album"]["judul"]?></p>
       <p class="album-artist"><?=$data["album"]["penyanyi"]?></p>
       <p class="album-duration">
-        <?=$data["album"]["tanggal_terbit"]?>
+        <?=$data["album"]["tahun_terbit"]?>
+        •
+        <?=$data["total_song"]?>
         •
         <?php
           $min = intdiv($data["album"]["total_duration"],60);
