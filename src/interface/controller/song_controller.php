@@ -150,12 +150,6 @@ class Song extends Controller {
     }
 
     public function all_distinct_genre() {
-        $middleware = new Middleware();
-        $can_access_admin = $middleware->can_access_admin_page();
-        if (!$can_access_admin) {
-            redirect_home();
-            return;
-        }
         switch($_SERVER["REQUEST_METHOD"]) {
             case "GET":
                 $song_service = new SongService();
