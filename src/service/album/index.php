@@ -21,8 +21,9 @@ class AlbumService {
             $data['album']['tahun_terbit'] = $year;
 
             $songs = $this->find_all_song_from_album_id($album_id);
+
             $data['songs'] = $songs;
-            $total_song = count($songs);
+            $total_song = isset($songs) ? count($songs) : 0;
             // add songs or song after total song
             $total_song = ($total_song > 1) ? $total_song . " songs" : $total_song . " song";
             $data['total_song'] = $total_song;
