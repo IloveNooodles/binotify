@@ -37,7 +37,7 @@
     right: 100px;
     top: 4rem;
     background-color: var(--clr-text-info);
-    color: var(--clr-background-base);
+    color: var(--clr-text-primary);
     margin: 30px;
     padding: 20px;
     cursor: pointer;
@@ -51,7 +51,7 @@
 
 .edit-btn:hover {
     background-color: var(--clr-text-info);
-    color: var(--clr-text-primary);
+    color: var(--clr-background-base);
 }
 
 .delete-btn {
@@ -59,7 +59,7 @@
     right: 0;
     top: 4rem;
     background-color: var(--clr-text-danger);
-    color: var(--clr-background-base);
+    color: var(--clr-text-primary);
     margin: 30px;
     padding: 20px;
     cursor: pointer;
@@ -73,5 +73,5 @@
 
 .delete-btn:hover {
     background-color: var(--clr-text-danger);
-    color: var(--clr-text-primary);
+    color: var(--clr-background-base);
 }
