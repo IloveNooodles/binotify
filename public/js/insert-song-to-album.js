@@ -32,8 +32,7 @@ window.addEventListener("load", (e) => {
   };
 });
 
-submitBtn.addEventListener("submit", () => {
-  e.preventDefault();
+submitBtn.addEventListener("click", () => {
   xhr_to_submit.open("POST", insert_song, true);
   xhr_to_submit.setRequestHeader(
     "Content-Type",
@@ -43,6 +42,7 @@ submitBtn.addEventListener("submit", () => {
     "album_id=" + album_to_insert.value + "&song_id=" + song_to_insert.value
   );
   xhr_to_submit.onload = function () {
+
     if (xhr_to_submit.status === 200) {
       submit_message.classList.add("submit-success");
       submit_message.innerHTML = "Song has been added to album";

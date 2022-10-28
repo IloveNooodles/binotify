@@ -221,10 +221,10 @@ class SongService {
             $album_model->update_album_duration($album_id, $new_album_total_duration);
         } catch (Throwable $e) {
             $data['status_message'] = INTERNAL_ERROR;
-            return INTERNAL_ERROR;
+            return $data;
         }
         $data['status_message'] = SUCCESS;
-        return SUCCESS;
+        return $data;
     }
 
     public function get_unlinked_song($album_id) {

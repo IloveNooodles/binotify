@@ -26,7 +26,7 @@
             <option value="a">a</option>
         </select>
         <label class="sumbit-message"></label>
-        <button type="submit" id="submit-add-song" class="btn primary submit-album">Add Song to Album</button>
+        <button type="button" id="submit-add-song" class="btn primary submit-album">Add Song to Album</button>
     </form>
     <script defer src="/public/js/insert-song-to-album.js"></script>
 </body>

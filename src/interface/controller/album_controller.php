@@ -165,8 +165,13 @@ class Album extends Controller {
                 }
 
                 $data = $album_service->add_song_to_album($_POST['song_id'], $_POST['album_id']);
-                response_json($data);
-                return;
+
+                if ($data == SUCCESS) {
+                    response_json($data['status_message'], 200);
+                }
+                else {
+                    response_json($data['status_message'], 400);
+                }
             default:
                 response_not_allowed_method();
                 return;
