@@ -248,4 +248,19 @@ class SongService {
         }
         return $data;
     }
+
+    public function get_song_where_album_is_null(){
+      $data = null;
+        try {
+            $song_model = new SongModel();
+            $res = $song_model->find_song_by_null();
+            $data['songs'] = $res;
+            return $data;
+        } catch (Throwable $e) {
+            $data['status_message'] = INTERNAL_ERROR;
+            return $data;
+        }
+        return $data;
+
+    }
 }

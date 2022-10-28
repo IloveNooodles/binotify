@@ -41,8 +41,8 @@
                 echo '<label class="sumbit-failure">' . $msg . '</label>';
             }
         ?>
-        <button type="submit" class="btn primary submit-album">Add Song to Album</button>
+        <button type="submit" id="submit-add-song" class="btn primary submit-album">Add Song to Album</button>
     </form>
-    <script src="/public/js/insert-song-to-album.js"></script>
+    <script defer src="/public/js/insert-song-to-album.js"></script>
 </body>
 </html>

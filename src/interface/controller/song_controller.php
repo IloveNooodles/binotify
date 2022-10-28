@@ -177,6 +177,20 @@ class Song extends Controller {
         }
     }
 
+    public function find_song_where_album_is_null(){
+       switch($_SERVER["REQUEST_METHOD"]) {
+            case "GET":
+                $song_service = new SongService();
+                $data = $song_service->get_song_where_album_is_null();
+                response_json($data);
+                return;
+                break;
+            default:
+                response_not_allowed_method();
+                return;
+        }
+    }
+
     public function play_song(){
         switch($_SERVER['REQUEST_METHOD']){
             case "GET":

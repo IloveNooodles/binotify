@@ -9,6 +9,13 @@ class SongModel {
     $this->db = new MySQL(MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE);
   }
 
+  public function find_song_by_null(){
+    $query = "SELECT * From Song WHERE album_id is NULL";
+    $this->db->query($query);
+    $res = $this->db->result_set();
+    return $res;
+  }
+
   public function find_all_song($page, $orderby = 'song_id', $order = 'DESC', $limit = PAGINATION_LIMIT) {
     $query = "SELECT * From Song ORDER BY $orderby $order LIMIT $limit OFFSET :offset";
 
