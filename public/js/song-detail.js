@@ -20,7 +20,7 @@ setMusic();
 if (playBtn.getAttribute("listener") != "true") {
   playBtn.setAttribute("listener", "true");
   playBtn.addEventListener("click", () => {
-    const url = `song/play_song`;
+    const url = `/song/play_song/`;
     xhr_limit_song.open("GET", url);
     xhr_limit_song.send();
 
@@ -28,18 +28,13 @@ if (playBtn.getAttribute("listener") != "true") {
       if (xhr_limit_song.readyState == 4 && xhr_limit_song.status == 200) {
         console.log(xhr_limit_song.responseText);
         is_limit_song = JSON.parse(xhr_limit_song.responseText);
-        console.log(is_limit_song);
         is_limit_song = is_limit_song["data"]["can_access"];
-        console.log(is_limit_song);
         if (is_limit_song) {
           music.pause();
+          alert("Guest can only listen up to 3 music per day");
           return;
-        }
-
-        if (playBtn.className.includes("pause")) {
-          music.play();
         } else {
-          music.pause();
+          music.play();
         }
         playBtn.classList.toggle("pause");
       }

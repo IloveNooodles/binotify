@@ -2,6 +2,12 @@
 require_once BASE_URL . '/src/service/song/index.php';
 require_once BASE_URL . '/src/service/search/index.php';
 
+if (!session_id() || session_status() == 0) {
+  session_start();
+  $_SESSION['num_song_played'] = 0;
+  $_SESSION['limit_song'] = false;
+};
+
 if(session_status() == 1){
   session_start();
 }
@@ -12,6 +18,7 @@ class Song extends Controller {
             case "GET":
                 redirect_to("search/index");
                 return;
+                break;
             default:
                 response_not_allowed_method();
                 return;
@@ -101,6 +108,7 @@ class Song extends Controller {
                 $this->view("song/edit_song", array_merge($song, $data));
 
                 return;
+                break;
             default:
                 response_not_allowed_method();
                 return;
@@ -126,6 +134,7 @@ class Song extends Controller {
                 $data = $song_service->delete($_GET['song_id']);
                 header("Location: " . "/");
                 return;
+                break;
             default:
                 response_not_allowed_method();
                 return;
@@ -147,6 +156,7 @@ class Song extends Controller {
 
                 response_json($data);
                 return;
+                break;
             default:
                 response_not_allowed_method();
                 return;
@@ -160,6 +170,7 @@ class Song extends Controller {
                 $data = $song_service->all_distinct_genre();
                 response_json($data);
                 return;
+                break;
             default:
                 response_not_allowed_method();
                 return;
@@ -169,14 +180,15 @@ class Song extends Controller {
     public function play_song(){
         switch($_SERVER['REQUEST_METHOD']){
             case "GET":
-                if(isset($_SESSION['num_song_played'])){
-                  $middleware = new Middleware();
-                  $can_access = $middleware->limit_song($_SESSION['num_song_played']);
-                  $_SESSION['num_song_played'] += 1;
-                  response_json($can_access);
-                  return;
+                $middleware = new Middleware();
+                if(!isset($_SESSION['num_song_played'])){
+                  $_SESSION['num_song_played'] = 0;
                 }
+                $_SESSION['num_song_played'] += 1;
+                $can_access = $middleware->limit_song($_SESSION['num_song_played']);
+                response_json(["can_access" => $can_access]);
                 return;
+                break;
             default:
                 response_not_allowed_method();
                 return;
