@@ -126,12 +126,21 @@ class AlbumService {
     public function getAlbums($page) {
         $album_model = new AlbumModel();
         $data = $album_model->find_all_album($page);
+
+        // add tahun_terbit to songs
+        foreach ($data as $key => $album) {
+            $tanggal_terbit = $album['tanggal_terbit'];
+            $year = date('Y', strtotime($tanggal_terbit));
+            $data[$key]['tahun_terbit'] = $year;
+        }
+
         return $data;
     }
 
     private function find_all_song_from_album_id($album_id) {
         $song_model = new SongModel();
         $songs = $song_model->find_all_songs_by_album_id($album_id);
+
         return $songs;
     }
 }

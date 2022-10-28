@@ -20,6 +20,7 @@ function albums_in_html($data){
             $judul = $album['judul'];
             $penyanyi = $album['penyanyi'];
             $tanggal_terbit = $album['tanggal_terbit'];
+            $tahun_terbit = $album['tahun_terbit'];
             $genre = $album['genre'];
             $html = <<<"EOT"
             <li class="album-list-item" name="$album_id">
@@ -27,7 +28,7 @@ function albums_in_html($data){
                     <img class="album-image" src="$image_path" alt="album1">
                     <div class="album-text">
                         <p class="album-song-title">$judul</p>
-                        <p class="album-song-artist">$tanggal_terbit | $penyanyi | $genre</p>
+                        <p class="album-song-artist">$tahun_terbit • $penyanyi • $genre</p>
                     </div>
                 </a>
             </li>
