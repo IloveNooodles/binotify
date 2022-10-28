@@ -149,7 +149,7 @@ img.player-cover {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-height: 800px) {
   img.song-detail-image {
     filter: blur(8px);
     -webkit-filter: blur(8px);
@@ -162,7 +162,7 @@ img.player-cover {
 
   div.song-detail-content {
     position: fixed;
-    z-index: 2;
+    z-index: 1;
     height: 45rem;
     width: 30rem;
     background-color: var(--clr-background-highlight-one);

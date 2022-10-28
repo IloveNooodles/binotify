@@ -91,3 +91,11 @@
 .sort-menu a:hover {
   background-color: var(--clr-background-highlight-three);
 }
+
+@media screen and (max-width: 1024px) {
+  .title {
+    margin: 0;
+    text-align: center;
+    padding: 1rem;
+  }
+}
