@@ -24,7 +24,11 @@
         ?>
     </div>
     <div class="song-detail-content">
-        <p class="song-detail-album">From Album: <?=$data['album']['album'] ? $data['album']['album']['judul'] : '-'?></p>
+        <p class="song-detail-album">From Album: <?php
+            echo ($data['album']['album']) ? 
+                "<a href='/album/detail/" . $data['album']['album']['album_id'] . "'>" . $data['album']['album']['judul'] . "</a>"
+                : "-";
+        ?></p>
         <img class="player-cover" src="<?=str_replace(BASE_URL,'',$data['song']['image_path'])?>" alt="cover">
         <h3 class="music-name"><?=$data['song']['judul']?></h3>
         <h4 class="artist-name"><?=$data['song']['penyanyi']?></h4>
