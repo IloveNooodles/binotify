@@ -43,9 +43,11 @@ submitBtn.addEventListener("click", () => {
   );
   xhr_to_submit.onload = function () {
     if (xhr_to_submit.status === 200) {
+      submit_message.classList.remove("submit-failed");
       submit_message.classList.add("submit-success");
       submit_message.innerHTML = "Song has been added to album";
     } else {
+      submit_message.classList.remove("submit-success");
       submit_message.classList.add("submit-failed");
       submit_message.innerHTML = "Failed to add song to album";
     }
