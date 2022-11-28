@@ -1,6 +1,7 @@
 drop table if exists User;
 drop table if exists Song;
 drop table if exists Album;
+drop table if exists Subscription;
 
 create table User (
 	user_id int(11) AUTO_INCREMENT primary key,
@@ -16,6 +17,14 @@ insert into User (email, password, username, isAdmin) values
 ('crodriguez1@va.gov', '$2y$10$I5AdY05sECk8kXqhyAW5q.dSk92M/RvzVPCzdXdLMwIQS6X4AcRGy','crodriguez',  false), 
 ('krobertson2@state.tx.us', '$2y$10$8u28mgkJTPle9/lejXxvZ.nCtI9YGtH9IFNv1uPuKE2mHKD58zMXO','krobertson',  false), 
 ('pfoster3@earthlink.net', '$2y$10$8u28mgkJTPle9/lejXxvZ.nCtI9YGtH9IFNv1uPuKE2mHKD58zMXO','pfoster',  false);
+
+create table Subscription(
+                             creator_id int(11) NOT NULL,
+                             subscriber_id int(11) NOT NULL,
+                             status enum('PENDING', 'ACCEPTED', 'REJECTED') NOT NULL DEFAULT 'PENDING',
+                             PRIMARY KEY(creator_id, subscriber_id),
+                             FOREIGN KEY (subscriber_id) REFERENCES User(user_id)
+);
 
 create table Album (
 	album_id int(11) AUTO_INCREMENT primary key,
