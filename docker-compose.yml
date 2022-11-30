@@ -1,30 +1,30 @@
 version: "3.9"
 services:
-  web:
-    container_name: web
+  binotify-app-web:
+    container_name: binotify-app-web
     image: tubes-1:latest
-    hostname: web
+    hostname: binotify-app-web
     env_file:
       - .env
     ports:
       - 8001:80
     depends_on:
-      db:
+      binotify-app-db:
         condition: service_healthy
-      phpmyadmin:
+      binotify-app-phpmyadmin:
         condition: service_started
     networks:
-      - binotify
+      - binotify-app
     volumes:
       - ./public:/var/www/html/public
       - ./src:/var/www/html/src
       - ./upload:/var/www/html/upload
       - ./.htaccess:/var/www/html/.htaccess
 
-  db:
-    container_name: mysql
+  binotify-app-db:
+    container_name: binotify-app-db
     image: mysql:latest
-    hostname: mysql
+    hostname: binotify-app-db
     ports:
       - 8002:3306
     restart: always
@@ -34,23 +34,23 @@ services:
       timeout: 5s
       retries: 20
     networks:
-      - binotify
+      - binotify-app
     env_file: .env
     volumes:
       - ./mysql:/var/lib/mysql
       - ./migrations/init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./php.ini:/usr/local/etc/php/conf.d/init.ini
 
-  phpmyadmin:
-    container_name: phpmyadmin
+  binotify-app-phpmyadmin:
+    container_name: binotify-app-phpmyadmin
     image: phpmyadmin:latest
-    hostname: phpmyadmin
+    hostname: binotify-app-phpmyadmin
     networks:
-      - binotify
+      - binotify-app
     environment:
-      PMA_HOST: db
+      PMA_HOST: binotify-app-db
     depends_on:
-      - db
+      - binotify-app-db
     ports:
       - 8003:80
 
@@ -59,4 +59,4 @@ volumes:
     driver: local
 
 networks:
-  binotify:
+  binotify-app:
