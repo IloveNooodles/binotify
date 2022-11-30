@@ -56,12 +56,21 @@ $html = <<<"EOT"
 		</td>   
 	</tr>
 	<tr class="content">
-		<td>2</td>
+		<td>3</td>
 		<td>
 			<p class="artist-name">Roman Sombong Asu</p>
 		</td>   
 		<td>
-			<button class="rejected">Subscription Rejected</button>
+			<button class="rejected">Rejected</button>
+		</td>   
+	</tr>
+		<tr class="content">
+		<td>4</td>
+		<td>
+			<p class="artist-name">Roman Sombong Asu</p>
+		</td>   
+		<td>
+			<button class="pending">Pending...</button>
 		</td>   
 	</tr>
 EOT;
