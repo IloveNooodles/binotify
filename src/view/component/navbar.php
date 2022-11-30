@@ -73,7 +73,7 @@
         <div class="navbar">
             <a id="home-navbar" class="hidden-mobile" href="/">Home</a>
             <a id="album-navbar" class="hidden-mobile" href="/album">Albums</a>
-            <a id="premium-navbar" loggedin="' . (isset($_SESSION['username']) ? 'true' : 'false') . '" class="hidden-mobile">
+            <a id="premium-navbar" loggedin="' . (isset($_SESSION['username']) ? 'true' : 'false') . '" class="hidden-mobile premium-navbar">
                 Premium
                 <label class="new">New</label>
             </a>
@@ -88,6 +88,10 @@
         <div class="dropdown-content"> 
             <a id="none" class="show-mobile" href="/">Home</a>
             <a id="none" class="show-mobile" href="/album">Albums</a>
+            <a id="none" loggedin="' . (isset($_SESSION['username']) ? 'true' : 'false') . '" class="show-mobile premium-navbar">
+                Premium
+                <label class="new">New</label>
+            </a>
             <form action="/user" method="post">' .
                 (isset($_SESSION['username']) ? '<button type="submit" class="btn-submit">Log Out</button>' : '<a href="/login">Log In</a><a href="/register">Register</a>') . '
             </form>
@@ -101,7 +105,7 @@
         <div class="navbar">
             <a id="home-navbar" class="hidden-mobile" href="/">Home</a>
             <a id="album-navbar" class="hidden-mobile" href="/album">Albums</a>
-            <a id="premium-navbar" loggedin="' . (isset($_SESSION['username']) ? 'true' : 'false') . '" class="hidden-mobile">
+            <a id="premium-navbar" loggedin="' . (isset($_SESSION['username']) ? 'true' : 'false') . '" class="hidden-mobile premium-navbar">
                 Premium
                 <label class="new">New</label>
             </a>
@@ -120,6 +124,10 @@
         <div class="dropdown-content">
             <a id="none" class="show-mobile" href="/">Home</a>
             <a id="none" class="show-mobile" href="/album">Albums</a> 
+            <a id="none" loggedin="' . (isset($_SESSION['username']) ? 'true' : 'false') . '" class="show-mobile premium-navbar">
+                Premium
+                <label class="new">New</label>
+            </a>
             <form action="/user" method="post">' .
                 (isset($_SESSION['username']) ? '<button type="submit" class="btn-submit">Log Out</button>' : '<a href="/login">Log In</a><a href="/register">Register</a>') . '
             </form>

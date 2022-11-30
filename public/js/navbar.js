@@ -4,14 +4,15 @@ document.getElementById("dropdown-btn").addEventListener("click", function () {
     document.querySelector(".arrow").classList.toggle("up");
 });
 
-document.getElementById("premium-navbar").addEventListener("click", function () {
+document.querySelectorAll(".premium-navbar").forEach(element => {
+    element.addEventListener("click", function () {
     if (document.getElementById("premium-navbar").getAttribute("loggedin") == "true") {
         window.location.href = "/premium";
     } else {
         document.querySelector(".notification").classList.toggle('show');
         document.querySelector(".notification-box").classList.toggle('show');
     }
-});
+})});
 
 if (window.location.pathname === "/") {
     document.getElementById("home-navbar").classList.add("active");

@@ -1,7 +1,7 @@
 div.notification {
     display: none;
     position: fixed;
-    z-index: 2;
+    z-index: 4;
     left: 0;
     top: 0;
     width: 100%;
@@ -16,7 +16,7 @@ div.notification.show {
 }
 
 div.notification-box {
-    z-index: 3;
+    z-index: 5;
     height: 8rem;
     width: 30rem;
     background-color: var(--clr-background-highlight-one);
