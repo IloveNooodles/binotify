@@ -41,7 +41,7 @@ h2.pageTitle {
     padding: 1rem;
 }
 
-button {
+.go-to-songs, .rejected, .subscribe {
     background-color: var(--clr-background-highlight-two);
     border: none;
     border-radius: var(--radius-lg);
@@ -53,23 +53,23 @@ button {
     align-self: center;
 }
 
-button.go-to-songs {
+.go-to-songs {
     background-color: var(--clr-text-info-hover);
     color: var(--clr-text-primary);
 }
 
-button.rejected {
+.rejected {
     background-color: var(--clr-text-danger);
     color: var(--clr-text-primary);
     cursor: default;
 }
 
-button.subscribe:hover {
+.subscribe:hover {
     color: var(--clr-text-primary);
     background-color: var(--clr-background-highlight-three);
 }
 
-button.go-to-songs:hover {
+.go-to-songs:hover {
     color: var(--clr-text-primary);
     background-color: var(--clr-text-info);
 }
