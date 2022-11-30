@@ -1,0 +1,55 @@
+h2.pageTitle {
+  text-align: left;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  margin: 2rem 50px;
+  margin-bottom: 0;
+  padding: 1rem;
+  padding-bottom: 0;
+}
+
+h3.pageArtist {
+  text-align: left;
+  letter-spacing: 0.1rem;
+  margin: 2rem 50px;
+  padding: 1rem;
+  margin-top: 0;
+}
+
+.play-btn-premium {
+    position: relative;
+    display: block;
+    margin: 10px auto;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: none;
+    cursor: pointer;
+    border: none;
+  }
+
+  .play-btn-premium span:hover {
+    background: var(--clr-text-primary);
+  }
+
+  .play-btn-premium.pause span {
+    width: 1rem;
+    height: 1rem;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    border-radius: 0;
+    clip-path: polygon(0 0, 100% 50%, 100% 50%, 0% 100%);
+  }
+
+  .play-btn-premium span {
+    position: absolute;
+    /* top: 50%; */
+    left: 28%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 2px;
+    background: var(--clr-text-secondary);
+    transition: 0.5s;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }

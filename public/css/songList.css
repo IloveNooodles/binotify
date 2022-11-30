@@ -51,6 +51,12 @@
   align-items: center;
 }
 
+.title-artist-premium {
+  margin: 6px 10px;
+  display: inline-block;
+  align-items: center;
+}
+
 .song-title {
   color: var(--clr-text-primary);
   font-weight: bold;
