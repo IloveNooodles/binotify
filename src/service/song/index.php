@@ -65,6 +65,36 @@ class SongService {
         return SUCCESS;
     }
 
+    public function new_premium($file_audio) {
+        $res = [];
+        
+        try {
+            $audio_storage = new AudioStorage();
+
+            if (!isset($file_audio['name']) || !isset($file_audio['tmp_name'])) {
+                $res['status_message'] = DATA_NOT_COMPLETE;
+                return $res;
+            }
+
+            $audio_path = $audio_storage->save_audio($file_audio['name'], $file_audio['tmp_name'], AUDIO_DIR);
+
+            if ($audio_path == null) {
+                $res['status_message'] = INTERNAL_ERROR;
+                return $res;
+            }
+
+            $res = [
+                'status_message' => SUCCESS,
+                'audio_path' => $audio_path,
+            ];
+            return $res;
+        } catch (Throwable $e) {
+            $res['status_message'] = INTERNAL_ERROR;
+            return $res;
+        }
+        return $res;
+    }
+
     public function edit($song_id, $judul, $penyanyi, $tanggal_terbit, $genre, $file_image, $file_audio) {
         try {
             $song_model = new SongModel();
@@ -250,7 +280,7 @@ class SongService {
     }
 
     public function get_song_where_album_is_null(){
-      $data = null;
+        $data = null;
         try {
             $song_model = new SongModel();
             $res = $song_model->find_song_by_null();
