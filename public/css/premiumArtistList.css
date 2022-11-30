@@ -1,0 +1,97 @@
+h2.pageTitle {
+    text-align: left;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    margin: 2rem 50px;
+    padding: 1rem;
+}
+
+#premiumArtistList {
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 70%;
+}
+
+#premiumArtistList td,
+#premiumArtistList th {
+    border: none;
+    color: var(--clr-text-secondary);
+    font-weight: lighter;
+    font-size: small;
+    padding: 6px 10px;
+}
+
+#premiumArtistList tr.content {
+    transition: var(--transition);
+}
+
+#premiumArtistList th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--clr-background-highlight-three);
+}
+
+.title {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    padding: 1rem;
+}
+
+button {
+    background-color: var(--clr-background-highlight-two);
+    border: none;
+    border-radius: var(--radius-lg);
+    color: var(--clr-text-secondary);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    margin: 6px 0;
+    transition: var(--transition);
+    align-self: center;
+}
+
+button.go-to-songs {
+    background-color: var(--clr-text-info-hover);
+    color: var(--clr-text-primary);
+}
+
+button.rejected {
+    background-color: var(--clr-text-danger);
+    color: var(--clr-text-primary);
+    cursor: default;
+}
+
+button.subscribe:hover {
+    color: var(--clr-text-primary);
+    background-color: var(--clr-background-highlight-three);
+}
+
+button.go-to-songs:hover {
+    color: var(--clr-text-primary);
+    background-color: var(--clr-text-info);
+}
+
+.artist-name {
+    color: var(--clr-text-primary);
+    font-weight: bold;
+    font-size: var(--fs-heading);
+}
+
+
+@media screen and (min-width: 768px) {
+    .title {
+        text-align: left;
+        font-weight: 500;
+        letter-spacing: 0.1rem;
+        margin: 2rem 50px;
+    }
+
+    #premiumArtistList {
+        border-collapse: collapse;
+        margin: 50px;
+        width: 80%;
+    }
+}
