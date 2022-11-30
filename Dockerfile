@@ -1,10 +1,10 @@
 FROM php:8.0-apache
 
-RUN docker-php-ext-install mysqli pdo pdo_mysql soap
 RUN apt-get -y update
 RUN apt-get -y upgrade
 RUN apt-get install -y libxml2-dev
 RUN apt-get install -y --no-install-recommends mediainfo
+RUN docker-php-ext-install mysqli pdo pdo_mysql soap
 
 WORKDIR /var/www/html
 
