@@ -80,6 +80,30 @@ class Song extends Controller {
         }
     }
 
+    public function new_premium() {
+        switch($_SERVER["REQUEST_METHOD"]) {
+            case "GET":
+                $this->view("song/insert_song");
+                return;
+            case "POST":
+                $song_service = new SongService();
+                $data = NULL;
+
+                if (empty($_FILES['song'])) {
+                    $data = ["status_message" => DATA_NOT_COMPLETE];
+                }
+                else {
+                    $data = $song_service->new_premium($_FILES['song']);
+                }
+                
+                response_json($data);
+                return;
+            default:
+                response_not_allowed_method();
+                return;
+        }
+    }
+
     public function edit($id = 1) {
         $middleware = new Middleware();
         $can_access_admin = $middleware->can_access_admin_page();
