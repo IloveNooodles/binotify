@@ -73,6 +73,10 @@
         <div class="navbar">
             <a id="home-navbar" class="hidden-mobile" href="/">Home</a>
             <a id="album-navbar" class="hidden-mobile" href="/album">Albums</a>
+            <a id="premium-navbar" loggedin="' . (isset($_SESSION['username']) ? 'true' : 'false') . '" class="hidden-mobile">
+                Premium
+                <label class="new">New</label>
+            </a>
             <div class="navbar-right">
                 <button id="dropdown-btn">
                     <img class="profile-img" src="/public/img/avatar-template.jpeg" alt="user">
@@ -82,11 +86,11 @@
             </div>
         </div>
         <div class="dropdown-content"> 
-        <a id="none" class="show-mobile" href="/">Home</a>
-        <a id="none" class="show-mobile" href="/album">Albums</a>
-        <form action="/user" method="post">' .
-        (isset($_SESSION['username']) ? '<button type="submit" class="btn-submit">Log Out</button>' : '<a href="/login">Log In</a><a href="/register">Register</a>') . '
-        </form>
+            <a id="none" class="show-mobile" href="/">Home</a>
+            <a id="none" class="show-mobile" href="/album">Albums</a>
+            <form action="/user" method="post">' .
+                (isset($_SESSION['username']) ? '<button type="submit" class="btn-submit">Log Out</button>' : '<a href="/login">Log In</a><a href="/register">Register</a>') . '
+            </form>
         </div>
         <script defer src="/public/js/navbar.js"></script>
         </body>';
@@ -97,6 +101,10 @@
         <div class="navbar">
             <a id="home-navbar" class="hidden-mobile" href="/">Home</a>
             <a id="album-navbar" class="hidden-mobile" href="/album">Albums</a>
+            <a id="premium-navbar" loggedin="' . (isset($_SESSION['username']) ? 'true' : 'false') . '" class="hidden-mobile">
+                Premium
+                <label class="new">New</label>
+            </a>
             <div class="navbar-right">
                 <form class="inline-child" action="/search">
                     <input class="search-bar" type="text" placeholder="What do you want to listen to?" name="q">
@@ -110,11 +118,11 @@
             </div>
         </div>
         <div class="dropdown-content">
-        <a id="none" class="show-mobile" href="/">Home</a>
-        <a id="none" class="show-mobile" href="/album">Albums</a> 
-        <form action="/user" method="post">' .
-        (isset($_SESSION['username']) ? '<button type="submit" class="btn-submit">Log Out</button>' : '<a href="/login">Log In</a><a href="/register">Register</a>') . '
-        </form>
+            <a id="none" class="show-mobile" href="/">Home</a>
+            <a id="none" class="show-mobile" href="/album">Albums</a> 
+            <form action="/user" method="post">' .
+                (isset($_SESSION['username']) ? '<button type="submit" class="btn-submit">Log Out</button>' : '<a href="/login">Log In</a><a href="/register">Register</a>') . '
+            </form>
         </div>
         <script defer src="/public/js/navbar.js"></script>
         </body>';

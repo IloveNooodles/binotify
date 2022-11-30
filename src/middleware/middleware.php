@@ -13,6 +13,14 @@ class Middleware {
     return false;
   }
 
+  public function is_logged_in(){
+    if(isset($_SESSION['username']) && isset($_SESSION['user_id'])){
+      return true;
+    }
+
+    return false;
+  }
+
   public function limit_song(){
     
     if(isset($_SESSION['role']) || isset($_SESSION['username'])){
