@@ -19,7 +19,8 @@
         <h3>Edit Song</h3>
         <input type="hidden" id="song_id" name="song_id" value="<?=$data['song']['song_id']?>">
         <input type="text" placeholder="Title" id="judul" name="judul" value="<?=$data['song']['judul']?>">
-        <input type="text" disabled placeholder="Artist" id="penyanyi" name="penyanyi" value="<?=$data['song']['penyanyi']?>">
+        <input type="text" disabled placeholder="Artist" value="<?=$data['song']['penyanyi']?>">
+        <input type="hidden" id="penyanyi" name="penyanyi" value="<?=$data['song']['penyanyi']?>">
         <input type="text" placeholder="Genre" id="genre" name="genre" value="<?=$data['song']['genre']?>">
 
         <h4>Release Date</h4>
