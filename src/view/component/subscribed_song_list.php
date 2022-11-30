@@ -52,7 +52,7 @@ function songs_in_html($data){
         <tr class="content-premium" name="1">
             <td>1</td>
             <td class="songlist-title">
-                <button class="play-btn-premium pause">
+                <button id="song-1" class="play-btn-premium pause">
                     <span></span>
                 </button>
                 <div class="title-artist-premium">
@@ -61,10 +61,10 @@ function songs_in_html($data){
                 </div>
             </td>
         </tr>
-        <tr class="content-premium" name="1">
-            <td>1</td>
+        <tr class="content-premium" name="2">
+            <td>2</td>
             <td class="songlist-title">
-                <button class="play-btn-premium pause">
+                <button id="song-2" class="play-btn-premium pause">
                     <span></span>
                 </button>
                 <div class="title-artist-premium">
@@ -73,6 +73,18 @@ function songs_in_html($data){
                 </div>
             </td>
         </tr>
+        <tr class="content-premium" name="3">
+        <td>3</td>
+        <td class="songlist-title">
+            <button id="song-3" class="play-btn-premium pause">
+                <span></span>
+            </button>
+            <div class="title-artist-premium">
+                <p class="song-title">Roman Irama</p>
+                <p class="song-artist">Dewi 20</p>
+            </div>
+        </td>
+    </tr>
     EOT;
     return $html;
 }

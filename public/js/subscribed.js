@@ -24,7 +24,13 @@ document.querySelectorAll(".play-btn-premium").forEach(element => {
 		// } else {
 		//   // Pause lagu
 		//   music.pause();
+		document.querySelectorAll(".play-btn-premium").forEach(el => {
+			// stop lagu dia dulu
+			if (!el.classList.contains("pause") && el.id != element.id) {
+				el.classList.toggle("pause");
+			}
+		});
 		element.classList.toggle("pause");
 		// }
 	});
-});;
+});
