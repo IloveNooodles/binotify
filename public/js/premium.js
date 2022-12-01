@@ -1,6 +1,9 @@
 const SUBSCRIBE_URL = "http://localhost:8001/subscribed/subscribe";
 const CHECK_URL = "http://localhost:8001/subscribed/check_subscription";
+const FETCH_ARTIST = "http://localhost:3333/singer";
 const pendingSubscription = [];
+
+const tablePremiumDOM = document.getElementById("premiumArtistList");
 
 const connect_soap = async (URL, creator_id) => {
   let body = new FormData();
@@ -9,6 +12,12 @@ const connect_soap = async (URL, creator_id) => {
     method: "POST",
     credentials: "include",
     body: body,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "*",
+      "Access-Control-Allow-Headers": "*",
+      "Access-Control-Allow-Credentials": true,
+    },
   });
 
   let result = await response.json();
@@ -60,6 +69,37 @@ const check_all_subscription = () => {
   });
 };
 
+const fetchArtistList = async () => {
+  let response = await fetch(FETCH_ARTIST, {
+    method: "GET",
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "*",
+      "Access-Control-Allow-Headers": "*",
+      "Access-Control-Allow-Credentials": true,
+    },
+  });
+  try {
+    let json = await response.json();
+    const artist = json["data"];
+    for (let i = 0; i < artist.length; i++) {
+      let tableRow = document.createElement("tr");
+      tableRow.classList.add("content");
+      tableRow.innerHTML = `<td>${i + 1}</td>
+		<td>
+			<p class="artist-name">${artist[i]["name"]}</p>
+		</td>
+		<td>
+			<button class="btn-val subscribe" value="${artist[i]["id"]}">Subscribe</button>
+		</td>`;
+      tablePremiumDOM.appendChild(tableRow);
+    }
+    check_all_subscription();
+  } catch (exception) {
+    console.log(exception);
+  }
+};
+
 const polling = () => {
   len = pendingSubscription.length;
 
@@ -89,6 +129,6 @@ const polling = () => {
 };
 
 window.addEventListener("load", () => {
-  check_all_subscription();
-  setInterval(polling, 5000);
+  fetchArtistList();
+  setInterval(polling, 60000);
 });
