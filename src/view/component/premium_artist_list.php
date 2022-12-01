@@ -35,7 +35,7 @@ $html = <<<"EOT"
 		</td>   
 		<td>
 			<a href="/subscribed/1">
-				<button class="go-to-songs">Go To Songs</button>
+				<button class="go-to-songs" value="2">Go To Songs</button>
 			</a>
 		</td>   
 	</tr>
@@ -45,7 +45,7 @@ $html = <<<"EOT"
 			<p class="artist-name">Roman Sombong Asu</p>
 		</td>   
 		<td>
-			<button class="rejected">Rejected</button>
+			<button class="rejected" value="3">Rejected</button>
 		</td>   
 	</tr>
 		<tr class="content">
@@ -54,7 +54,7 @@ $html = <<<"EOT"
 			<p class="artist-name">Roman Sombong Asu</p>
 		</td>   
 		<td>
-			<button class="pending">Pending...</button>
+			<button class="pending" value="111">Pending...</button>
 		</td>   
 	</tr>
   <tr class="content">

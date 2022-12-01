@@ -100,6 +100,60 @@ class Subscribed extends Controller {
       }
     }
 
+
+    public function check_subscription(){
+      switch($_SERVER['REQUEST_METHOD']){
+        case "POST":
+            $middleware = new Middleware();
+            $is_logged_in = $middleware->is_logged_in();
+            if (!$is_logged_in) {
+                redirect_home();
+                return;
+            }
+
+            if(!isset($_POST['creator_id'])){
+               response_json(DATA_NOT_COMPLETE);
+               return;
+            }
+
+            if($_POST['creator_id'] < 0){
+              response_json(INVALID_CREATOR_ID);
+              return;
+            }
+
+            try {
+              $headers = array(
+                "http" => array(
+                  "header" => "x-api-key: " . SOAP_API_KEY
+                )
+              );
+
+              $soap_client = new SoapClient("http://host.docker.internal:9000/api/subscription?wsdl", array (
+                'stream_context' => stream_context_create($headers)
+              ));
+
+              $res = $soap_client->__soapCall("checkStatus", array(
+                  "SubscriptionData" => array(
+                  "creator_id" => $_POST['creator_id'],
+                  "subscriber_id" => $_SESSION['user_id'],
+                )
+              ));
+  
+              response_json($res);
+              return;
+
+            } catch (Exception $e) {
+              return response_json($e);
+            }
+
+        default:
+            response_not_allowed_method();
+            return;
+            break;
+      }
+    }
+
+
     // ini subscribe
     public function subscribe(){
       switch($_SERVER['REQUEST_METHOD']){
