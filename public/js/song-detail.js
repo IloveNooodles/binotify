@@ -31,7 +31,6 @@ if (playBtn.getAttribute("listener") != "true") {
 
       xhr_limit_song.onreadystatechange = function () {
         if (xhr_limit_song.readyState == 4 && xhr_limit_song.status == 200) {
-          console.log(xhr_limit_song.responseText);
           is_limit_song = JSON.parse(xhr_limit_song.responseText);
           is_limit_song = is_limit_song["data"]["can_access"];
           if (is_limit_song) {

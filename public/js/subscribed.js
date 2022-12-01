@@ -1,36 +1,24 @@
 document.querySelectorAll(".play-btn-premium").forEach(element => {
 	element.addEventListener("click", () => {
-		// isPaused = !isPaused;
+		music = document.querySelector("#audio-" + element.attributes["id"].value);
 
-		// if (!isPaused) {
-		//   const url = `/song/play_song/`;
-		//   xhr_limit_song.open("GET", url);
-		//   xhr_limit_song.send();
-
-		//   xhr_limit_song.onreadystatechange = function () {
-		//     if (xhr_limit_song.readyState == 4 && xhr_limit_song.status == 200) {
-		//       console.log(xhr_limit_song.responseText);
-		//       is_limit_song = JSON.parse(xhr_limit_song.responseText);
-		//       is_limit_song = is_limit_song["data"]["can_access"];
-		//       if (is_limit_song) {
-		//         music.pause();
-		//         isPaused = true;
-		//       } else {
-		//         playBtn.classList.toggle("pause");
-		//         music.play();
-		//       }
-		//     }
-		//   };
-		// } else {
-		//   // Pause lagu
-		//   music.pause();
+		if (element.classList.contains("pause")) {
+			music.play();
 		document.querySelectorAll(".play-btn-premium").forEach(el => {
-			// stop lagu dia dulu
 			if (!el.classList.contains("pause") && el.id != element.id) {
 				el.classList.toggle("pause");
 			}
+		document.querySelectorAll("audio").forEach(el => {
+			if (el.id != music.id) {
+				el.pause();
+				el.currentTime = 0;
+			}
 		});
+		});
+		} else {
+			music.pause();
+			music.currentTime = 0;
+		}
 		element.classList.toggle("pause");
-		// }
 	});
 });
