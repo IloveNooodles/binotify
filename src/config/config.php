@@ -6,6 +6,7 @@ define('MYSQL_PORT', $_ENV['MYSQL_PORT']);
 define('MYSQL_USER', $_ENV['MYSQL_USER']);
 define('MYSQL_PASSWORD', $_ENV['MYSQL_PASSWORD']);
 define('MYSQL_DATABASE', $_ENV['MYSQL_DATABASE']);
+define("SOAP_API_KEY",  $_ENV['SOAP_API_KEY']);
 
 define('PAGINATION_LIMIT', 10);
 
