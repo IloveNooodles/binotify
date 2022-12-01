@@ -15,22 +15,41 @@ class Subscribed extends Controller {
           $this->view("subscribed/index");
           return;
           break;
+
+        // Ini callback buat subscribe
         case "POST":
-            if(empty($_POST['creator_id']) || empty($_POST['subscriber_id'])){
-              return DATA_NOT_COMPLETE;
+            $middleware = new Middleware();
+            $is_logged_in = $middleware->is_logged_in();
+            if (!$is_logged_in) {
+                response_json(NOT_AUTHENTICATED, 400);
+                return;
+            }
+
+            if(!isset($_POST['creator_id']) || !isset($_POST['subscriber_id'])){
+              response_json(DATA_NOT_COMPLETE, 400);
+              return ;
             }
 
             if($_POST['subscriber_id'] < 0){
-              return INVALID_SUBSCRIBER_ID;
+              response_json(INVALID_SUBSCRIBER_ID, 400);
+              return ;
             }
 
             if($_POST['creator_id'] < 0){
-              return INVALID_CREATOR_ID;
+              response_json(INVALID_CREATOR_ID, 400);
+              return;
             }
 
             $subscription_service = new SubscriptionService();
             $res = $subscription_service->subscribe($_POST['creator_id'], $_POST['subscriber_id']);
-            return $res;
+            
+            if($res == INTERNAL_ERROR){
+              response_json($res, 500);
+              return;
+            }
+
+            response_json($res);
+            return;
             break;
         default:
             response_not_allowed_method();
@@ -39,28 +58,42 @@ class Subscribed extends Controller {
       }
     }
 
+    // ini callback buat update
     public function update(){
       switch($_SERVER['REQUEST_METHOD']){
         case "POST":
-            if(empty($_POST['creator_id']) || empty($_POST['subscriber_id']) || empty($_POST['status'])){
-              return DATA_NOT_COMPLETE;
+
+            $middleware = new Middleware();
+            $is_logged_in = $middleware->is_logged_in();
+            if (!$is_logged_in) {
+                response_json(NOT_AUTHENTICATED, 400);
+                return;
+            }
+            
+            if(!isset($_POST['creator_id']) || !isset($_POST['subscriber_id']) || !isset($_POST['status'])){
+              response_json(DATA_NOT_COMPLETE, 400);
+              return;
             }
 
             if($_POST['subscriber_id'] < 0){
-              return INVALID_SUBSCRIBER_ID;
+              response_json(INVALID_SUBSCRIBER_ID, 400);
+              return;
             }
 
             if($_POST['creator_id'] < 0){
-              return INVALID_CREATOR_ID;
+              response_json(INVALID_CREATOR_ID, 400);
+              return;
             }
 
             if(!in_array($_POST['status'], ["ACCEPTED", "REJECTED"])){
-              return INVALID_STATUS;
+              response_json(INVALID_STATUS, 400);
+              return;
             }
 
             $subscription_service = new SubscriptionService();
             $res = $subscription_service->updateSubscription($_POST['creator_id'], $_POST['subscriber_id'], $_POST['status']);
-            return $res;
+            response_json($res);
+            return;
             break;
         default:
             response_not_allowed_method();
@@ -69,26 +102,60 @@ class Subscribed extends Controller {
       }
     }
 
-    public function callback(){
-      try {
-        $headers = array(
-          "http" => array(
-            "header" => "x-api-key: " . SOAP_API_KEY
-          )
-        );
-        $client = new SoapClient("http://host.docker.internal:9000/api/subscription?wsdl", array (
-          'stream_context' => stream_context_create($headers)
-        ));
-        $res = $client->__soapCall("subscribe", array(
-            "SubscriptionData" => array(
-            "creator_id" => 0,
-            "subscriber_id" => 10,
-            "status" => "PENDING",
-          )
-        ));
-        echo json_encode($res);
-      } catch (Exception $e) {
-        echo json_encode($e);
+    // ini subscribe
+    public function subscribe(){
+      switch($_SERVER['REQUEST_METHOD']){
+        case "POST":
+  
+            $middleware = new Middleware();
+            $is_logged_in = $middleware->is_logged_in();
+            if (!$is_logged_in) {
+                redirect_home();
+                return;
+            }
+
+            
+            if(!isset($_POST['creator_id'])){
+               response_json(DATA_NOT_COMPLETE, 400);
+               return;
+            }
+
+            if($_POST['creator_id'] < 0){
+              response_json(INVALID_CREATOR_ID, 400);
+              return;
+            }
+
+            try {
+              $headers = array(
+                "http" => array(
+                  "header" => "x-api-key: " . SOAP_API_KEY
+                )
+              );
+
+              $soap_client = new SoapClient("http://host.docker.internal:9000/api/subscription?wsdl", array (
+                'stream_context' => stream_context_create($headers)
+              ));
+
+              $res = $soap_client->__soapCall("subscribe", array(
+                  "SubscriptionData" => array(
+                  "creator_id" => $_POST['creator_id'],
+                  "subscriber_id" => $_SESSION['user_id'],
+                  "status" => "PENDING",
+                )
+              ));
+
+              response_json($res);
+              return;
+
+            } catch (Exception $e) {
+              return response_json(INTERNAL_ERROR, 500);
+
+            }
+
+        default:
+            response_not_allowed_method();
+            return;
+            break;
       }
     }
 }

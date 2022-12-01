@@ -26,6 +26,7 @@ class SubscriptionService {
 
     public function subscribe($creator_id, $subscriber_id){
         $subscription_model = new SubscriptionModel();
+        
         try {
           $subscription = $subscription_model->get_subscription_by_id($creator_id, $subscriber_id);
           

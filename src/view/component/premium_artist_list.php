@@ -25,7 +25,7 @@ $html = <<<"EOT"
 			<p class="artist-name">Roman Irama</p>
 		</td>
 		<td>
-			<button class="subscribe">Subscribe</button>
+			<button class="subscribe" value="1">Subscribe</button>
 		</td>
 	</tr>
 	<tr class="content">
@@ -56,6 +56,15 @@ $html = <<<"EOT"
 		<td>
 			<button class="pending">Pending...</button>
 		</td>   
+	</tr>
+  <tr class="content">
+		<td>1</td>
+		<td>
+			<p class="artist-name">Roman Irama</p>
+		</td>
+		<td>
+			<button class="subscribe" value="111">Subscribe</button>
+		</td>
 	</tr>
 EOT;
 return $html;
