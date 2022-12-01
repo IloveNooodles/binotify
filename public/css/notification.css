@@ -1,74 +1,80 @@
 div.notification {
-    display: none;
-    position: fixed;
-    z-index: 4;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+  display: none;
+  position: fixed;
+  z-index: 4;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 div.notification.show {
-    display: block;
+  display: block;
 }
 
 div.notification-box {
-    z-index: 5;
-    height: 8rem;
-    width: 30rem;
-    background-color: var(--clr-background-highlight-one);
-    position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    backdrop-filter: blur(10px);
-    border: none;
-    box-shadow: 0 0 40px var(--clr-background-base);
-    padding: 20px 20px;
-    visibility: visible;
-    transform: translate;
-    color: var(--clr-text-primary);
-    border-radius: 15px;
-    top: -50%;
-    transition: all .5s ease-in-out;
+  z-index: 5;
+  height: 8rem;
+  width: 25rem;
+  background-color: var(--clr-background-highlight-one);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  backdrop-filter: blur(10px);
+  border: none;
+  box-shadow: 0 0 40px var(--clr-background-base);
+  padding: 20px 20px;
+  visibility: visible;
+  transform: translate;
+  color: var(--clr-text-primary);
+  border-radius: 15px;
+  top: -50%;
+  transition: all 0.5s ease-in-out;
 }
 
 div.notification-box.show {
-    visibility: visible;
-    opacity: 1;
-    top: 10%;
+  visibility: visible;
+  opacity: 1;
+  top: 6rem;
 }
 
 div.notification-box .notification-text {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 30px;
-    text-align: center;
-    margin-top: 0.8rem;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  text-align: center;
+  margin-top: 0.8rem;
 }
 
 div.notification-box .footer {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 0.8rem;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.8rem;
 }
 
 div.notification-box .footer .btn {
-    background-color: var(--clr-background-highlight-two);
-    color: var(--clr-text-primary);
-    border: none;
-    border-radius: var(--radius-lg);
-    padding: 0.5rem 1rem;
-    font-size: var(--fs-body);
-    font-family: CircularStd;
-    cursor: pointer;
-    transition: var(--transition);
-    margin: 0 0.5rem;
+  background-color: var(--clr-background-highlight-two);
+  color: var(--clr-text-primary);
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 0.5rem 1rem;
+  font-size: var(--fs-body);
+  font-family: CircularStd;
+  cursor: pointer;
+  transition: var(--transition);
+  margin: 0 0.5rem;
 }
 
 div.notification-box .footer .btn:hover {
-    background-color: var(--clr-text-info);
-    color: var(--clr-text-black);
+  background-color: var(--clr-text-info);
+  color: var(--clr-text-black);
+}
+
+@media screen and (min-width: 1024px) {
+  div.notification-box {
+    width: 30rem;
+  }
 }

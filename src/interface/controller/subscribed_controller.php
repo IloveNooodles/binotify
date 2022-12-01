@@ -107,7 +107,7 @@ class Subscribed extends Controller {
             $middleware = new Middleware();
             $is_logged_in = $middleware->is_logged_in();
             if (!$is_logged_in) {
-                redirect_home();
+                response_json(NOT_AUTHENTICATED);
                 return;
             }
 
@@ -152,7 +152,6 @@ class Subscribed extends Controller {
             break;
       }
     }
-
 
     // ini subscribe
     public function subscribe(){

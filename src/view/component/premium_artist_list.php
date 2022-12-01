@@ -25,7 +25,7 @@ $html = <<<"EOT"
 			<p class="artist-name">Roman Irama</p>
 		</td>
 		<td>
-			<button class="subscribe" value="1">Subscribe</button>
+			<button class="btn-val subscribe" value="12">Rejected</button>
 		</td>
 	</tr>
 	<tr class="content">
@@ -35,7 +35,7 @@ $html = <<<"EOT"
 		</td>   
 		<td>
 			<a href="/subscribed/1">
-				<button class="go-to-songs" value="2">Go To Songs</button>
+				<button class="btn-val subscribe" value="13">Rejected</button>
 			</a>
 		</td>   
 	</tr>
@@ -45,7 +45,7 @@ $html = <<<"EOT"
 			<p class="artist-name">Roman Sombong Asu</p>
 		</td>   
 		<td>
-			<button class="rejected" value="3">Rejected</button>
+			<button class="btn-val subscribe" value="0">Rejected</button>
 		</td>   
 	</tr>
 		<tr class="content">
@@ -54,7 +54,7 @@ $html = <<<"EOT"
 			<p class="artist-name">Roman Sombong Asu</p>
 		</td>   
 		<td>
-			<button class="pending" value="111">Pending...</button>
+			<button class="btn-val subscribe" value="111">Pending...</button>
 		</td>   
 	</tr>
   <tr class="content">
@@ -63,7 +63,52 @@ $html = <<<"EOT"
 			<p class="artist-name">Roman Irama</p>
 		</td>
 		<td>
-			<button class="subscribe" value="111">Subscribe</button>
+			<button class="btn-val subscribe" value="111">Subscribe</button>
+		</td>
+	</tr>
+  <tr class="content">
+		<td>1</td>
+		<td>
+			<p class="artist-name">Roman Irama</p>
+		</td>
+		<td>
+			<button class="btn-val subscribe" value="4">Subscribe</button>
+		</td>
+	</tr>
+  <tr class="content">
+		<td>1</td>
+		<td>
+			<p class="artist-name">Roman Irama</p>
+		</td>
+		<td>
+			<button class="btn-val subscribe" value="5">Subscribe</button>
+		</td>
+	</tr>
+  <tr class="content">
+		<td>1</td>
+		<td>
+			<p class="artist-name">Roman Irama</p>
+		</td>
+		<td>
+			<button class="btn-val subscribe" value="6">Subscribe</button>
+		</td>
+	</tr>
+  <tr class="content">
+		<td>1</td>
+		<td>
+			<p class="artist-name">Roman Irama</p>
+		</td>
+		<td>
+			<button class="btn-val subscribe" value="7">Subscribe</button>
+		</td>
+	</tr>
+  <tr class="content">
+		<td>1</td>
+		<td>
+			<p class="artist-name">Roman Irama</p>
+		</td>
+		<td>
+			<button class="btn-val subscribe" value="8">Subscribe</button>
 		</td>
 	</tr>
 EOT;
