@@ -18,25 +18,24 @@ class Subscribed extends Controller {
 
         // Ini callback buat subscribe
         case "POST":
-            $middleware = new Middleware();
-            $is_logged_in = $middleware->is_logged_in();
-            if (!$is_logged_in) {
-                response_json(NOT_AUTHENTICATED, 400);
+            $API_KEY = $_SERVER['HTTP_X_API_KEY'];
+            if (!isset($API_KEY) && $API_KEY !== SOAP_API_KEY) {
+                response_json(NOT_AUTHENTICATED);
                 return;
             }
-
+            
             if(!isset($_POST['creator_id']) || !isset($_POST['subscriber_id'])){
-              response_json(DATA_NOT_COMPLETE, 400);
+              response_json(DATA_NOT_COMPLETE);
               return ;
             }
 
             if($_POST['subscriber_id'] < 0){
-              response_json(INVALID_SUBSCRIBER_ID, 400);
+              response_json(INVALID_SUBSCRIBER_ID);
               return ;
             }
 
             if($_POST['creator_id'] < 0){
-              response_json(INVALID_CREATOR_ID, 400);
+              response_json(INVALID_CREATOR_ID);
               return;
             }
 
@@ -62,31 +61,30 @@ class Subscribed extends Controller {
     public function update(){
       switch($_SERVER['REQUEST_METHOD']){
         case "POST":
-
-            $middleware = new Middleware();
-            $is_logged_in = $middleware->is_logged_in();
-            if (!$is_logged_in) {
-                response_json(NOT_AUTHENTICATED, 400);
+    
+            $API_KEY = $_SERVER['HTTP_X_API_KEY'];
+            if (!isset($API_KEY) && $API_KEY !== SOAP_API_KEY) {
+                response_json(NOT_AUTHENTICATED);
                 return;
             }
             
             if(!isset($_POST['creator_id']) || !isset($_POST['subscriber_id']) || !isset($_POST['status'])){
-              response_json(DATA_NOT_COMPLETE, 400);
+              response_json(DATA_NOT_COMPLETE);
               return;
             }
 
             if($_POST['subscriber_id'] < 0){
-              response_json(INVALID_SUBSCRIBER_ID, 400);
+              response_json(INVALID_SUBSCRIBER_ID);
               return;
             }
 
             if($_POST['creator_id'] < 0){
-              response_json(INVALID_CREATOR_ID, 400);
+              response_json(INVALID_CREATOR_ID);
               return;
             }
 
             if(!in_array($_POST['status'], ["ACCEPTED", "REJECTED"])){
-              response_json(INVALID_STATUS, 400);
+              response_json(INVALID_STATUS);
               return;
             }
 
@@ -116,12 +114,12 @@ class Subscribed extends Controller {
 
             
             if(!isset($_POST['creator_id'])){
-               response_json(DATA_NOT_COMPLETE, 400);
+               response_json(DATA_NOT_COMPLETE);
                return;
             }
 
             if($_POST['creator_id'] < 0){
-              response_json(INVALID_CREATOR_ID, 400);
+              response_json(INVALID_CREATOR_ID);
               return;
             }
 
@@ -148,7 +146,7 @@ class Subscribed extends Controller {
               return;
 
             } catch (Exception $e) {
-              return response_json(INTERNAL_ERROR, 500);
+              return response_json(INTERNAL_ERROR);
 
             }
 
