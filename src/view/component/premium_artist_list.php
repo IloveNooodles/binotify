@@ -1,7 +1,7 @@
 <?php
 
 function return_html($data = []){
-$all_user = users_in_html($data);
+// $all_user = users_in_html($data);
 $html = <<<"EOT"
 	<body>
 	<table id="premiumArtistList">
@@ -10,7 +10,6 @@ $html = <<<"EOT"
 			<th>PREMIUM ARTIST</th>
 			<th>SUBSCRIPTION</th>
 		</tr>
-	$all_user
 	</table>
 	</body>
 EOT;
