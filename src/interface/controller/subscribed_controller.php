@@ -42,7 +42,8 @@ class Subscribed extends Controller {
                 )
             ));
 
-            $is_subscribed = $res;
+            $res = get_object_vars($res);
+            $is_subscribed = $res['return'];
             if(!str_contains($is_subscribed, "ACCEPTED")){
               redirect_home();
               return;
@@ -52,7 +53,8 @@ class Subscribed extends Controller {
             redirect_home();
             return;
           }
-
+          $result = $this->fetch_singer_songlist($creator_id);
+          $data['result'] = $result;
           $data['creator_id'] = $creator_id;
           $this->view("subscribed/index", $data);
           return;
@@ -249,5 +251,36 @@ class Subscribed extends Controller {
             return;
             break;
       }
+    }
+
+    public function fetch_singer_songlist($creator_id = 0){
+      $curl = curl_init();
+      $method = "POST";
+      $url = "http://host.docker.internal:3333/singer/" . $creator_id;
+      curl_setopt($curl, CURLOPT_VERBOSE, true);
+      $data = array("user_id" => $_SESSION['user_id']);
+      $data = json_encode($data);
+      switch ($method)
+      {
+          case "POST":
+              curl_setopt($curl, CURLOPT_POST, 1);
+              if ($data){
+                curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+              }
+              break;
+          case "PUT":
+              curl_setopt($curl, CURLOPT_PUT, 1);
+              break;
+          default:
+              return "{}";
+      }
+      curl_setopt($curl, CURLOPT_URL, $url);
+      curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+      $info = curl_getinfo($curl);
+      $result = curl_exec($curl);
+      curl_close($curl);
+
+      return $result;
     }
 }

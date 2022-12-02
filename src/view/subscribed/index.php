@@ -13,7 +13,13 @@
 <body>
     <?php include_once 'src/view/component/navbar.php' ?>
     <h2 class="pageTitle">Premium Songs</h2>
-    <h3 class="pageArtist">Roman Irama</h3>
+    <h3 class="pageArtist"> <?php
+      $new_data = $data['result']; 
+      $new_data = get_object_vars(json_decode($new_data));
+      $real_data = get_object_vars($new_data['data']);
+      $singer = get_object_vars($real_data['singer']);
+      echo $singer['name'];
+    ?> </h3>
     <?php
     require_once 'src/view/component/subscribed_song_list.php';
     return_html($data);
