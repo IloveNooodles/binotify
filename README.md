@@ -1,6 +1,6 @@
 # Binotify - Spotify like app
 
-Binotify is a spotify like monolithic web application made using PHP and vanilla html css js. This app This repository is made to fulfill Tugas Besar 1 Pengembangan Aplikasi Berbasis Web IF3110 2022/2023. This app is also using docker for easy of use and same environment. Also includes with mysql and phpmyadmin for easier database management. This app have auth feature, see list of song and albums, searching, and many more. Currently this app supports thee role admin, user, and guest mode.
+Binotify is a spotify like monolithic web application made using PHP and vanilla html css js. This app This repository is made to fulfill Tugas Besar 1 dan Tugas Besar 2 Pengembangan Aplikasi Berbasis Web IF3110 2022/2023. This app is also using docker for easy of use and same environment. Also includes with mysql and phpmyadmin for easier database management. This app have auth feature, see list of song and albums, searching, and many more. Currently this app supports thee role admin, user, and guest mode.
 
 Made with ❤ with
 
@@ -56,6 +56,8 @@ Made with ❤ with
      - Login
      - Logout
    - Listen song (no limit)
+   - Subscribe premium artist
+   - Listen subscribed premium artist songs (no limit)
 
 4. Admin
    - User managament
@@ -124,13 +126,13 @@ NOTE: If you are UNIX users don't forget to add sudo (ex: `sudo ./scripts/run.sh
 | fetch list user                     |      Insert album      | fetch list album           |
 | fetch list song                     |       Edit Song        | fetch detail song          |
 | create song, albums, and user model |       Edit Album       | play music mechanism       |
-| upload file mechanism               |      Detail Song       |                            |
+| upload file mechanism               |      Detail Song       | premium play song mechanism|
 | count song duration mechanism       |      Detail Album      |                            |
 | docker                              |      Delete Song       |                            |
-|                                     |      Delete Album      |                            |
-|                                     |     Get All Genre      |                            |
-|                                     |   Add Song to Album    |                            |
-|                                     | Delete Song from Album |                            |
+| premium artist fetch                |      Delete Album      |                            |
+| subscribed artist songs fetch       |     Get All Genre      |                            |
+| polling                             |   Add Song to Album    |                            |
+| callback                            | Delete Song from Album |                            |
 |                                     |   Get Unlinked Song    |                            |
 
 ### Client Side
@@ -147,4 +149,5 @@ NOTE: If you are UNIX users don't forget to add sudo (ex: `sudo ./scripts/run.sh
 |                                |                   | Edit Album                   |
 |                                |                   | Edit Song                    |
 |                                |                   | Delete Confirmations         |
-|                                |                   |
+|                                |                   | Premium artists UI           |
+|                                |                   | Subscribed songs UI          |
