@@ -2,17 +2,59 @@
 require_once BASE_URL . '/src/middleware/middleware.php';
 require_once BASE_URL . '/src/service/subscription/index.php';
 class Subscribed extends Controller {
-    public function index() {
+    public function index($creator_id = 1) {
       switch($_SERVER['REQUEST_METHOD']){
         case "GET":
           $middleware = new Middleware();
           $is_logged_in = $middleware->is_logged_in();
           $is_admin = $middleware->can_access_admin_page();
+
           if (!$is_logged_in || $is_admin) {
               redirect_home();
               return;
           }
-          $this->view("subscribed/index");
+          
+          if(!isset($creator_id)){
+          response_json(DATA_NOT_COMPLETE);
+          return;
+          }
+
+          if($creator_id < 0){
+              response_json(INVALID_CREATOR_ID);
+              return;
+          }
+          $is_subscribed = "PENDING";
+          try {
+            $headers = array(
+              "http" => array(
+                "header" => "x-api-key: " . SOAP_API_KEY
+              )
+            );
+
+            $soap_client = new SoapClient("http://host.docker.internal:9000/api/subscription?wsdl", array (
+              'stream_context' => stream_context_create($headers)
+            ));
+
+            $res = $soap_client->__soapCall("checkStatus", array(
+                "SubscriptionData" => array(
+                "creator_id" => $creator_id,
+                "subscriber_id" => $_SESSION['user_id'],
+                )
+            ));
+
+            $is_subscribed = $res;
+            if(!str_contains($is_subscribed, "ACCEPTED")){
+              redirect_home();
+              return;
+            }
+
+          } catch (Exception $e){
+            redirect_home();
+            return;
+          }
+
+          $data['creator_id'] = $creator_id;
+          $this->view("subscribed/index", $data);
           return;
           break;
 
@@ -99,7 +141,6 @@ class Subscribed extends Controller {
             break;
       }
     }
-
 
     public function check_subscription(){
       switch($_SERVER['REQUEST_METHOD']){
